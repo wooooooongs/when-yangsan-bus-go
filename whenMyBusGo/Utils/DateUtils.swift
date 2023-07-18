@@ -30,4 +30,18 @@ class DateUtils {
         }
     }
     
+    /// - Returns: 00:00
+    static func getCurrentTime() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        var formattedCurrentDate = ""
+        formatter.dateFormat = "HH:mm"
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        
+        formattedCurrentDate = formatter.string(from: date)
+        
+        return formattedCurrentDate
+    }
+    
 }
