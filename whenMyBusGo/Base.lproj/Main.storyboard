@@ -134,6 +134,12 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5A-CU-hlU">
+                                <rect key="frame" x="155" y="362" width="83" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="새로고침"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -159,6 +165,7 @@
                         <outlet property="bus1200TimeLeftLabel" destination="krj-H1-sR8" id="Cq4-8E-spf"/>
                         <outlet property="bus8NextTimeLabel" destination="M5l-IH-hNZ" id="MjA-jV-ruQ"/>
                         <outlet property="bus8TimeLeftLabel" destination="d8Z-fh-ZjS" id="WZS-sb-4ig"/>
+                        <outlet property="refreshButton" destination="L5A-CU-hlU" id="Efz-sO-Ub1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
