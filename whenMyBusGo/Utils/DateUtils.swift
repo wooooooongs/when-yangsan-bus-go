@@ -10,15 +10,7 @@ import Foundation
 class DateUtils {
     /// - Returns: ["00:00", "01:00", ...]
     static func fetchTodayBusTime() -> [String] {
-        let date = Date()
-        let formatter = DateFormatter()
-        var currentWeek = ""
-        
-        formatter.dateFormat = "E"
-        formatter.locale = Locale(identifier: "ko_kr")
-        formatter.timeZone = TimeZone(abbreviation: "KST")
-        
-        currentWeek = formatter.string(from: date)
+        var currentWeek = getCurrentWeek()
         
         switch currentWeek {
         case "토":
@@ -28,6 +20,18 @@ class DateUtils {
         default:
             return BusTimetable.weekday
         }
+    }
+    
+    /// - Returns: "토"
+    static func getCurrentWeek() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "E"
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.timeZone = TimeZone(abbreviation: "KST")
+        
+        return formatter.string(from: date)
     }
     
     /// - Returns: 00:00
@@ -43,5 +47,4 @@ class DateUtils {
         
         return formattedCurrentDate
     }
-    
 }
