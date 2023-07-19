@@ -16,8 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var bus1200NextTimeLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
     
+    var busLabels: [Int: (nextTimeLabel: UILabel, timeLeftLabel: UILabel)] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        busLabels = [
+            8: (bus8NextTimeLabel, bus8TimeLeftLabel),
+            1100: (bus1100NextTimeLabel, bus1100TimeLeftLabel),
+            1200: (bus1200NextTimeLabel, bus1200TimeLeftLabel)
+        ]
         
         updateAllBusInfo()
         
@@ -26,9 +34,9 @@ class ViewController: UIViewController {
     }
     
     @objc func updateAllBusInfo() {
-        updateBusInfo(busNum: 8)
-        updateBusInfo(busNum: 1100)
-        updateBusInfo(busNum: 1200)
+        for busNum in [8, 1100, 1200] {
+            updateBusInfo(busNum: busNum)
+        }
     }
         
     func updateBusInfo(busNum: Int) {
@@ -47,18 +55,9 @@ class ViewController: UIViewController {
         nextBusTimeText = currentBusDatas[nextBusIndex]
         minutesLeftText = (minutesLeft > 60) ? "막차 끊김" : "\(minutesLeft)분 남음"
                 
-        switch busNum {
-        case 8:
-            bus8NextTimeLabel.text = nextBusTimeText
-            bus8TimeLeftLabel.text = minutesLeftText
-        case 1100:
-            bus1100NextTimeLabel.text = nextBusTimeText
-            bus1100TimeLeftLabel.text = minutesLeftText
-        case 1200:
-            bus1200NextTimeLabel.text = nextBusTimeText
-            bus1200TimeLeftLabel.text = minutesLeftText
-        default:
-            return
+        if let labels = busLabels[busNum] {
+            labels.nextTimeLabel.text = nextBusTimeText
+            labels.timeLeftLabel.text = minutesLeftText
         }
     }
 }
