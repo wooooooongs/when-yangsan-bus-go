@@ -12,28 +12,29 @@ class BusTimetableManager {
     static func getTodayBusTime(busNum: Int) -> [String] {
         let currentWeek = DateUtils.getCurrentWeek()
         let busNumKey = "bus\(busNum)"
-        var currentBusTimetable: [String: [String]]
-        
-        currentBusTimetable = BusTimetable.timetable[busNumKey] ?? [:]
+        guard let currentBusTimetable = BusTimetable.timetable[busNumKey] else {
+            return []
+        }
+                
+        var timetableKey = "weekday"
         
         if busNum == 8 {
             switch currentWeek {
             case "토":
-                return currentBusTimetable["saturday"] ?? []
+                timetableKey = "saturday"
             case "일":
-                return currentBusTimetable["sunday"] ?? []
+                timetableKey = "sunday"
             default:
-                return currentBusTimetable["weekday"] ?? []
+                timetableKey = "weekday"
             }
         } else {
-            switch currentWeek {
-            case "토":
-                return currentBusTimetable["weekend"] ?? []
-            case "일":
-                return currentBusTimetable["weekend"] ?? []
-            default:
-                return currentBusTimetable["weekday"] ?? []
+            let isWeekend = currentWeek == "토" || currentWeek == "일"
+            
+            if isWeekend {
+                timetableKey = "weekend"
             }
         }
+        
+        return currentBusTimetable[timetableKey] ?? []
     }
 }
