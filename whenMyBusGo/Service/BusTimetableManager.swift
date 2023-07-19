@@ -34,7 +34,11 @@ class BusTimetableManager {
                 timetableKey = "weekend"
             }
         }
-        
+    
         return currentBusTimetable[timetableKey] ?? []
+    }
+    
+    static func convertBusDatas(timeString: [String]) -> [Int] {
+        return timeString.map(TimeConverter.convertTimeToSeconds)
     }
 }
