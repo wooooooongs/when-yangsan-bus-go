@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */; };
+		2A678B372A65451900E4C360 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A678B362A65451900E4C360 /* .gitignore */; };
 		2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */; };
 		2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */; };
-		2A6E3CD32A573CEB0012FCAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD22A573CEB0012FCAF /* ViewController.swift */; };
 		2A6E3CD62A573CEB0012FCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD42A573CEB0012FCAF /* Main.storyboard */; };
 		2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */; };
 		2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */; };
 		2A6E3CDE2A573CEC0012FCAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDC2A573CEC0012FCAF /* LaunchScreen.storyboard */; };
+		2A9EBB472A66B15300352D68 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EBB462A66B15300352D68 /* DateUtils.swift */; };
+		2AABA0C32A667D21002A92CA /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AABA0C22A667D21002A92CA /* TimeConverter.swift */; };
+		2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD22A573CEB0012FCAF /* ViewController.swift */; };
+		2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF37D812A653ED6000E50F6 /* BusTimetable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableManager.swift; sourceTree = "<group>"; };
+		2A678B362A65451900E4C360 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2A6E3CCB2A573CEB0012FCAF /* whenMyBusGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whenMyBusGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +33,9 @@
 		2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A6E3CDD2A573CEC0012FCAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A6E3CDF2A573CEC0012FCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A9EBB462A66B15300352D68 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		2AABA0C22A667D21002A92CA /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
+		2AF37D812A653ED6000E50F6 /* BusTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,9 +49,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A4AC84C2A67CDCC00B216B7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		2A6E3CC22A573CEB0012FCAF = {
 			isa = PBXGroup;
 			children = (
+				2A678B362A65451900E4C360 /* .gitignore */,
 				2A6E3CCD2A573CEB0012FCAF /* whenMyBusGo */,
 				2A6E3CCC2A573CEB0012FCAF /* Products */,
 			);
@@ -58,6 +77,9 @@
 		2A6E3CCD2A573CEB0012FCAF /* whenMyBusGo */ = {
 			isa = PBXGroup;
 			children = (
+				2A4AC84C2A67CDCC00B216B7 /* Service */,
+				2AABA0C12A667CDA002A92CA /* Utils */,
+				2AF37D7E2A653E5C000E50F6 /* Constants */,
 				2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */,
 				2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */,
 				2A6E3CD22A573CEB0012FCAF /* ViewController.swift */,
@@ -68,6 +90,23 @@
 				2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */,
 			);
 			path = whenMyBusGo;
+			sourceTree = "<group>";
+		};
+		2AABA0C12A667CDA002A92CA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2AABA0C22A667D21002A92CA /* TimeConverter.swift */,
+				2A9EBB462A66B15300352D68 /* DateUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2AF37D7E2A653E5C000E50F6 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2AF37D812A653ED6000E50F6 /* BusTimetable.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A678B372A65451900E4C360 /* .gitignore in Resources */,
 				2A6E3CDE2A573CEC0012FCAF /* LaunchScreen.storyboard in Resources */,
 				2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */,
 				2A6E3CD62A573CEB0012FCAF /* Main.storyboard in Resources */,
@@ -141,9 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */,
 				2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */,
-				2A6E3CD32A573CEB0012FCAF /* ViewController.swift in Sources */,
+				2AABA0C32A667D21002A92CA /* TimeConverter.swift in Sources */,
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
+				2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */,
+				2A9EBB472A66B15300352D68 /* DateUtils.swift in Sources */,
+				2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */,
 				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
