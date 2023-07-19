@@ -8,20 +8,6 @@
 import Foundation
 
 class DateUtils {
-    /// - Returns: ["00:00", "01:00", ...]
-    static func fetchTodayBusTime() -> [String] {
-        var currentWeek = getCurrentWeek()
-        
-        switch currentWeek {
-        case "토":
-            return BusTimetable.saturday
-        case "일":
-            return BusTimetable.sunday
-        default:
-            return BusTimetable.weekday
-        }
-    }
-    
     /// - Returns: "토"
     static func getCurrentWeek() -> String {
         let date = Date()
