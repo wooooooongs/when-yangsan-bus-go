@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         if let labels = busLabels[busNum] {
             labels.nextTimeLabel.text = nextBusTimeText
             labels.timeLeftLabel.text = minutesLeftText
+            labels.timeLeftLabel.font = UIFont.boldSystemFont(ofSize: 18)
         }
     }
 }
