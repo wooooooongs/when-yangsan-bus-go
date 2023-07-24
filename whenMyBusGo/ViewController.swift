@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var bus8TimeLeftLabel: UILabel!
     @IBOutlet weak var bus8NextTimeLabel: UILabel!
     @IBOutlet weak var bus1100TimeLeftLabel: UILabel!
