@@ -54,13 +54,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         var minutesLeftText = ""
         var nextBusTimeText = ""
+        var nextBusIndex = 0
+        var minutesLeft = 0
         
-        guard let nextBusIndex = convertedBusDatas.firstIndex(where: {$0 > convertedTime}) else { return }
-        
-        let minutesLeft = convertedBusDatas[nextBusIndex] - convertedTime
+        nextBusIndex = convertedBusDatas.firstIndex(where: {$0 > convertedTime}) ?? 0
         nextBusTimeText = currentBusDatas[nextBusIndex]
-        minutesLeftText = (minutesLeft > 120) ? "막차 끊김" : "\(minutesLeft)분 남음"
-                
+        minutesLeft = convertedBusDatas[nextBusIndex] - convertedTime
+        minutesLeftText = (minutesLeft < 0 || minutesLeft > 120) ? "막차 끊김" : "\(minutesLeft)분 남음"
+        
         if let labels = busLabels[busNum] {
             labels.nextTimeLabel.text = nextBusTimeText
             labels.timeLeftLabel.text = minutesLeftText
