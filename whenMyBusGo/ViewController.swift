@@ -14,23 +14,38 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var bus1100NextTimeLabel: UILabel!
     @IBOutlet weak var bus1200TimeLeftLabel: UILabel!
     @IBOutlet weak var bus1200NextTimeLabel: UILabel!
-    @IBOutlet weak var refreshButton: UIButton!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var refreshImage: UIImageView!
+    
+    let refreshControl = UIRefreshControl()
     
     var busLabels: [Int: (nextTimeLabel: UILabel, timeLeftLabel: UILabel)] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 새로고침 버튼
+        let refreshTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleRefreshControl))
+        refreshImage.addGestureRecognizer(refreshTapGesture)
+        refreshImage.isUserInteractionEnabled = true
+        
+        // 새로고침 스크롤
+        scrollView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: UIControl.Event.valueChanged)
+        
+        // 버스 레이블 매치 시키기
         busLabels = [
             8: (bus8NextTimeLabel, bus8TimeLeftLabel),
             1100: (bus1100NextTimeLabel, bus1100TimeLeftLabel),
             1200: (bus1200NextTimeLabel, bus1200TimeLeftLabel)
         ]
         
+        // 앱 실행, 정보 가져오기
         updateAllBusInfo()
         
+        // 30초마다 자동 새로고침
         Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(updateAllBusInfo), userInfo: nil, repeats: true)
-        refreshButton.addTarget(self, action: #selector(updateAllBusInfo), for: .touchUpInside)
     }
     
     @objc func updateAllBusInfo() {
@@ -38,7 +53,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             updateBusInfo(busNum: busNum)
         }
     }
-        
+    
+    @objc private func handleRefreshControl() {
+        updateAllBusInfo()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
     func updateBusInfo(busNum: Int) {
         let currentBusDatas = BusTimetableManager.getTodayBusTime(busNum: busNum)
         let convertedBusDatas = BusTimetableManager.convertBusDatas(timeString: currentBusDatas)
