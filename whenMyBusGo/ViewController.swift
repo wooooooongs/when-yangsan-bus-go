@@ -7,12 +7,6 @@
 
 import UIKit
 
-extension UIViewController {
-    @objc func injected() {
-        viewDidLoad()
-    }
-}
-
 class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var bus8TimeLeftLabel: UILabel!
     @IBOutlet weak var bus8NextTimeLabel: UILabel!

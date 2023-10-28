@@ -13,7 +13,6 @@
 		2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */; };
 		2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */; };
 		2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */; };
-		2A7B37032ABC610B006002F0 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 2A7B37022ABC610B006002F0 /* Inject */; };
 		2A9EBB472A66B15300352D68 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EBB462A66B15300352D68 /* DateUtils.swift */; };
 		2AABA0C32A667D21002A92CA /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AABA0C22A667D21002A92CA /* TimeConverter.swift */; };
 		2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD22A573CEB0012FCAF /* ViewController.swift */; };
@@ -40,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A7B37032ABC610B006002F0 /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +120,6 @@
 			);
 			name = whenMyBusGo;
 			packageProductDependencies = (
-				2A7B37022ABC610B006002F0 /* Inject */,
 			);
 			productName = whenMyBusGo;
 			productReference = 2A6E3CCB2A573CEB0012FCAF /* whenMyBusGo.app */;
@@ -153,7 +150,6 @@
 			);
 			mainGroup = 2A6E3CC22A573CEB0012FCAF;
 			packageReferences = (
-				2A7B37012ABC610B006002F0 /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = 2A6E3CCC2A573CEB0012FCAF /* Products */;
 			projectDirPath = "";
@@ -336,9 +332,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.iAmOscarLee.whenMyBusGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -363,9 +362,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.iAmOscarLee.whenMyBusGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -391,25 +393,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		2A7B37012ABC610B006002F0 /* XCRemoteSwiftPackageReference "Inject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		2A7B37022ABC610B006002F0 /* Inject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2A7B37012ABC610B006002F0 /* XCRemoteSwiftPackageReference "Inject" */;
-			productName = Inject;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */ = {
