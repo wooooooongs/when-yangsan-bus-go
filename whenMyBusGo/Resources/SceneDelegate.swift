@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
             
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ViewController() // 메인 ViewController 설정
+        window.rootViewController = BusTimetableViewController()
         window.makeKeyAndVisible()
         self.window = window
     }
