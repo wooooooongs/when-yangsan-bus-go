@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
 		2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */; };
 		2A678B372A65451900E4C360 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A678B362A65451900E4C360 /* .gitignore */; };
 		2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */; };
@@ -14,6 +15,7 @@
 		2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */; };
 		2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */; };
 		2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE902AED2F9C00C29702 /* Utils.swift */; };
+		2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */; };
 		2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD22A573CEB0012FCAF /* ViewController.swift */; };
 		2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF37D812A653ED6000E50F6 /* BusTimetable.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,7 @@
 		2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A6E3CDF2A573CEC0012FCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AD3CE902AED2F9C00C29702 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableViewController.swift; sourceTree = "<group>"; };
 		2AF37D812A653ED6000E50F6 /* BusTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				2A6E3CD22A573CEB0012FCAF /* ViewController.swift */,
+				2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			);
 			name = whenMyBusGo;
 			packageProductDependencies = (
+				2A14BCD32AED365F00867A0B /* SnapKit */,
 			);
 			productName = whenMyBusGo;
 			productReference = 2A6E3CCB2A573CEB0012FCAF /* whenMyBusGo.app */;
@@ -179,6 +185,7 @@
 			);
 			mainGroup = 2A6E3CC22A573CEB0012FCAF;
 			packageReferences = (
+				2A14BCD22AED365F00867A0B /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 2A6E3CCC2A573CEB0012FCAF /* Products */;
 			projectDirPath = "";
@@ -212,6 +219,7 @@
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
 				2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */,
 				2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */,
+				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
 				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +279,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -328,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "";
@@ -421,6 +429,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A14BCD22AED365F00867A0B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A14BCD32AED365F00867A0B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A14BCD22AED365F00867A0B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */ = {
