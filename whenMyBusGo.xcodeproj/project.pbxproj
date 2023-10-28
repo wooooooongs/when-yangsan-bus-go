@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
+		2A14BCD82AED37E300867A0B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14BCD72AED37E300867A0B /* Constants.swift */; };
 		2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */; };
 		2A678B372A65451900E4C360 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A678B362A65451900E4C360 /* .gitignore */; };
 		2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */; };
@@ -17,10 +18,10 @@
 		2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE902AED2F9C00C29702 /* Utils.swift */; };
 		2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */; };
 		2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD22A573CEB0012FCAF /* ViewController.swift */; };
-		2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF37D812A653ED6000E50F6 /* BusTimetable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableManager.swift; sourceTree = "<group>"; };
 		2A678B362A65451900E4C360 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2A6E3CCB2A573CEB0012FCAF /* whenMyBusGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whenMyBusGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,7 +33,6 @@
 		2A6E3CDF2A573CEC0012FCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AD3CE902AED2F9C00C29702 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableViewController.swift; sourceTree = "<group>"; };
-		2AF37D812A653ED6000E50F6 /* BusTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,19 +122,11 @@
 		2AD3CE8F2AED2F1900C29702 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2AF37D7E2A653E5C000E50F6 /* Constants */,
 				2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */,
 				2AD3CE902AED2F9C00C29702 /* Utils.swift */,
+				2A14BCD72AED37E300867A0B /* Constants.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		2AF37D7E2A653E5C000E50F6 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				2AF37D812A653ED6000E50F6 /* BusTimetable.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +209,8 @@
 				2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */,
 				2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */,
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
+				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
 				2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */,
-				2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */,
 				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
 				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
 			);
