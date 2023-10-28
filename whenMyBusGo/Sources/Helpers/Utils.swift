@@ -1,13 +1,32 @@
 //
-//  DateUtils.swift
+//  Utils.swift
 //  whenMyBusGo
 //
-//  Created by 이재웅 on 2023/07/18.
+//  Created by Oscar on 10/28/23.
 //
 
 import Foundation
 
-class DateUtils {
+import UIKit
+
+final class Utils {
+    
+    static let shared = Utils()
+    
+    private init() {}
+    
+    static func convertTimeToSeconds(time: String) -> Int {
+        var convertedTime = 0
+        
+        let splitedTime = time.components(separatedBy: ":")
+        
+        if let hour = Int(splitedTime[0]), let minute = Int(splitedTime[1]) {
+            convertedTime = hour * 60 + minute
+        }
+        
+        return convertedTime
+    }
+        
     /// - Returns: "토"
     static func getCurrentWeek() -> String {
         let date = Date()

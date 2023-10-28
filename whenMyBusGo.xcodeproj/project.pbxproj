@@ -13,8 +13,7 @@
 		2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */; };
 		2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */; };
 		2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */; };
-		2A9EBB472A66B15300352D68 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EBB462A66B15300352D68 /* DateUtils.swift */; };
-		2AABA0C32A667D21002A92CA /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AABA0C22A667D21002A92CA /* TimeConverter.swift */; };
+		2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE902AED2F9C00C29702 /* Utils.swift */; };
 		2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD22A573CEB0012FCAF /* ViewController.swift */; };
 		2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF37D812A653ED6000E50F6 /* BusTimetable.swift */; };
 /* End PBXBuildFile section */
@@ -29,8 +28,7 @@
 		2A6E3CD82A573CEB0012FCAF /* whenMyBusGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = whenMyBusGo.xcdatamodel; sourceTree = "<group>"; };
 		2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A6E3CDF2A573CEC0012FCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A9EBB462A66B15300352D68 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
-		2AABA0C22A667D21002A92CA /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
+		2AD3CE902AED2F9C00C29702 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2AF37D812A653ED6000E50F6 /* BusTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,13 +43,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A4AC84C2A67CDCC00B216B7 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		2A6E3CC22A573CEB0012FCAF = {
 			isa = PBXGroup;
 			children = (
@@ -74,22 +65,11 @@
 			children = (
 				2AD3CE8D2AED2EDE00C29702 /* Resources */,
 				2AD3CE8E2AED2EE600C29702 /* Sources */,
-				2A4AC84C2A67CDCC00B216B7 /* Service */,
-				2AABA0C12A667CDA002A92CA /* Utils */,
 				2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */,
 				2A6E3CDF2A573CEC0012FCAF /* Info.plist */,
 				2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */,
 			);
 			path = whenMyBusGo;
-			sourceTree = "<group>";
-		};
-		2AABA0C12A667CDA002A92CA /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				2AABA0C22A667D21002A92CA /* TimeConverter.swift */,
-				2A9EBB462A66B15300352D68 /* DateUtils.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		2AD3CE8A2AED2EA100C29702 /* Controllers */ = {
@@ -139,6 +119,7 @@
 			children = (
 				2AF37D7E2A653E5C000E50F6 /* Constants */,
 				2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */,
+				2AD3CE902AED2F9C00C29702 /* Utils.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,10 +208,9 @@
 			files = (
 				2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */,
 				2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */,
-				2AABA0C32A667D21002A92CA /* TimeConverter.swift in Sources */,
+				2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */,
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
 				2AF37D792A653A54000E50F6 /* ViewController.swift in Sources */,
-				2A9EBB472A66B15300352D68 /* DateUtils.swift in Sources */,
 				2AF37D822A653ED6000E50F6 /* BusTimetable.swift in Sources */,
 				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
 			);
