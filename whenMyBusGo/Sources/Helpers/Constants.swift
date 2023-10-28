@@ -33,3 +33,7 @@ public struct BusTimetables {
     private init() {}
 }
 
+public struct Cell {
+    static let busCellIdentifier = "BusCell"
+}
+
