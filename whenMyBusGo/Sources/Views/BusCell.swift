@@ -82,7 +82,7 @@ class BusCell: UITableViewCell {
     
     private func setAutoLayout() {
         mainStackView.snp.makeConstraints { make in
-            make.height.equalTo(80)
+            make.height.greaterThanOrEqualTo(80)
             make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().offset(-30)
