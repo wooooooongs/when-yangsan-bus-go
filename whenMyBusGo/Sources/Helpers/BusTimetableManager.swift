@@ -40,5 +40,9 @@ class BusTimetableManager {
     
     static func convertBusDatas(timeString: [String]) -> [Int] {
         return timeString.map(TimeConverter.convertTimeToSeconds)
+    static func setBusNumber(_ dataDict: [String: String], _ timeTables: inout BusTimetables) {
+        if let busNumber = dataDict["SVR_LINENAME"] {
+            timeTables.busNumber = busNumber
+        }
     }
 }

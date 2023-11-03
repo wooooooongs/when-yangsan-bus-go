@@ -71,9 +71,7 @@ extension BusTimetableViewController: XMLParserDelegate {
         let isHeaderRow = isResult && attributeDict["SVR_NUM"] == nil
         let isDataRow = isResult && attributeDict["SVR_NUM"] != nil
                 
-        if let busNumber = attributeDict["SVR_LINENAME"] {
-            busTimetables.busNumber = busNumber
-        }
+        BusTimetableManager.setBusNumber(attributeDict, &busTimetables)
         
         if isHeaderRow {
             let upboundKey = "ST_DATA0_0"
