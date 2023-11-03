@@ -53,10 +53,17 @@ class BusTimetableViewController: UIViewController {
             
             parser.delegate = self
             parser.parse()
+            await updateBusTimetables()
         } catch {
             
         }
     }
+    private func updateBusTimetables() async {
+        busTimetables.timetable.append(upboundTimetable)
+        busTimetables.timetable.append(downboundTimetable)
+    }
+}
+
 extension BusTimetableViewController: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
