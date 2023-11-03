@@ -62,6 +62,7 @@ class BusTimetableManager {
     static func setBusTimeData(_ busTypeKeyArray: [String], from dataDict: [String: String], toUpbound upboundTimetable: inout BusTimetable, toDownbound downboundTimetable: inout BusTimetable) {
         busTypeKeyArray.forEach { busTypeKey in
             guard let busTime = dataDict[busTypeKey] else { return }
+            if busTime == "" { return }
             
             let isUpbound = Array(busTypeKey)[7] == "0"
             let isDownbound = Array(busTypeKey)[7] == "1"
