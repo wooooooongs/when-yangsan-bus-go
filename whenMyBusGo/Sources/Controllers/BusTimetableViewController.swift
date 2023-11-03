@@ -79,6 +79,36 @@ extension BusTimetableViewController: XMLParserDelegate {
             upboundTimetable.departure = upboundName
             downboundTimetable.departure = downboundName
         }
+        
+        if isDataRow {
+            let busTypeKeyArray = getBusTypeArray()
+            
+            busTypeKeyArray.forEach { busTypeKey in
+                guard let busTime = attributeDict[busTypeKey] else { return }
+                
+                let isUpbound = Array(busTypeKey)[7] == "0"
+                let isDownbound = Array(busTypeKey)[7] == "1"
+                
+                if isUpbound {
+                    if var existingArray = upboundTimetable.buses[busTypeKey] {
+                        existingArray.append(busTime)
+                        upboundTimetable.buses[busTypeKey] = existingArray
+                    } else {
+                        upboundTimetable.buses[busTypeKey] = []
+                    }
+                }
+                
+                if isDownbound {
+                    if var existingArray = downboundTimetable.buses[busTypeKey] {
+                        existingArray.append(busTime)
+                        downboundTimetable.buses[busTypeKey] = existingArray
+                    } else {
+                        downboundTimetable.buses[busTypeKey] = []
+                    }
+                }
+            }
+        }
+        
         func getBusTypeArray() -> [String]{
             let pattern = "ST_DATA\\d+_\\d+"
             
