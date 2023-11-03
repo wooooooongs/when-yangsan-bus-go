@@ -71,16 +71,16 @@ extension BusTimetableViewController: XMLParserDelegate {
         let isHeaderRow = isResult && attributeDict["SVR_NUM"] == nil
         let isDataRow = isResult && attributeDict["SVR_NUM"] != nil
                 
-        BusTimetableManager.setBusNumber(attributeDict, &busTimetables)
+        BusTimetableManager.setBusNumber(from: attributeDict, to: &busTimetables)
         
         if isHeaderRow {
-            BusTimetableManager.setDeparture(attributeDict, &upboundTimetable, &downboundTimetable)
+            BusTimetableManager.setDeparture(from: attributeDict, toUpbound: &upboundTimetable, toDownbound: &downboundTimetable)
         }
         
         if isDataRow {
             let busTypeKeyArray = getBusTypeArray()
             
-            BusTimetableManager.setBusTimeData(busTypeKeyArray, attributeDict, &upboundTimetable, &downboundTimetable)
+            BusTimetableManager.setBusTimeData(busTypeKeyArray, from: attributeDict, toUpbound: &upboundTimetable, toDownbound: &downboundTimetable)
         }
         
         func getBusTypeArray() -> [String]{

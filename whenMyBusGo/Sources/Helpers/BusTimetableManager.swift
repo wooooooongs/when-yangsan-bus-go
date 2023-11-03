@@ -41,12 +41,13 @@ class BusTimetableManager {
     static func convertBusDatas(timeString: [String]) -> [Int] {
         return timeString.map(TimeConverter.convertTimeToSeconds)
     static func setBusNumber(_ dataDict: [String: String], _ timeTables: inout BusTimetables) {
+    static func setBusNumber(from dataDict: [String: String], to timeTables: inout BusTimetables) {
         if let busNumber = dataDict["SVR_LINENAME"] {
             timeTables.busNumber = busNumber
         }
     }
     
-    static func setDeparture(_ dataDict: [String: String], _ upboundTimetable: inout BusTimetable, _ downboundTimetable: inout BusTimetable) {
+    static func setDeparture(from dataDict: [String: String], toUpbound upboundTimetable: inout BusTimetable, toDownbound downboundTimetable: inout BusTimetable) {
         let upboundKey = "ST_DATA0_0"
         let downboundKey = "ST_DATA1_0"
         
@@ -58,7 +59,7 @@ class BusTimetableManager {
         downboundTimetable.departure = downboundName
     }
     
-    static func setBusTimeData(_ busTypeKeyArray: [String], _ dataDict: [String: String], _ upboundTimetable: inout BusTimetable, _ downboundTimetable: inout BusTimetable) {
+    static func setBusTimeData(_ busTypeKeyArray: [String], from dataDict: [String: String], toUpbound upboundTimetable: inout BusTimetable, toDownbound downboundTimetable: inout BusTimetable) {
         busTypeKeyArray.forEach { busTypeKey in
             guard let busTime = dataDict[busTypeKey] else { return }
             
