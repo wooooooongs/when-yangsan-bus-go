@@ -62,6 +62,8 @@ extension BusTimetableViewController: XMLParserDelegate {
         
         let isResult = elementName == "result2"
         let isHeaderRow = isResult && attributeDict["SVR_NUM"] == nil
+        let isDataRow = isResult && attributeDict["SVR_NUM"] != nil
+                
         if let busNumber = attributeDict["SVR_LINENAME"] {
             busTimetables.busNumber = busNumber
         }
@@ -77,6 +79,19 @@ extension BusTimetableViewController: XMLParserDelegate {
             upboundTimetable.departure = upboundName
             downboundTimetable.departure = downboundName
         }
+        func getBusTypeArray() -> [String]{
+            let pattern = "ST_DATA\\d+_\\d+"
+            
+            let filteredArray = attributeDict.keys.filter { departure in
+                if let range = departure.range(of: pattern, options: .regularExpression) {
+                    return range.lowerBound == departure.startIndex
+                }
+                return false
+            }
+            
+            return filteredArray
+        }
+    }
     }
 }
 
