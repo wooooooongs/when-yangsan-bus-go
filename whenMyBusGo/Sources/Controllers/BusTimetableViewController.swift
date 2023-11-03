@@ -74,44 +74,13 @@ extension BusTimetableViewController: XMLParserDelegate {
         BusTimetableManager.setBusNumber(attributeDict, &busTimetables)
         
         if isHeaderRow {
-            let upboundKey = "ST_DATA0_0"
-            let downboundKey = "ST_DATA1_0"
-            
-            /// - Returns: "부산발"
-            guard let upboundName = attributeDict[upboundKey],
-                  let downboundName = attributeDict[downboundKey] else { return }
-            
-            upboundTimetable.departure = upboundName
-            downboundTimetable.departure = downboundName
+            BusTimetableManager.setDeparture(attributeDict, &upboundTimetable, &downboundTimetable)
         }
         
         if isDataRow {
             let busTypeKeyArray = getBusTypeArray()
             
-            busTypeKeyArray.forEach { busTypeKey in
-                guard let busTime = attributeDict[busTypeKey] else { return }
-                
-                let isUpbound = Array(busTypeKey)[7] == "0"
-                let isDownbound = Array(busTypeKey)[7] == "1"
-                
-                if isUpbound {
-                    if var existingArray = upboundTimetable.buses[busTypeKey] {
-                        existingArray.append(busTime)
-                        upboundTimetable.buses[busTypeKey] = existingArray
-                    } else {
-                        upboundTimetable.buses[busTypeKey] = []
-                    }
-                }
-                
-                if isDownbound {
-                    if var existingArray = downboundTimetable.buses[busTypeKey] {
-                        existingArray.append(busTime)
-                        downboundTimetable.buses[busTypeKey] = existingArray
-                    } else {
-                        downboundTimetable.buses[busTypeKey] = []
-                    }
-                }
-            }
+            BusTimetableManager.setBusTimeData(busTypeKeyArray, attributeDict, &upboundTimetable, &downboundTimetable)
         }
         
         func getBusTypeArray() -> [String]{

@@ -45,4 +45,43 @@ class BusTimetableManager {
             timeTables.busNumber = busNumber
         }
     }
+    
+    static func setDeparture(_ dataDict: [String: String], _ upboundTimetable: inout BusTimetable, _ downboundTimetable: inout BusTimetable) {
+        let upboundKey = "ST_DATA0_0"
+        let downboundKey = "ST_DATA1_0"
+        
+        /// - Returns: "부산발"
+        guard let upboundName = dataDict[upboundKey],
+              let downboundName = dataDict[downboundKey] else { return }
+        
+        upboundTimetable.departure = upboundName
+        downboundTimetable.departure = downboundName
+    }
+    
+    static func setBusTimeData(_ busTypeKeyArray: [String], _ dataDict: [String: String], _ upboundTimetable: inout BusTimetable, _ downboundTimetable: inout BusTimetable) {
+        busTypeKeyArray.forEach { busTypeKey in
+            guard let busTime = dataDict[busTypeKey] else { return }
+            
+            let isUpbound = Array(busTypeKey)[7] == "0"
+            let isDownbound = Array(busTypeKey)[7] == "1"
+            
+            if isUpbound {
+                if var existingArray = upboundTimetable.buses[busTypeKey] {
+                    existingArray.append(busTime)
+                    upboundTimetable.buses[busTypeKey] = existingArray
+                } else {
+                    upboundTimetable.buses[busTypeKey] = []
+                }
+            }
+            
+            if isDownbound {
+                if var existingArray = downboundTimetable.buses[busTypeKey] {
+                    existingArray.append(busTime)
+                    downboundTimetable.buses[busTypeKey] = existingArray
+                } else {
+                    downboundTimetable.buses[busTypeKey] = []
+                }
+            }
+        }
+    }
 }
