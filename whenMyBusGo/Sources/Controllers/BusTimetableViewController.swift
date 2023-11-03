@@ -57,6 +57,27 @@ class BusTimetableViewController: UIViewController {
             
         }
     }
+extension BusTimetableViewController: XMLParserDelegate {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        
+        let isResult = elementName == "result2"
+        let isHeaderRow = isResult && attributeDict["SVR_NUM"] == nil
+        if let busNumber = attributeDict["SVR_LINENAME"] {
+            busTimetables.busNumber = busNumber
+        }
+        
+        if isHeaderRow {
+            let upboundKey = "ST_DATA0_0"
+            let downboundKey = "ST_DATA1_0"
+            
+            /// - Returns: "부산발"
+            guard let upboundName = attributeDict[upboundKey],
+                  let downboundName = attributeDict[downboundKey] else { return }
+            
+            upboundTimetable.departure = upboundName
+            downboundTimetable.departure = downboundName
+        }
+    }
 }
 
 extension BusTimetableViewController: UITableViewDataSource {
