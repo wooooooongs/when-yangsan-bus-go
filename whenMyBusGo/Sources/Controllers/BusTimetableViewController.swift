@@ -25,7 +25,7 @@ class BusTimetableViewController: UIViewController {
         Task {
             let requestUrl = Bundle.main.requestUrl
             
-            await getBusTimetableData(from: requestUrl)
+            await fetchBusTimetableData(from: requestUrl)
         }
     }
     
@@ -44,7 +44,7 @@ class BusTimetableViewController: UIViewController {
         }
     }
     
-    private func getBusTimetableData(from urlString: String) async {
+    private func fetchBusTimetableData(from urlString: String) async {
         guard let url = URL(string: urlString) else { return }
         
         do {
