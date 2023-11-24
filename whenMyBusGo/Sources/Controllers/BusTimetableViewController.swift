@@ -11,22 +11,12 @@ import SnapKit
 class BusTimetableViewController: UIViewController {
     private let tableView = UITableView()
     
-    var busTimetables = BusTimetables()
-    var upboundTimetable = BusTimetable()
-    var downboundTimetable = BusTimetable()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addViews()
         setTableView()
         setAutoLayout()
-        
-        Task {
-            let requestUrl = Bundle.main.requestUrl
-            
-            await fetchBusTimetableData(from: requestUrl)
-        }
     }
     
     private func addViews() {
@@ -42,26 +32,6 @@ class BusTimetableViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-    
-    private func fetchBusTimetableData(from urlString: String) async {
-        guard let url = URL(string: urlString) else { return }
-        
-        do {
-            let (safeData, _) = try await URLSession.shared.data(from: url)
-            let parser = XMLParser(data: safeData)
-            
-            parser.delegate = self
-            parser.parse()
-            await updateBusTimetables()
-        } catch {
-            
-        }
-    }
-    private func updateBusTimetables() async {
-        busTimetables.timetable.append(upboundTimetable)
-        busTimetables.timetable.append(downboundTimetable)
-
     }
 }
 
