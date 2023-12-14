@@ -10,6 +10,8 @@ import SnapKit
 
 class BusTimetableViewController: UIViewController {
     private let tableView = UITableView()
+    let busTimetableManager = BusTimetableManager()
+    var allBusTimetables: [BusTimetable] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,9 @@ class BusTimetableViewController: UIViewController {
     private func setTableView() {
         tableView.dataSource = self
         tableView.register(BusCell.self, forCellReuseIdentifier: Cell.busCellIdentifier)
+        
+        // 모든 버스의 데이터를 가져온다.
+        allBusTimetables = busTimetableManager.getData()
     }
     
     private func setAutoLayout() {
@@ -37,12 +42,17 @@ class BusTimetableViewController: UIViewController {
 
 extension BusTimetableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return allBusTimetables.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.busCellIdentifier, for: indexPath) as! BusCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.busCellIdentifier, for: indexPath) as? BusCell else {
+            return UITableViewCell()
+        }
+        
+        let busData = allBusTimetables[indexPath.row]
+        cell.busData = busData
         
         return cell
     }
