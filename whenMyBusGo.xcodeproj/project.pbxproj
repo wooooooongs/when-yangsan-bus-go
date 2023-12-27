@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A008AD22AFE99F400150285 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008AD12AFE99F400150285 /* TabBarViewController.swift */; };
 		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
 		2A14BCD82AED37E300867A0B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14BCD72AED37E300867A0B /* Constants.swift */; };
 		2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A008AD12AFE99F400150285 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableManager.swift; sourceTree = "<group>"; };
 		2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "whenMyBusGo++Bundle.swift"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */,
+				2A008AD12AFE99F400150285 /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */,
 				2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */,
 				2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */,
+				2A008AD22AFE99F400150285 /* TabBarViewController.swift in Sources */,
 				2AAAA51A2AED397500826F14 /* BusCell.swift in Sources */,
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
 				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
