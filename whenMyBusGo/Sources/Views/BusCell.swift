@@ -73,17 +73,9 @@ class BusCell: UITableViewCell {
     }()
     
     private let arrowsImage: UIImageView = {
-        let originalImage = UIImage(systemName: "arrow.left.arrow.right")!
-        let newImageSize = CGSize(width: 16, height: 16)
-        
-        let renderer = UIGraphicsImageRenderer(size: newImageSize)
-        let newImage = renderer.image { image in
-            originalImage.draw(in: CGRect(origin: .zero, size: newImageSize))
-        }
-        
+        let imageName = "arrow.left.arrow.right"
+        let newImage = Utils.resizeSystemImage(imageName, to: 16)
         let imageView = UIImageView(image: newImage)
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .black
         
         return imageView
     }()
