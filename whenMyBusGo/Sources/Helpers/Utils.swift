@@ -52,4 +52,19 @@ final class Utils {
         
         return formattedCurrentDate
     }
+    
+    static func resizeSystemImage(_ imageString: String, to newSize: CGFloat) -> UIImage? {
+        guard let originalImage = UIImage(systemName: imageString) else { return nil }
+        let aspectRatio = originalImage.size.width / originalImage.size.height
+        
+        let newHeight = newSize / aspectRatio
+        let newImageSize = CGSize(width: newSize, height: newHeight)
+        
+        let renderer = UIGraphicsImageRenderer(size: newImageSize)
+        let newImage = renderer.image { _ in
+            originalImage.draw(in: CGRect(origin: .zero, size: newImageSize))
+        }
+        
+        return newImage
+    }
 }
