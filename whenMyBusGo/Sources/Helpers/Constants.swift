@@ -9,5 +9,6 @@ import Foundation
 
 public struct Cell {
     static let busCellIdentifier = "BusCell"
+    static let detailCellIdentifier = "DetailCell"
 }
 
