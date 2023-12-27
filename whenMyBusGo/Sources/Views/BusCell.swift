@@ -78,6 +78,7 @@ class BusCell: UITableViewCell {
     
     private func addViews() {
         self.contentView.addSubview(mainStackView)
+        self.selectionStyle = .none
     }
     
     private func setAutoLayout() {
