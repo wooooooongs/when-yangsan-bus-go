@@ -9,62 +9,103 @@ import UIKit
 import SnapKit
 
 class BusCell: UITableViewCell {
+    var busData: BusTimetable? 
+    
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [busNumLabel, timeInfoStackView])
-        stackView.distribution = .fillEqually
+        let stackView = UIStackView(arrangedSubviews: [leftInfoStackView, favoriteButton])
+        stackView.distribution = .fill
         stackView.alignment = .center
+        stackView.spacing = 8
+        
+        return stackView
+    }()
+    
+    private lazy var leftInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [busNumLabel, busInfoStackView])
+        stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
+        stackView.spacing = 8
         
         return stackView
     }()
     
     private let busNumLabel: UILabel = {
         let label = UILabel()
-        label.text = "8번"
+        label.text = "순환20-1등교"
         label.font = UIFont.systemFont(ofSize: 42, weight: .medium)
         
         return label
     }()
     
-    private lazy var timeInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [timeLeftLabel, nextTimeStackView])
-        stackView.axis = .vertical
-        stackView.spacing = 6
-        
-        return stackView
-    }()
-    
-    private let timeLeftLabel: UILabel = {
-        let label = UILabel()
-        label.text = "막차 끊김"
-        label.textAlignment = .right
-        
-        return label
-    }()
-    
-    private lazy var nextTimeStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [nextTimeLabel, leaveLabel])
-        stackView.axis = .horizontal
+    private lazy var busInfoStackView: UIStackView  = {
+        let stackView = UIStackView(arrangedSubviews: [busTypeLabel, busBoundStackView])
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
         stackView.spacing = 8
-        stackView.alignment = .trailing
         
         return stackView
     }()
     
-    private let nextTimeLabel: UILabel = {
+    private let busTypeLabel: UILabel = {
         let label = UILabel()
-        label.text = "06:45"
-        label.textAlignment = .right
+        label.text = "일반"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         
         return label
     }()
     
-    private let leaveLabel: UILabel = {
+    private lazy var busBoundStackView: UIStackView  = {
+        let stackView = UIStackView(arrangedSubviews: [upboundLabel, arrowsImage, downboundLabel])
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .center
+        stackView.spacing = 4
+        
+        return stackView
+    }()
+    
+    private let upboundLabel: UILabel = {
         let label = UILabel()
-        label.text = "출발"
+        label.text = "석산"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         
         return label
     }()
     
+    private let arrowsImage: UIImageView = {
+        let originalImage = UIImage(systemName: "arrow.left.arrow.right")!
+        let newImageSize = CGSize(width: 16, height: 16)
+        
+        let renderer = UIGraphicsImageRenderer(size: newImageSize)
+        let newImage = renderer.image { image in
+            originalImage.draw(in: CGRect(origin: .zero, size: newImageSize))
+        }
+        
+        let imageView = UIImageView(image: newImage)
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .black
+        
+        return imageView
+    }()
+    
+    private let downboundLabel: UILabel = {
+        let label = UILabel()
+        label.text = "증산"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        
+        return label
+    }()
+    
+    lazy var favoriteButton: UIButton = {
+        let image = UIImage(systemName: "heart")
+        
+        let button = UIButton()
+        button.setImage(image, for: .normal)
+        button.tintColor = .black
+        
+        return button
+    }()
+        
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
