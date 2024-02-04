@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     private lazy var favoriteTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = HexColor.from("EEEEEE")
+        tableView.separatorStyle = .none
         
         return tableView
     }()
