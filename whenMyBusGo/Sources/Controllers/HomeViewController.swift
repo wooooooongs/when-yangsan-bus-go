@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
     private func setTableView() {
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
-        favoriteTableView.register(FavoriteCell.self, forCellReuseIdentifier: Cell.favoriteCellIdentifier)
+        favoriteTableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: Cell.favoriteCellIdentifier)
     }
     
     private func setAutoLayout() {

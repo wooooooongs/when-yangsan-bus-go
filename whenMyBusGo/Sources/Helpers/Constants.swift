@@ -10,5 +10,7 @@ import Foundation
 public struct Cell {
     static let busCellIdentifier = "BusCell"
     static let detailCellIdentifier = "DetailCell"
+    static let menuCellIdentifier = "MenuCell"
+    static let favoriteCellIdentifier = "FavoriteCell"
 }
 
