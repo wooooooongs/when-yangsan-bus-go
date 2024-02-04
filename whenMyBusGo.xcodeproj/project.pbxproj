@@ -10,6 +10,7 @@
 		2A008AD22AFE99F400150285 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008AD12AFE99F400150285 /* TabBarViewController.swift */; };
 		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
 		2A14BCD82AED37E300867A0B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14BCD72AED37E300867A0B /* Constants.swift */; };
+		2A23A8B12B499C67007F7B74 /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */; };
 		2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */; };
 		2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */; };
 		2A678B372A65451900E4C360 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A678B362A65451900E4C360 /* .gitignore */; };
@@ -19,6 +20,7 @@
 		2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */; };
 		2A6F6DD82AF12703008B23ED /* UrlList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F6DD72AF12703008B23ED /* UrlList.plist */; };
 		2A746B972AED6BF800CB7AE6 /* BusTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A746B962AED6BF800CB7AE6 /* BusTimetable.swift */; };
+		2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860ABE2B6F7AA600A48997 /* HexColor.swift */; };
 		2AAAA51A2AED397500826F14 /* BusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAA5192AED397500826F14 /* BusCell.swift */; };
 		2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE902AED2F9C00C29702 /* Utils.swift */; };
 		2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */; };
@@ -27,6 +29,7 @@
 /* Begin PBXFileReference section */
 		2A008AD12AFE99F400150285 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
 		2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableManager.swift; sourceTree = "<group>"; };
 		2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "whenMyBusGo++Bundle.swift"; sourceTree = "<group>"; };
 		2A678B362A65451900E4C360 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 				2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */,
 				2AD3CE902AED2F9C00C29702 /* Utils.swift */,
 				2A14BCD72AED37E300867A0B /* Constants.swift */,
+				2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */,
+				2A860ABE2B6F7AA600A48997 /* HexColor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,6 +232,8 @@
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
 				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
 				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
+				2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */,
+				2A23A8B12B499C67007F7B74 /* UIView+addBorder.swift in Sources */,
 				2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */,
 				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
 			);
