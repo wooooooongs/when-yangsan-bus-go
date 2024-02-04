@@ -23,6 +23,7 @@
 		2A746B972AED6BF800CB7AE6 /* BusTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A746B962AED6BF800CB7AE6 /* BusTimetable.swift */; };
 		2A860AB92B6F682200A48997 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860AB82B6F682200A48997 /* MenuCollectionViewCell.swift */; };
 		2A860ABB2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860ABA2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift */; };
+		2A860ABD2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860ABC2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift */; };
 		2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860ABE2B6F7AA600A48997 /* HexColor.swift */; };
 		2A96EEC02B6D5E660042F0FB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EEBF2B6D5E660042F0FB /* HomeViewController.swift */; };
 		2A96EEC32B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EEC22B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift */; };
@@ -50,6 +51,7 @@
 		2A746B962AED6BF800CB7AE6 /* BusTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetable.swift; sourceTree = "<group>"; };
 		2A860AB82B6F682200A48997 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		2A860ABA2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		2A860ABC2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		2A860ABE2B6F7AA600A48997 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		2A96EEBF2B6D5E660042F0FB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2A96EEC22B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				2A96EEC42B6D669A0042F0FB /* HomeViewController+UITableViewDataSource.swift */,
 				2A96EEC22B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift */,
 				2A860ABA2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift */,
+				2A860ABC2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift */,
 			);
 			path = HomeExtensions;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
 				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
 				2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */,
+				2A860ABD2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift in Sources */,
 				2A23A8B12B499C67007F7B74 /* UIView+addBorder.swift in Sources */,
 				2A96EEC52B6D669A0042F0FB /* HomeViewController+UITableViewDataSource.swift in Sources */,
 				2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */,
