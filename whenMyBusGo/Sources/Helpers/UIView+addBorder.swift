@@ -39,7 +39,7 @@ extension UIView {
                 break
             }
             
-            border.backgroundColor = color.cgColor
+            self.layer.borderColor = color.cgColor
             self.layer.addSublayer(border)
         }
     }
