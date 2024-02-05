@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A008AD02AFE93D700150285 /* FavoriteBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008ACF2AFE93D700150285 /* FavoriteBusViewController.swift */; };
 		2A008AD22AFE99F400150285 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008AD12AFE99F400150285 /* TabBarViewController.swift */; };
+		2A1156C12B30172B0076BA33 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1156C02B30172B0076BA33 /* DetailViewController.swift */; };
 		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
 		2A14BCD82AED37E300867A0B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14BCD72AED37E300867A0B /* Constants.swift */; };
 		2A23A8B12B499C67007F7B74 /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */; };
@@ -32,10 +33,17 @@
 		2AAAA51A2AED397500826F14 /* BusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAA5192AED397500826F14 /* BusCell.swift */; };
 		2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE902AED2F9C00C29702 /* Utils.swift */; };
 		2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */; };
+		2AE6D5782B1C2FD10081505F /* FavoriteBusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE6D5772B1C2FD10081505F /* FavoriteBusCell.swift */; };
+		2AE74A082B39757C00CC9C21 /* DetailTimetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE74A072B39757C00CC9C21 /* DetailTimetableCell.swift */; };
+		2AEDF3BF2B11823900A7E1DB /* busDatas.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDF3BE2B11823900A7E1DB /* busDatas.json */; };
+		2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A5F12B71286300F794CE /* MenuData.swift */; };
+		2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A5F32B714C6700F794CE /* UIImage+resizeImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A008ACF2AFE93D700150285 /* FavoriteBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBusViewController.swift; sourceTree = "<group>"; };
 		2A008AD12AFE99F400150285 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		2A1156C02B30172B0076BA33 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
 		2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableManager.swift; sourceTree = "<group>"; };
@@ -60,6 +68,11 @@
 		2AAAA5192AED397500826F14 /* BusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCell.swift; sourceTree = "<group>"; };
 		2AD3CE902AED2F9C00C29702 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableViewController.swift; sourceTree = "<group>"; };
+		2AE6D5772B1C2FD10081505F /* FavoriteBusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBusCell.swift; sourceTree = "<group>"; };
+		2AE74A072B39757C00CC9C21 /* DetailTimetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTimetableCell.swift; sourceTree = "<group>"; };
+		2AEDF3BE2B11823900A7E1DB /* busDatas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = busDatas.json; sourceTree = "<group>"; };
+		2AF5A5F12B71286300F794CE /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		2AF5A5F32B714C6700F794CE /* UIImage+resizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resizeImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +111,7 @@
 				2AD3CE8E2AED2EE600C29702 /* Sources */,
 				2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */,
 				2A6E3CDF2A573CEC0012FCAF /* Info.plist */,
+				2AEDF3BE2B11823900A7E1DB /* busDatas.json */,
 				2A6F6DD72AF12703008B23ED /* UrlList.plist */,
 				2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */,
 				2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */,
@@ -121,7 +135,9 @@
 			children = (
 				2A96EEC12B6D662E0042F0FB /* HomeExtensions */,
 				2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */,
+				2A008ACF2AFE93D700150285 /* FavoriteBusViewController.swift */,
 				2A008AD12AFE99F400150285 /* TabBarViewController.swift */,
+				2A1156C02B30172B0076BA33 /* DetailViewController.swift */,
 				2A96EEBF2B6D5E660042F0FB /* HomeViewController.swift */,
 			);
 			path = Controllers;
@@ -131,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				2AAAA5192AED397500826F14 /* BusCell.swift */,
+				2AE6D5772B1C2FD10081505F /* FavoriteBusCell.swift */,
+				2AE74A072B39757C00CC9C21 /* DetailTimetableCell.swift */,
 				2A96EEC62B6D67490042F0FB /* FavoriteTableViewCell.swift */,
 				2A860AB82B6F682200A48997 /* MenuCollectionViewCell.swift */,
 			);
@@ -141,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2A746B962AED6BF800CB7AE6 /* BusTimetable.swift */,
+				2AF5A5F12B71286300F794CE /* MenuData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +192,7 @@
 				2A14BCD72AED37E300867A0B /* Constants.swift */,
 				2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */,
 				2A860ABE2B6F7AA600A48997 /* HexColor.swift */,
+				2AF5A5F32B714C6700F794CE /* UIImage+resizeImage.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -241,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AEDF3BF2B11823900A7E1DB /* busDatas.json in Resources */,
 				2A678B372A65451900E4C360 /* .gitignore in Resources */,
 				2A6F6DD82AF12703008B23ED /* UrlList.plist in Resources */,
 				2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */,
@@ -256,6 +277,7 @@
 			files = (
 				2A96EEC32B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				2A746B972AED6BF800CB7AE6 /* BusTimetable.swift in Sources */,
+				2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */,
 				2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */,
 				2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */,
 				2A96EEC02B6D5E660042F0FB /* HomeViewController.swift in Sources */,
@@ -263,16 +285,22 @@
 				2A008AD22AFE99F400150285 /* TabBarViewController.swift in Sources */,
 				2AAAA51A2AED397500826F14 /* BusCell.swift in Sources */,
 				2A860AB92B6F682200A48997 /* MenuCollectionViewCell.swift in Sources */,
+				2AE6D5782B1C2FD10081505F /* FavoriteBusCell.swift in Sources */,
+				2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */,
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
 				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
 				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
 				2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */,
 				2A860ABD2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift in Sources */,
+				2A008AD02AFE93D700150285 /* FavoriteBusViewController.swift in Sources */,
+				2AE74A082B39757C00CC9C21 /* DetailTimetableCell.swift in Sources */,
 				2A23A8B12B499C67007F7B74 /* UIView+addBorder.swift in Sources */,
 				2A96EEC52B6D669A0042F0FB /* HomeViewController+UITableViewDataSource.swift in Sources */,
 				2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */,
+				2A96EEC72B6D67490042F0FB /* FavoriteTableViewCell.swift in Sources */,
 				2A860ABB2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift in Sources */,
 				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
+				2A1156C12B30172B0076BA33 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
