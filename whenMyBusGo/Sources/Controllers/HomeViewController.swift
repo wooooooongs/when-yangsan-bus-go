@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [menuCollectionView, favoriteTableView])
         stackView.axis = .vertical
@@ -22,6 +25,7 @@ class HomeViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = HexColor.from("EEEEEE")
+        collectionView.isScrollEnabled = false
         
         return collectionView
     }()
@@ -45,7 +49,9 @@ class HomeViewController: UIViewController {
     }
     
     private func addViews() {
-        view.addSubview(mainStackView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(mainStackView)
         view.backgroundColor = HexColor.from("EEEEEE")
     }
     
@@ -53,27 +59,32 @@ class HomeViewController: UIViewController {
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
         menuCollectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: Cell.menuCellIdentifier)
+        menuCollectionView.isScrollEnabled = false
     }
     
     private func setTableView() {
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
         favoriteTableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: Cell.favoriteCellIdentifier)
+        favoriteTableView.isScrollEnabled = false
     }
     
     private func setAutoLayout() {
-        mainStackView.snp.makeConstraints { make in
+        scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
-            make.left.right.equalToSuperview().inset(25)
         }
         
-        menuCollectionView.snp.makeConstraints { make in
-            // TODO: 각 Row Hegiht x 줄 개수에 맞춰 계산하기
-            make.height.equalTo(400)
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView)
+            make.width.equalTo(scrollView)
+        }
+        
+        mainStackView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(20)
+            make.left.right.equalTo(view).inset(25)
         }
     }
 }
-
 
 #Preview {
     HomeViewController()
