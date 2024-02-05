@@ -8,16 +8,10 @@
 import UIKit
 
 class MenuCollectionViewCell: UICollectionViewCell {
-    private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel])
-        
-        return stackView
-    }()
-    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "버스 시간표"
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 26, weight: .black)
         
         return label
     }()
@@ -26,7 +20,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addViews()
-        setAutoLayout()
+        configureUI()
+        setStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -34,16 +29,18 @@ class MenuCollectionViewCell: UICollectionViewCell {
     }
     
     private func addViews() {
-        self.contentView.addSubview(mainStackView)
+        self.contentView.addSubview(titleLabel)
     }
     
-    private func setAutoLayout() {
-        mainStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+    private func configureUI() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(26)
+            make.left.equalToSuperview().inset(16)
         }
     }
-}
-
-#Preview {
-    MenuCollectionViewCell()
+    
+    private func setStyle() {
+        self.layer.cornerRadius = 10
+        self.backgroundColor = .white
+    }
 }

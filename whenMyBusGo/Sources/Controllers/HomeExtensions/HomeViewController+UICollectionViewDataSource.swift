@@ -15,8 +15,6 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.menuCellIdentifier, for: indexPath) as? MenuCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.backgroundColor = .white
-        
         return cell
     }
 }
