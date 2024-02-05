@@ -48,6 +48,13 @@ class HomeViewController: UIViewController {
         setAutoLayout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setCollectionViewAutoLayout()
+        setTableViewAutoLayout()
+    }
+    
     private func addViews() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -82,6 +89,29 @@ class HomeViewController: UIViewController {
         mainStackView.snp.makeConstraints { make in
             make.top.bottom.equalTo(contentView).inset(20)
             make.left.right.equalTo(view).inset(25)
+        }
+    }
+    
+    private func setTableViewAutoLayout() {
+        let numberOfRows = favoriteTableView.numberOfRows(inSection: 0)
+        let rowHeight = tableView(favoriteTableView, heightForRowAt: IndexPath(row: 0, section: 0))
+        let totalHeight = numberOfRows * Int(rowHeight)
+        
+        favoriteTableView.snp.makeConstraints { make in
+            make.height.equalTo(totalHeight)
+        }
+    }
+    
+    private func setCollectionViewAutoLayout() {
+        // TODO: Section 수 자동 계산
+        let numbersOfSections = 3
+        let layout = menuCollectionView.collectionViewLayout
+        let rowHeight = collectionView(menuCollectionView, layout: layout, sizeForItemAt: IndexPath(row: 0, section: 0)).height
+        let spacingForSection = collectionView(menuCollectionView, layout: layout, minimumLineSpacingForSectionAt: 0)
+        let totalHeight = CGFloat(numbersOfSections) * (rowHeight + spacingForSection)
+        
+        menuCollectionView.snp.updateConstraints { make in
+            make.height.equalTo(totalHeight)
         }
     }
 }
