@@ -72,6 +72,12 @@ class FavoriteTableViewCell: UITableViewCell {
         setAutoLayout()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setStyle()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -82,10 +88,9 @@ class FavoriteTableViewCell: UITableViewCell {
     
     private func setAutoLayout() {
         mainStackView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(80)
+            make.centerY.equalToSuperview()
             make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.leading.trailing.equalToSuperview().inset(30)
         }
     }
     
@@ -93,5 +98,14 @@ class FavoriteTableViewCell: UITableViewCell {
         self.busNumLabel.text = busData.busNumber
         self.timeLeftLabel.text = "막차 끊김"
         self.nextTimeLabel.text = "06:55"
+    }
+    
+    func setStyle() {
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .white
+        
+        contentView.layer.cornerRadius = 10
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0))
     }
 }
