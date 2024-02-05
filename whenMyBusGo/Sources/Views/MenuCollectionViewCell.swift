@@ -10,6 +10,8 @@ import UIKit
 class MenuCollectionViewCell: UICollectionViewCell {
     var menuData: MenuData? {
         didSet {
+            self.titleLabel.text = menuData?.title
+            
             if menuData?.isWebView == true {
                 setBorder()
                 addYangsanLogo()
