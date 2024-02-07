@@ -36,7 +36,8 @@ class BusTimetableViewController: UIViewController {
     
     private func setAutoLayout() {
         tableView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view)
         }
     }
 }

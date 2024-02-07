@@ -78,12 +78,13 @@ class HomeViewController: UIViewController {
     
     private func setAutoLayout() {
         scrollView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view)
         }
         
         contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView)
-            make.width.equalTo(scrollView)
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
         }
         
         mainStackView.snp.makeConstraints { make in
