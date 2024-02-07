@@ -20,7 +20,7 @@ class BusTimetableViewController: UIViewController {
         setTableView()
         setAutoLayout()
         
-//        view.backgroundColor = .white
+        view.backgroundColor = .white
         self.navigationItem.largeTitleDisplayMode = .never
     }
     
