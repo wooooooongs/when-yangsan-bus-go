@@ -95,13 +95,13 @@ class FavoriteTableViewCell: UITableViewCell {
         }
     }
     
-    func setCellData(_ busData: BusTimetable) {
+    private func setCellData(_ busData: BusTimetable) {
         self.busNumLabel.text = busData.busNumber
         self.timeLeftLabel.text = "막차 끊김"
         self.nextTimeLabel.text = "06:55"
     }
     
-    func setStyle() {
+    private func setStyle() {
         self.backgroundColor = .clear
         self.contentView.backgroundColor = .white
         
