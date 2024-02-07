@@ -13,8 +13,13 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let fetchedMenuDatas: [MenuData] = MenuDatas.shared.fetchMenuDatas()
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.menuCellIdentifier, for: indexPath) as? MenuCollectionViewCell else { return UICollectionViewCell() }
         
+        cell.menuData = fetchedMenuDatas[indexPath.row]
+                
         return cell
     }
 }
