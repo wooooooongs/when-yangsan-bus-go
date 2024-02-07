@@ -24,5 +24,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
-
+    
+    // MARK: - Cell Tapped 화면 전환
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let (isTimetable) = (indexPath.row == 0)
+        
+        if isTimetable {
+            let busTimetableViewController = BusTimetableViewController()
+            self.navigationController?.pushViewController(busTimetableViewController, animated: true)
+        }
+    }
 }
