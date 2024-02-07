@@ -118,9 +118,7 @@ class BusCell: UITableViewCell {
     private func setAutoLayout() {
         mainStackView.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(80)
-            make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
         }
     }
     
