@@ -27,6 +27,7 @@ class BusTimetableViewController: UIViewController {
     
     private func setTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(BusCell.self, forCellReuseIdentifier: Cell.busCellIdentifier)
         
         // 모든 버스의 데이터를 가져온다.
