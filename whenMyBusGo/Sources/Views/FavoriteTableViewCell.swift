@@ -70,6 +70,7 @@ class FavoriteTableViewCell: UITableViewCell {
         
         addViews()
         setAutoLayout()
+        addLongPressAnimation()
     }
     
     override func layoutSubviews() {
@@ -107,5 +108,40 @@ class FavoriteTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 10
         
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0))
+    }
+    
+    private func addLongPressAnimation() {
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(menuTapped))
+        longPressGestureRecognizer.minimumPressDuration = 0.01
+        longPressGestureRecognizer.cancelsTouchesInView = false
+        longPressGestureRecognizer.delaysTouchesBegan = false
+        longPressGestureRecognizer.delegate = self
+
+        self.addGestureRecognizer(longPressGestureRecognizer)
+        self.isUserInteractionEnabled = true
+    }
+    
+    @objc private func menuTapped(gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        switch gestureRecognizer.state {
+        case .began:
+            UIView.animate(withDuration: 0.1, animations: {
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            })
+        case .ended:
+            UIView.animate(withDuration: 0.2, animations: {
+                self.transform = CGAffineTransform.identity
+            })
+        default:
+            UIView.animate(withDuration: 0.2, animations: {
+                self.transform = CGAffineTransform.identity
+            })
+        }
+    }
+}
+
+extension FavoriteTableViewCell {
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
     }
 }

@@ -43,6 +43,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         addViews()
         configureUI()
         setStyle()
+        addLongPressAnimation()
     }
     
     required init?(coder: NSCoder) {
@@ -77,5 +78,40 @@ class MenuCollectionViewCell: UICollectionViewCell {
             make.right.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(16)
         }
+    }
+    
+    private func addLongPressAnimation() {
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(menuTapped))
+        longPressGestureRecognizer.minimumPressDuration = 0.01
+        longPressGestureRecognizer.cancelsTouchesInView = false
+        longPressGestureRecognizer.delaysTouchesBegan = false
+        longPressGestureRecognizer.delegate = self
+
+        self.addGestureRecognizer(longPressGestureRecognizer)
+        self.isUserInteractionEnabled = true
+    }
+    
+    @objc private func menuTapped(gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        switch gestureRecognizer.state {
+        case .began:
+            UIView.animate(withDuration: 0.1, animations: {
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            })
+        case .ended:
+            UIView.animate(withDuration: 0.2, animations: {
+                self.transform = CGAffineTransform.identity
+            })
+        default:
+            UIView.animate(withDuration: 0.2, animations: {
+                self.transform = CGAffineTransform.identity
+            })
+        }
+    }
+}
+
+extension MenuCollectionViewCell: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
     }
 }
