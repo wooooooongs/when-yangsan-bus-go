@@ -103,6 +103,7 @@ class BusCell: UITableViewCell {
         
         addViews()
         setAutoLayout()
+        addPadding()
     }
     
     required init?(coder: NSCoder) {
@@ -121,5 +122,11 @@ class BusCell: UITableViewCell {
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().offset(-30)
         }
+    }
+    
+    private func addPadding() {
+        let padding = 5.0
+        mainStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: padding, leading: 0, bottom: padding, trailing: 0)
+        mainStackView.isLayoutMarginsRelativeArrangement = true
     }
 }
