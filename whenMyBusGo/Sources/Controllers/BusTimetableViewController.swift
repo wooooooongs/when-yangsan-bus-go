@@ -19,6 +19,8 @@ class BusTimetableViewController: UIViewController {
         addViews()
         setTableView()
         setAutoLayout()
+        
+        self.navigationItem.largeTitleDisplayMode = .never
     }
     
     private func addViews() {
