@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func addBorder(_ edges: [UIRectEdge], withColor color: UIColor, width: CGFloat) {
+    func addBorder(_ edges: [UIRectEdge] = [.all], withColor color: UIColor = .black, width: CGFloat = 1.0) {
         self.layoutIfNeeded()
         
         for edge in edges {
@@ -39,7 +39,7 @@ extension UIView {
                 break
             }
             
-            self.layer.borderColor = color.cgColor
+            border.backgroundColor = color.cgColor
             self.layer.addSublayer(border)
         }
     }

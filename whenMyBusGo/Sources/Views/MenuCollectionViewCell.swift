@@ -67,7 +67,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
     }
     
     private func setBorder() {
-        self.addBorder([.all], withColor: HexColor.from("00A651"), width: 4.0)
+        self.addBorder(width: 4.0)
+        self.layer.borderColor = HexColor.from("00A651").cgColor
     }
     
     private func addYangsanLogo() {
