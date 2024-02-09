@@ -8,10 +8,11 @@
 import UIKit
 
 class DetailTimetableCell: UICollectionViewCell {
-    var time: String? 
+    var time: String?
     {
         didSet {
             setTimeLabel()
+            updateTimeLabel()
         }
     }
     
@@ -19,6 +20,8 @@ class DetailTimetableCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "00:00"
         label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
         
         return label
     }()
@@ -46,5 +49,19 @@ class DetailTimetableCell: UICollectionViewCell {
     
     private func setTimeLabel() {
         timeLabel.text = time
+    }
+    
+    private func updateTimeLabel() -> Void {
+        guard let time = time else { return }
+        let convertedTimeCell = Utils.shared.convertTimeToMinutes(time)
+        let currentTimeString = Utils.shared.getCurrentTime()
+        let currentTime = Utils.shared.convertTimeToMinutes(currentTimeString)
+        
+        let isBusGone = currentTime > convertedTimeCell
+        if isBusGone {
+            self.timeLabel.textColor = .lightGray
+        } else {
+            self.timeLabel.textColor = .black
+        }
     }
 }
