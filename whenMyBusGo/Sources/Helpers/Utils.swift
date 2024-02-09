@@ -15,7 +15,8 @@ final class Utils {
     
     private init() {}
     
-    static func convertTimeToSeconds(time: String) -> Int {
+    /// - Returns: 02:30 -> 150
+    func convertTimeToMinutes(_ time: String) -> Int {
         var convertedTime = 0
         
         let splitedTime = time.components(separatedBy: ":")
@@ -28,7 +29,7 @@ final class Utils {
     }
         
     /// - Returns: "토"
-    static func getCurrentWeek() -> String {
+    func getCurrentWeek() -> String {
         let date = Date()
         let formatter = DateFormatter()
         
@@ -39,8 +40,8 @@ final class Utils {
         return formatter.string(from: date)
     }
     
-    /// - Returns: 00:00
-    static func getCurrentTime() -> String {
+    /// - Returns: 11:30
+    func getCurrentTime() -> String {
         let date = Date()
         let formatter = DateFormatter()
         var formattedCurrentDate = ""
