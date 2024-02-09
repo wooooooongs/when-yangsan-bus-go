@@ -16,9 +16,9 @@ class DetailViewController: UIViewController {
     }
     
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [busInfoStackView, buttonsStackView, upboundStackView])
+        let stackView = UIStackView(arrangedSubviews: [busInfoStackView, buttonsStackView, upboundStackView, emptyView])
         stackView.axis = .vertical
-        stackView.spacing = 20
+        stackView.spacing = 25
         
         return stackView
     }()
@@ -143,18 +143,28 @@ class DetailViewController: UIViewController {
     
     // MARK: - Upbound
     private lazy var upboundStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [upboundCollectionViewLabel, upboundCollectionView])
+        let stackView = UIStackView(arrangedSubviews: [labelContainer, upboundCollectionView])
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = 15
         stackView.layer.cornerRadius = 10
         
         return stackView
     }()
         
+    private lazy var labelContainer: UIView = {
+        let view = UIView()
+        view.addSubview(upboundCollectionViewLabel)
+        view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 10
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        return view
+    }()
     
     private let upboundCollectionViewLabel: UILabel = {
         let label = UILabel()
         label.text = "양산행"
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
         
         return label
     }()
@@ -192,6 +202,15 @@ class DetailViewController: UIViewController {
         return collectionView
     }()
     
+    // MARK: - Empty View
+    
+    private let emptyView: UIView = {
+        let view = UIView()
+        
+        return view
+    }()
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -217,28 +236,7 @@ class DetailViewController: UIViewController {
 
     private func setAutoLayout() {
         mainStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-        }
-        
-        busInfoStackView.snp.makeConstraints { make in
-            make.top.equalTo(mainStackView).inset(20)
-            make.leading.trailing.equalTo(mainStackView)
-            make.height.equalTo(100)
-        }
-        
-        buttonsStackView.snp.makeConstraints { make in
-            make.top.equalTo(busInfoStackView.snp.bottom).offset(30)
-        }
-        
-        upboundCollectionViewLabel.snp.makeConstraints { make in
-            make.top.equalTo(buttonsStackView.snp.bottom).offset(20)
-        }
-        
-        upboundCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(upboundCollectionViewLabel.snp.bottom).offset(20)
-            make.leading.trailing.equalTo(mainStackView)
-            make.height.lessThanOrEqualTo(200)
+            make.edges.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20))
         }
         
         busUpboundLabel.snp.makeConstraints { make in
@@ -251,7 +249,41 @@ class DetailViewController: UIViewController {
         }
         
         busType.snp.makeConstraints { make in
-            make.bottom.equalTo(busNumberLabel.snp.top).offset(0)
+
+        }
+        
+        busInfoStackView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+        }
+        
+        busInfoLeftStackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+        }
+        
+        busInfoRightStackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+        }
+        
+        buttonsStackView.snp.makeConstraints { make in
+            make.height.equalTo(35)
+        }
+        
+        upboundStackView.snp.makeConstraints { make in
+            make.height.lessThanOrEqualTo(400)
+        }
+        
+        labelContainer.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
+        upboundCollectionViewLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.top.bottom.equalToSuperview()
+        }
+        
+        upboundCollectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(20)
         }
         
     }
@@ -300,7 +332,7 @@ extension DetailViewController: UICollectionViewDelegate {
 
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        10
+        20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -310,7 +342,7 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 60, height: 30)
+        return CGSize(width: 70, height: 30)
     }
 }
 
