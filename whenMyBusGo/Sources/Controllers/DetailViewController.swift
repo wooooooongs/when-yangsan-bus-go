@@ -11,7 +11,13 @@ import SnapKit
 class DetailViewController: UIViewController {
     var busData: BusTimetable? {
         didSet {
-            
+            updateUI()
+        }
+    }
+    
+    var isUpbound: Bool = true {
+        didSet {
+            changeBusDirection()
         }
     }
     
@@ -193,6 +199,7 @@ class DetailViewController: UIViewController {
         setView()
         setCollectionView()
         setAutoLayout()
+        addEvent()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -277,15 +284,50 @@ class DetailViewController: UIViewController {
         busUpboundLabel.addBorder([.top, .bottom], withColor: .black, width: 1)
         timetableStackView.addBorder()
     }
+    
+    private func updateUI() {
+        guard let data = busData else { return }
+        
+        self.busType.text = data.busType.caseName
+        self.busNumberLabel.text = data.busNumber + "번"
+        self.busUpboundLabel.text = data.upbound
+        self.busDownboundLabel.text = data.downbound
+        self.collectionViewLabel.text = data.upbound
+    }
+    
+    private func changeBusDirection() {
+        guard let data = busData else { return }
+
+        self.collectionViewLabel.text = isUpbound ? data.upbound : data.downbound
+        self.timetableCollectionView.reloadData()
+    }
+    
+    private func addEvent() {
+        busInfoRightStackView.arrangedSubviews.forEach { label in
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleBusDirection))
+            label.addGestureRecognizer(tapGestureRecognizer)
+            label.isUserInteractionEnabled = true
+        }
+    }
+    
+    @objc private func toggleBusDirection(sender: UITapGestureRecognizer) {
+        guard let label = sender.view as? UILabel else { return }
+        let isUpbound = label == busUpboundLabel
+        
+        self.isUpbound = isUpbound
+    }
 }
 
 // MARK: - Extensions
 extension DetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == upboundCollectionView { return 35 } else
-        if collectionView == downboundCollectionView { return 15 }
+        // TODO: 상행 하행 바꾸기
+        let upboundTimetable = busData?.upboundTimetable[.weekday]?.count
+        let downboundTimetable = busData?.downboundTimetable[.weekday]?.count
         
-        return 0
+        guard let timetableCount = self.isUpbound ? upboundTimetable : downboundTimetable else { return 0 }
+        
+        return timetableCount
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -295,7 +337,9 @@ extension DetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.detailCellIdentifier, for: indexPath) as? DetailTimetableCell else { return UICollectionViewCell() }
         
-        cell.time = "00:00"
+        let upboundTimetable = busData?.upboundTimetable[.weekday]?[indexPath.row]
+        let downboundTimetable = busData?.downboundTimetable[.weekday]?[indexPath.row]
+        cell.time = self.isUpbound ? upboundTimetable : downboundTimetable
         
         return cell
     }
@@ -323,5 +367,9 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
 
 
 #Preview {
-    DetailViewController()
+    let data = BusTimetableManager().getData()[0]
+    let view = DetailViewController()
+    view.busData = data
+    
+    return view
 }
