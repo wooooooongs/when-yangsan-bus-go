@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     }
     
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [busInfoStackView, buttonsStackView, upboundStackView, emptyView])
+        let stackView = UIStackView(arrangedSubviews: [busInfoStackView, buttonsStackView, timetableStackView, emptyView])
         stackView.axis = .vertical
         stackView.spacing = 25
         
@@ -142,8 +142,8 @@ class DetailViewController: UIViewController {
     }()
     
     // MARK: - Upbound
-    private lazy var upboundStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [labelContainer, upboundCollectionView])
+    private lazy var timetableStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [labelContainer, timetableCollectionView])
         stackView.axis = .vertical
         stackView.spacing = 15
         stackView.layer.cornerRadius = 10
@@ -153,7 +153,7 @@ class DetailViewController: UIViewController {
         
     private lazy var labelContainer: UIView = {
         let view = UIView()
-        view.addSubview(upboundCollectionViewLabel)
+        view.addSubview(collectionViewLabel)
         view.backgroundColor = .lightGray
         view.layer.cornerRadius = 10
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -161,7 +161,7 @@ class DetailViewController: UIViewController {
         return view
     }()
     
-    private let upboundCollectionViewLabel: UILabel = {
+    private let collectionViewLabel: UILabel = {
         let label = UILabel()
         label.text = "양산행"
         label.font = .systemFont(ofSize: 22, weight: .semibold)
@@ -170,31 +170,7 @@ class DetailViewController: UIViewController {
     }()
     
     
-    private let upboundCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        return collectionView
-    }()
-    
-    // MARK: - Downbound
-    private lazy var downboundStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [downboundCollectionViewLabel, downboundCollectionView])
-        stackView.axis = .vertical
-        stackView.spacing = 5
-        
-        return stackView
-    }()
-    
-    private let downboundCollectionViewLabel: UILabel = {
-        let label = UILabel()
-        label.text = "신평터미널행"
-        
-        return label
-    }()
-    
-    private let downboundCollectionView: UICollectionView = {
+    private let timetableCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -229,6 +205,7 @@ class DetailViewController: UIViewController {
         addBorder()
     }
     
+    // MARK: - Functions
     private func setView() {
         self.view.addSubview(mainStackView)
         self.view.backgroundColor = .white
@@ -268,7 +245,8 @@ class DetailViewController: UIViewController {
             make.height.equalTo(35)
         }
         
-        upboundStackView.snp.makeConstraints { make in
+        timetableStackView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
             make.height.lessThanOrEqualTo(400)
         }
         
@@ -277,34 +255,31 @@ class DetailViewController: UIViewController {
             make.height.equalTo(50)
         }
         
-        upboundCollectionViewLabel.snp.makeConstraints { make in
+        collectionViewLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(15)
             make.top.bottom.equalToSuperview()
         }
         
-        upboundCollectionView.snp.makeConstraints { make in
+        timetableCollectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(20)
         }
         
     }
     
     private func setCollectionView() {
-        upboundCollectionView.dataSource = self
-        upboundCollectionView.delegate = self
-        upboundCollectionView.register(DetailTimetableCell.self, forCellWithReuseIdentifier: Cell.detailCellIdentifier)
-        
-        downboundCollectionView.dataSource = self
-        downboundCollectionView.delegate = self
-        downboundCollectionView.register(DetailTimetableCell.self, forCellWithReuseIdentifier: Cell.detailCellIdentifier)
+        timetableCollectionView.dataSource = self
+        timetableCollectionView.delegate = self
+        timetableCollectionView.register(DetailTimetableCell.self, forCellWithReuseIdentifier: Cell.detailCellIdentifier)
     }
     
     private func addBorder() {
         busInfoStackView.addBorder([.bottom], withColor: .black, width: 1)
         busUpboundLabel.addBorder([.top, .bottom], withColor: .black, width: 1)
-        upboundStackView.addBorder()
+        timetableStackView.addBorder()
     }
 }
 
+// MARK: - Extensions
 extension DetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == upboundCollectionView { return 35 } else
