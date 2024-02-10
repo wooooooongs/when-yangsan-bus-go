@@ -8,15 +8,6 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-    private lazy var favoriteBusViewController: UIViewController = {
-        let viewController = FavoriteBusViewController()
-        let tabBarItem = UITabBarItem(title: "즐겨찾기", image: UIImage(systemName: "heart.fill"), tag: 0)
-        
-        viewController.tabBarItem = tabBarItem
-        
-        return viewController
-    }()
-    
     private lazy var busTimetableViewController: UIViewController = {
         let viewController = BusTimetableViewController()
         let tabBarItem = UITabBarItem(title: "버스 목록", image: UIImage(systemName: "bus"), tag: 0)
@@ -29,7 +20,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewControllers = [favoriteBusViewController, busTimetableViewController]
+        viewControllers = [busTimetableViewController]
         setTabBar()
     }
 }
