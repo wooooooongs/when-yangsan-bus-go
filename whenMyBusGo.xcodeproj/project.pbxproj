@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A008AD02AFE93D700150285 /* FavoriteBusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008ACF2AFE93D700150285 /* FavoriteBusViewController.swift */; };
-		2A008AD22AFE99F400150285 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A008AD12AFE99F400150285 /* TabBarViewController.swift */; };
 		2A1156C12B30172B0076BA33 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1156C02B30172B0076BA33 /* DetailViewController.swift */; };
 		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
 		2A14BCD82AED37E300867A0B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14BCD72AED37E300867A0B /* Constants.swift */; };
@@ -29,6 +27,7 @@
 		2A96EEC32B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EEC22B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift */; };
 		2A96EEC52B6D669A0042F0FB /* HomeViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EEC42B6D669A0042F0FB /* HomeViewController+UITableViewDataSource.swift */; };
 		2AAAA51A2AED397500826F14 /* BusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAAA5192AED397500826F14 /* BusCell.swift */; };
+		2AC3D9DC2B773DEE00DEDAB8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC3D9DB2B773DEE00DEDAB8 /* TabBarViewController.swift */; };
 		2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE902AED2F9C00C29702 /* Utils.swift */; };
 		2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */; };
 		2ADFB0BA2B729C8F00E6BA0B /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADFB0B92B729C8F00E6BA0B /* MenuCollectionViewCell.swift */; };
@@ -42,8 +41,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A008ACF2AFE93D700150285 /* FavoriteBusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBusViewController.swift; sourceTree = "<group>"; };
-		2A008AD12AFE99F400150285 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2A1156C02B30172B0076BA33 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
@@ -65,6 +62,7 @@
 		2A96EEC22B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		2A96EEC42B6D669A0042F0FB /* HomeViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		2AAAA5192AED397500826F14 /* BusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusCell.swift; sourceTree = "<group>"; };
+		2AC3D9DB2B773DEE00DEDAB8 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2AD3CE902AED2F9C00C29702 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableViewController.swift; sourceTree = "<group>"; };
 		2ADFB0B92B729C8F00E6BA0B /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -138,8 +136,7 @@
 				2AFBD0A92B73A80C00FE67B9 /* BusTimetableExtensions */,
 				2A96EEC12B6D662E0042F0FB /* HomeExtensions */,
 				2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */,
-				2A008ACF2AFE93D700150285 /* FavoriteBusViewController.swift */,
-				2A008AD12AFE99F400150285 /* TabBarViewController.swift */,
+				2AC3D9DB2B773DEE00DEDAB8 /* TabBarViewController.swift */,
 				2A1156C02B30172B0076BA33 /* DetailViewController.swift */,
 				2A96EEBF2B6D5E660042F0FB /* HomeViewController.swift */,
 			);
@@ -294,9 +291,9 @@
 				2A96EEC02B6D5E660042F0FB /* HomeViewController.swift in Sources */,
 				2AD3CE912AED2F9C00C29702 /* Utils.swift in Sources */,
 				2ADFB0BC2B729CC700E6BA0B /* FavoriteTableViewCell.swift in Sources */,
-				2A008AD22AFE99F400150285 /* TabBarViewController.swift in Sources */,
 				2AAAA51A2AED397500826F14 /* BusCell.swift in Sources */,
 				2AE6D5782B1C2FD10081505F /* FavoriteBusCell.swift in Sources */,
+				2AC3D9DC2B773DEE00DEDAB8 /* TabBarViewController.swift in Sources */,
 				2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */,
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
 				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
@@ -304,7 +301,6 @@
 				2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */,
 				2A860ABD2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift in Sources */,
 				2ADFB0BA2B729C8F00E6BA0B /* MenuCollectionViewCell.swift in Sources */,
-				2A008AD02AFE93D700150285 /* FavoriteBusViewController.swift in Sources */,
 				2AFBD0AB2B73A83600FE67B9 /* BusTimetableViewController+UITableViewDelegate.swift in Sources */,
 				2AE74A082B39757C00CC9C21 /* DetailTimetableCell.swift in Sources */,
 				2A23A8B12B499C67007F7B74 /* UIView+addBorder.swift in Sources */,
