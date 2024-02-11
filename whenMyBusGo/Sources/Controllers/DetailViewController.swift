@@ -12,14 +12,16 @@ class DetailViewController: UIViewController {
     var busData: BusTimetable? {
         didSet {
             updateUI()
+            setDayType()
         }
     }
-    
     var isUpbound: Bool = true {
         didSet {
             changeBusDirection()
         }
     }
+    var isDayTypeSeperated: Bool = false
+    var currentDayType: Day = .weekday
     
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [busInfoStackView, buttonsStackView, timetableStackView, emptyView])
@@ -106,43 +108,6 @@ class DetailViewController: UIViewController {
     
     private lazy var dayTypeButtonView: UIView = {
         let view = UIView()
-        let weekdayButton = UIButton(type: .system)
-        let holidayButton = UIButton(type: .system)
-        
-        weekdayButton.setTitle("평일", for: .normal)
-        weekdayButton.setTitleColor(.black, for: .normal)
-        weekdayButton.backgroundColor = .gray
-        
-        weekdayButton.layer.cornerRadius = 5
-        weekdayButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        
-        weekdayButton.tag = 1
-        
-        
-        holidayButton.setTitle("일,공휴일", for: .normal)
-        holidayButton.setTitleColor(.black, for: .normal)
-        
-        holidayButton.layer.cornerRadius = 5
-        holidayButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
-        
-        holidayButton.backgroundColor = .lightGray
-        holidayButton.tag = 2
-
-        
-        view.addSubview(weekdayButton)
-        view.addSubview(holidayButton)
-        
-        weekdayButton.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview()
-            make.width.equalTo(75)
-            make.height.equalTo(35)
-        }
-        
-        holidayButton.snp.makeConstraints { make in
-            make.top.right.bottom.equalToSuperview()
-            make.left.equalTo(weekdayButton.snp.right)
-            make.width.equalTo(weekdayButton)
-        }
         
         return view
     }()
@@ -200,6 +165,7 @@ class DetailViewController: UIViewController {
         setCollectionView()
         setAutoLayout()
         addEvent()
+        setDayTypeButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -230,10 +196,6 @@ class DetailViewController: UIViewController {
         busNumberLabel.snp.makeConstraints { make in
             make.bottom.equalTo(busInfoStackView.snp.bottom).offset(-25)
             make.height.equalTo(48)
-        }
-        
-        busType.snp.makeConstraints { make in
-
         }
         
         busInfoStackView.snp.makeConstraints { make in
@@ -316,14 +278,111 @@ class DetailViewController: UIViewController {
         
         self.isUpbound = isUpbound
     }
+    
+    private func setDayType() {
+        // NOTE: 평일 - 토 - 공휴일
+        let isSeperated = busData?.upboundTimetable.keys.count == 3
+        
+        if isSeperated {
+            self.isDayTypeSeperated = true
+        }
+    }
+    
+    // TODO: 중복 코드 삭제
+    private func setDayTypeButtons() {
+        if self.isDayTypeSeperated {
+            let weekdayButton = UIButton(type: .system)
+            let saturdayButton = UIButton(type: .system)
+            let holidayButton = UIButton(type: .system)
+            
+            let buttons = [weekdayButton, saturdayButton, holidayButton]
+            buttons.forEach { button in
+                button.layer.cornerRadius = 5
+                button.backgroundColor = .lightGray
+                button.setTitleColor(.black, for: .normal)
+                button.addTarget(self, action: #selector(changeDayType), for: .touchUpInside)
+            }
+            
+            weekdayButton.setTitle("평일", for: .normal)
+            weekdayButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            weekdayButton.tag = DayTypeForButton.weekday.rawValue
+            saturdayButton.setTitle("토", for: .normal)
+            saturdayButton.layer.cornerRadius = 0
+            saturdayButton.tag = DayTypeForButton.sat.rawValue
+            holidayButton.setTitle("공휴일", for: .normal)
+            holidayButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+            holidayButton.tag = DayTypeForButton.sun.rawValue
+
+            dayTypeButtonView.addSubview(weekdayButton)
+            dayTypeButtonView.addSubview(saturdayButton)
+            dayTypeButtonView.addSubview(holidayButton)
+            
+            weekdayButton.snp.makeConstraints { make in
+                make.top.bottom.equalToSuperview()
+                make.right.equalTo(saturdayButton.snp.left)
+                make.width.equalTo(75)
+            }
+            
+            saturdayButton.snp.makeConstraints { make in
+                make.top.bottom.equalToSuperview()
+                make.right.equalTo(holidayButton.snp.left)
+                make.width.equalTo(weekdayButton)
+            }
+            
+            holidayButton.snp.makeConstraints { make in
+                make.top.bottom.equalToSuperview()
+                make.right.equalToSuperview()
+                make.width.equalTo(weekdayButton)
+            }
+        } else {
+            let weekdayButton = UIButton(type: .system)
+            let saturdayHolidayButton = UIButton(type: .system)
+            
+            let buttons = [weekdayButton, saturdayHolidayButton]
+            buttons.enumerated().forEach { index, button in
+                button.layer.cornerRadius = 5
+                button.backgroundColor = .lightGray
+                button.setTitleColor(.black, for: .normal)
+                button.addTarget(self, action: #selector(changeDayType), for: .touchUpInside)
+            }
+            
+            weekdayButton.setTitle("평일", for: .normal)
+            weekdayButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            weekdayButton.tag = DayTypeForButton.weekday.rawValue
+            saturdayHolidayButton.setTitle("토,공휴일", for: .normal)
+            saturdayHolidayButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+            saturdayHolidayButton.tag = DayTypeForButton.weekend.rawValue
+
+            dayTypeButtonView.addSubview(weekdayButton)
+            dayTypeButtonView.addSubview(saturdayHolidayButton)
+            
+            weekdayButton.snp.makeConstraints { make in
+                make.top.left.bottom.equalToSuperview()
+                make.right.equalTo(saturdayHolidayButton.snp.left)
+                make.width.equalTo(75)
+            }
+            
+            saturdayHolidayButton.snp.makeConstraints { make in
+                make.top.right.bottom.equalToSuperview()
+                make.width.equalTo(weekdayButton)
+            }
+        }
+    }
+    
+    @objc private func changeDayType(sender: UIButton) {
+        if let dayTypeForButton = DayTypeForButton(rawValue: sender.tag), let dayType = dayTypeForButton.convertToDay(dayTypeForButton) {
+            self.currentDayType = dayType
+            self.timetableCollectionView.reloadData()
+        }
+    }
 }
 
 // MARK: - Extensions
 extension DetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: 상행 하행 바꾸기
-        let upboundTimetable = busData?.upboundTimetable[.weekday]?.count
-        let downboundTimetable = busData?.downboundTimetable[.weekday]?.count
+        let upboundTimetable = busData?.upboundTimetable[currentDayType]?.count
+        let downboundTimetable = busData?.downboundTimetable[currentDayType]?.count
         
         guard let timetableCount = self.isUpbound ? upboundTimetable : downboundTimetable else { return 0 }
         
@@ -337,8 +396,8 @@ extension DetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.detailCellIdentifier, for: indexPath) as? DetailTimetableCell else { return UICollectionViewCell() }
         
-        let upboundTimetable = busData?.upboundTimetable[.weekday]?[indexPath.row]
-        let downboundTimetable = busData?.downboundTimetable[.weekday]?[indexPath.row]
+        let upboundTimetable = busData?.upboundTimetable[currentDayType]?[indexPath.row]
+        let downboundTimetable = busData?.downboundTimetable[currentDayType]?[indexPath.row]
         cell.time = self.isUpbound ? upboundTimetable : downboundTimetable
         
         return cell
