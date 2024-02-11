@@ -64,3 +64,20 @@ enum Day: String, Decodable{
     case sun
     case weekend
 }
+
+enum DayTypeForButton: Int {
+    case weekday, sat, sun, weekend
+    
+    func convertToDay(_ button: DayTypeForButton) -> Day? {
+        switch button {
+        case .weekday:
+            return .weekday
+        case .sat:
+            return .sat
+        case .sun:
+            return .sun
+        case .weekend:
+            return .weekend
+        }
+    }
+}
