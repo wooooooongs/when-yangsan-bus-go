@@ -53,9 +53,9 @@ class DetailTimetableCell: UICollectionViewCell {
     
     private func updateTimeLabel() -> Void {
         guard let time = time else { return }
-        let convertedTimeCell = Utils.shared.convertTimeToMinutes(time)
-        let currentTimeString = Utils.shared.getCurrentTime()
-        let currentTime = Utils.shared.convertTimeToMinutes(currentTimeString)
+        let convertedTimeCell = TimeUtils.shared.convertTimeToMinutes(time)
+        let currentTimeString = TimeUtils.shared.getCurrentTime()
+        let currentTime = TimeUtils.shared.convertTimeToMinutes(currentTimeString)
         
         let isBusGone = currentTime > convertedTimeCell
         if isBusGone {
