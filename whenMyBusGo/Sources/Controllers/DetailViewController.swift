@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     }
     var isUpbound: Bool = true {
         didSet {
-            changeBusDirection()
+            updateCollectionViewForNewDirection()
         }
     }
     var isDayTypeSeperated: Bool = false
@@ -164,8 +164,7 @@ class DetailViewController: UIViewController {
         setView()
         setCollectionView()
         setAutoLayout()
-        addEvent()
-        setDayTypeButtons()
+        addOnTapEvents()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -257,14 +256,19 @@ class DetailViewController: UIViewController {
         self.collectionViewLabel.text = data.upbound
     }
     
-    private func changeBusDirection() {
+    private func updateCollectionViewForNewDirection() {
         guard let data = busData else { return }
 
         self.collectionViewLabel.text = isUpbound ? data.upbound : data.downbound
         self.timetableCollectionView.reloadData()
     }
     
-    private func addEvent() {
+    private func addOnTapEvents() {
+        setBusDirectionButtons()
+        setDayTypeButtons()
+    }
+    
+    private func setBusDirectionButtons() {
         busInfoRightStackView.arrangedSubviews.forEach { label in
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleBusDirection))
             label.addGestureRecognizer(tapGestureRecognizer)
