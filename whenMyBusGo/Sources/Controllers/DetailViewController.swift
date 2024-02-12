@@ -270,13 +270,13 @@ class DetailViewController: UIViewController {
     
     private func setBusDirectionButtons() {
         busInfoRightStackView.arrangedSubviews.forEach { label in
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleBusDirection))
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeBusDirectionButtonTapped))
             label.addGestureRecognizer(tapGestureRecognizer)
             label.isUserInteractionEnabled = true
         }
     }
     
-    @objc private func toggleBusDirection(sender: UITapGestureRecognizer) {
+    @objc private func changeBusDirectionButtonTapped(sender: UITapGestureRecognizer) {
         guard let label = sender.view as? UILabel else { return }
         let isUpbound = label == busUpboundLabel
         
@@ -373,7 +373,16 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @objc private func changeDayType(sender: UIButton) {
+        dayTypeButtonArray.forEach { button in
+            UIView.animate(withDuration: 0.2) {
+                button.backgroundColor = .lightGray
+            }
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            sender.backgroundColor = .gray
+        }
+        
         if let dayTypeForButton = DayTypeForButton(rawValue: sender.tag), let dayType = dayTypeForButton.convertToDay(dayTypeForButton) {
             self.currentDayType = dayType
             self.timetableCollectionView.reloadData()
