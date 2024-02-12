@@ -166,6 +166,7 @@ class DetailViewController: UIViewController {
         setCollectionView()
         setAutoLayout()
         addOnTapEvents()
+        addBorder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -175,7 +176,6 @@ class DetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
                 
-        addBorder()
     }
     
     // MARK: - Functions
