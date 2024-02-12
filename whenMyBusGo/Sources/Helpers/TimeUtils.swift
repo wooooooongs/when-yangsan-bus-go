@@ -9,9 +9,9 @@ import Foundation
 
 import UIKit
 
-final class Utils {
+final class TimeUtils {
     
-    static let shared = Utils()
+    static let shared = TimeUtils()
     
     private init() {}
     
