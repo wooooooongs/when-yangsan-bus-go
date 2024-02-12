@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     }
     var isDayTypeSeperated: Bool = false
     var currentDayType: Day = .weekday
+    var dayTypeButtonArray: [UIButton] = []
     
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [busInfoStackView, buttonsStackView, timetableStackView, emptyView])
@@ -299,8 +300,8 @@ class DetailViewController: UIViewController {
             let saturdayButton = UIButton(type: .system)
             let holidayButton = UIButton(type: .system)
             
-            let buttons = [weekdayButton, saturdayButton, holidayButton]
-            buttons.forEach { button in
+            dayTypeButtonArray = [weekdayButton, saturdayButton, holidayButton]
+            dayTypeButtonArray.forEach { button in
                 button.layer.cornerRadius = 5
                 button.backgroundColor = .lightGray
                 button.setTitleColor(.black, for: .normal)
@@ -342,8 +343,8 @@ class DetailViewController: UIViewController {
             let weekdayButton = UIButton(type: .system)
             let saturdayHolidayButton = UIButton(type: .system)
             
-            let buttons = [weekdayButton, saturdayHolidayButton]
-            buttons.enumerated().forEach { index, button in
+            dayTypeButtonArray = [weekdayButton, weekendButton]
+            dayTypeButtonArray.enumerated().forEach { index, button in
                 button.layer.cornerRadius = 5
                 button.backgroundColor = .lightGray
                 button.setTitleColor(.black, for: .normal)
