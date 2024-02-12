@@ -305,12 +305,14 @@ class DetailViewController: UIViewController {
                 button.layer.cornerRadius = 5
                 button.backgroundColor = .lightGray
                 button.setTitleColor(.black, for: .normal)
-                button.addTarget(self, action: #selector(changeDayType), for: .touchUpInside)
+                button.addTarget(self, action: #selector(changeDayTypeButtonTapped), for: .touchUpInside)
+                
             }
             
             weekdayButton.setTitle("평일", for: .normal)
             weekdayButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
             weekdayButton.tag = DayTypeForButton.weekday.rawValue
+            weekdayButton.backgroundColor = .gray
             saturdayButton.setTitle("토", for: .normal)
             saturdayButton.layer.cornerRadius = 0
             saturdayButton.tag = DayTypeForButton.sat.rawValue
@@ -341,39 +343,41 @@ class DetailViewController: UIViewController {
             }
         } else {
             let weekdayButton = UIButton(type: .system)
-            let saturdayHolidayButton = UIButton(type: .system)
+            let weekendButton = UIButton(type: .system)
             
             dayTypeButtonArray = [weekdayButton, weekendButton]
             dayTypeButtonArray.enumerated().forEach { index, button in
                 button.layer.cornerRadius = 5
-                button.backgroundColor = .lightGray
                 button.setTitleColor(.black, for: .normal)
-                button.addTarget(self, action: #selector(changeDayType), for: .touchUpInside)
+                button.addTarget(self, action: #selector(changeDayTypeButtonTapped), for: .touchUpInside)
             }
             
             weekdayButton.setTitle("평일", for: .normal)
             weekdayButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
             weekdayButton.tag = DayTypeForButton.weekday.rawValue
-            saturdayHolidayButton.setTitle("토,공휴일", for: .normal)
-            saturdayHolidayButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
-            saturdayHolidayButton.tag = DayTypeForButton.weekend.rawValue
+            weekdayButton.backgroundColor = .gray
+            weekendButton.setTitle("토,공휴일", for: .normal)
+            weekendButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+            weekendButton.tag = DayTypeForButton.weekend.rawValue
+            weekdayButton.backgroundColor = .lightGray
 
             dayTypeButtonView.addSubview(weekdayButton)
-            dayTypeButtonView.addSubview(saturdayHolidayButton)
+            dayTypeButtonView.addSubview(weekendButton)
             
             weekdayButton.snp.makeConstraints { make in
                 make.top.left.bottom.equalToSuperview()
-                make.right.equalTo(saturdayHolidayButton.snp.left)
+                make.right.equalTo(weekendButton.snp.left)
                 make.width.equalTo(75)
             }
             
-            saturdayHolidayButton.snp.makeConstraints { make in
+            weekendButton.snp.makeConstraints { make in
                 make.top.right.bottom.equalToSuperview()
                 make.width.equalTo(weekdayButton)
             }
         }
     }
     
+    @objc private func changeDayTypeButtonTapped(sender: UIButton) {
         dayTypeButtonArray.forEach { button in
             UIView.animate(withDuration: 0.2) {
                 button.backgroundColor = .lightGray
