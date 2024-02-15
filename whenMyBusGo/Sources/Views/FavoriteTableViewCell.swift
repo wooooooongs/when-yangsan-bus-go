@@ -9,12 +9,44 @@ import Foundation
 import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
+    // MARK: - UI
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [busNumLabel, timeInfoStackView])
-        stackView.distribution = .fillEqually
+        let stackView = UIStackView(arrangedSubviews: [busInfoStackView, timeInfoStackView])
         stackView.alignment = .center
         
         return stackView
+    }()
+    
+    
+    // MARK: - BusInfoStackView(LeftStackView)
+    private lazy var busInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [additionalInfoStackView, busNumLabel])
+        stackView.axis = .vertical
+        
+        return stackView
+    }()
+
+    private lazy var additionalInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [busTypeLabel, busDiretionLabel])
+        stackView.axis = .horizontal
+        
+        return stackView
+    }()
+    
+    private let busTypeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "일반"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        
+        return label
+    }()
+    
+    private let busDiretionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "증산행"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        
+        return label
     }()
     
     private let busNumLabel: UILabel = {
@@ -25,10 +57,10 @@ class FavoriteTableViewCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - TimeInfoStackView(RightStackView)
     private lazy var timeInfoStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [timeLeftLabel, nextTimeStackView])
         stackView.axis = .vertical
-        stackView.spacing = 6
         
         return stackView
     }()
@@ -65,6 +97,7 @@ class FavoriteTableViewCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -83,6 +116,7 @@ class FavoriteTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func addViews() {
         self.contentView.addSubview(mainStackView)
     }
@@ -93,10 +127,12 @@ class FavoriteTableViewCell: UITableViewCell {
             make.top.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(30)
         }
+        
+        busTypeLabel.snp.makeConstraints { make in
+            make.width.equalTo(35)
+        }
     }
     
-    private func setCellData(_ busData: BusTimetable) {
-        self.busNumLabel.text = busData.busNumber
         self.timeLeftLabel.text = "막차 끊김"
         self.nextTimeLabel.text = "06:55"
     }
@@ -144,4 +180,8 @@ extension FavoriteTableViewCell {
     override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         true
     }
+}
+
+#Preview {
+    FavoriteTableViewCell()
 }
