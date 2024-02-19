@@ -89,22 +89,11 @@ class DetailViewController: UIViewController {
     
     // MARK: - Buttons
     private lazy var buttonsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [repeatIcon, dayTypeButtonView])
+        let stackView = UIStackView(arrangedSubviews: [dayTypeButtonView])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         
         return stackView
-    }()
-    
-    private lazy var repeatIcon: UIImageView = {
-        let imageName = "repeat"
-        // TODO: - 새로운 리사이징 메서드로 변경
-        let newImage = UIImage(systemName: imageName)!
-        
-        let imageView = UIImageView(image: newImage)
-        imageView.contentMode = .scaleAspectFit
-        
-        return imageView
     }()
     
     private lazy var dayTypeButtonView: UIView = {
@@ -251,7 +240,7 @@ class DetailViewController: UIViewController {
         guard let data = busData else { return }
         
         self.busType.text = data.busType.caseName
-        self.busNumberLabel.text = data.busNumber + "번"
+        self.busNumberLabel.text = data.busNumber
         self.busUpboundLabel.text = data.upbound
         self.busDownboundLabel.text = data.downbound
         self.collectionViewLabel.text = data.upbound
