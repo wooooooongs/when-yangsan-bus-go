@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     let busTimetableManager = BusTimetableManager.shared
     
+    // MARK: - Views
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
@@ -43,6 +44,7 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +62,8 @@ class HomeViewController: UIViewController {
         setCollectionViewAutoLayout()
         setTableViewAutoLayout()
     }
+    
+    // MARK: - Methods
     
     private func addViews() {
         view.addSubview(scrollView)
