@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
+    var busData: BusTimetableForHomeView? {
+        didSet {
+            setCellData()
+        }
+    }
+    
     // MARK: - UI
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [busInfoStackView, timeInfoStackView])
@@ -133,6 +139,12 @@ class FavoriteTableViewCell: UITableViewCell {
         }
     }
     
+    private func setCellData() {
+        self.busNumLabel.text = busData?.busNumber
+        self.busTypeLabel.text = busData?.busType.caseName
+        self.busDiretionLabel.text = busData?.upbound
+        self.busDiretionLabel.text = busData?.downbound
+        
         self.timeLeftLabel.text = "막차 끊김"
         self.nextTimeLabel.text = "06:55"
     }
