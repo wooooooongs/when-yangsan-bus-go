@@ -11,16 +11,8 @@ import SnapKit
 class BusCell: UITableViewCell {
     var busData: BusTimetable? 
     
-    private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [leftInfoStackView, favoriteButton])
-        stackView.distribution = .fill
-        stackView.alignment = .center
-        stackView.spacing = 8
         
-        return stackView
-    }()
-    
-    private lazy var leftInfoStackView: UIStackView = {
+    private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [busNumLabel, busInfoStackView])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
@@ -74,7 +66,7 @@ class BusCell: UITableViewCell {
     
     private let arrowsImage: UIImageView = {
         let imageName = "arrow.left.arrow.right"
-        let newImage = Utils.resizeSystemImage(imageName, to: 16)
+        let newImage = UIImage(systemName: imageName)
         let imageView = UIImageView(image: newImage)
         
         return imageView
@@ -88,15 +80,6 @@ class BusCell: UITableViewCell {
         return label
     }()
     
-    lazy var favoriteButton: UIButton = {
-        let image = UIImage(systemName: "heart")
-        
-        let button = UIButton()
-        button.setImage(image, for: .normal)
-        button.tintColor = .black
-        
-        return button
-    }()
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
