@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     var currentDayType: Day = .weekday
     var dayTypeButtonArray: [UIButton] = []
     
+    // MARK: - Views
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [busInfoStackView, buttonsStackView, timetableStackView, emptyView])
         stackView.axis = .vertical
@@ -102,9 +103,9 @@ class DetailViewController: UIViewController {
         return view
     }()
     
-    // MARK: - Upbound
+    // MARK: - Timetable
     private lazy var timetableStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [labelContainer, timetableCollectionView])
+        let stackView = UIStackView(arrangedSubviews: [timetableHeaderStackView, timetableCollectionView])
         stackView.axis = .vertical
         stackView.spacing = 15
         stackView.layer.cornerRadius = 10
@@ -112,14 +113,13 @@ class DetailViewController: UIViewController {
         return stackView
     }()
         
-    private lazy var labelContainer: UIView = {
-        let view = UIView()
-        view.addSubview(collectionViewLabel)
-        view.backgroundColor = .lightGray
-        view.layer.cornerRadius = 10
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    private lazy var timetableHeaderStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [collectionViewLabel, favoriteButton])
+        stackView.backgroundColor = .lightGray
+        stackView.layer.cornerRadius = 10
+        stackView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        return view
+        return stackView
     }()
     
     private let collectionViewLabel: UILabel = {
@@ -130,6 +130,15 @@ class DetailViewController: UIViewController {
         return label
     }()
     
+    lazy var favoriteButton: UIButton = {
+        let newImage = UIImage(systemName: "heart")
+        
+        let button = UIButton()
+        button.setImage(newImage, for: .normal)
+        button.tintColor = .black
+        
+        return button
+    }()
     
     private let timetableCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -140,7 +149,6 @@ class DetailViewController: UIViewController {
     }()
     
     // MARK: - Empty View
-    
     private let emptyView: UIView = {
         let view = UIView()
         
@@ -208,7 +216,7 @@ class DetailViewController: UIViewController {
             make.height.lessThanOrEqualTo(400)
         }
         
-        labelContainer.snp.makeConstraints { make in
+        timetableHeaderStackView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.height.equalTo(50)
         }
@@ -222,6 +230,9 @@ class DetailViewController: UIViewController {
             make.left.right.equalToSuperview().inset(20)
         }
         
+        favoriteButton.snp.makeConstraints { make in
+            make.width.equalTo(40)
+        }
     }
     
     private func setCollectionView() {
