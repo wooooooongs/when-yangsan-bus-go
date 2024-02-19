@@ -166,15 +166,6 @@ class DetailViewController: UIViewController {
         addBorder()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-                
-    }
-    
     // MARK: - Functions
     private func setView() {
         self.view.addSubview(mainStackView)
