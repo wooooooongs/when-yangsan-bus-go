@@ -9,8 +9,11 @@ import UIKit
 import SnapKit
 
 class BusCell: UITableViewCell {
-    var busData: BusTimetable? 
-    
+    var busData: BusTimetable? {
+        didSet {
+            setCellData()
+        }
+    }
         
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [busNumLabel, busInfoStackView])
@@ -22,6 +25,7 @@ class BusCell: UITableViewCell {
         return stackView
     }()
     
+    // MARK: - Bus Number
     private let busNumLabel: UILabel = {
         let label = UILabel()
         label.text = "순환20-1등교"
@@ -30,6 +34,7 @@ class BusCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Bus Info
     private lazy var busInfoStackView: UIStackView  = {
         let stackView = UIStackView(arrangedSubviews: [busTypeLabel, busBoundStackView])
         stackView.distribution = .fillProportionally
@@ -80,6 +85,7 @@ class BusCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Life Cycle
         
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -92,6 +98,8 @@ class BusCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
     
     private func addViews() {
         self.contentView.addSubview(mainStackView)
@@ -109,5 +117,12 @@ class BusCell: UITableViewCell {
         let padding = 5.0
         mainStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: padding, leading: 0, bottom: padding, trailing: 0)
         mainStackView.isLayoutMarginsRelativeArrangement = true
+    }
+    
+    private func setCellData() {
+        self.busNumLabel.text = busData?.busNumber
+        self.busTypeLabel.text = busData?.busType.caseName
+        self.upboundLabel.text = busData?.upbound
+        self.downboundLabel.text = busData?.downbound
     }
 }
