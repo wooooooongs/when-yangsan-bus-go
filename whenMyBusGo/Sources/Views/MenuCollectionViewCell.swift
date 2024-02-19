@@ -19,6 +19,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Views
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "버스 시간표"
@@ -37,6 +38,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -50,6 +52,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func addViews() {
         self.contentView.addSubview(titleLabel)
     }
@@ -80,7 +83,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
             make.bottom.equalToSuperview().inset(16)
         }
     }
-    
+        
+    // MARK: - Cell Tapped Animation
     private func addLongPressAnimation() {
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(menuTapped))
         longPressGestureRecognizer.minimumPressDuration = 0.01
