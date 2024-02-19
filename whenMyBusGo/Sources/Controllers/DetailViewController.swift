@@ -13,11 +13,22 @@ class DetailViewController: UIViewController {
         didSet {
             updateUI()
             setDayType()
+            getFavoritedBus()
         }
     }
-    var isUpbound: Bool = true {
+    
+    private var isUpbound: Bool = true {
         didSet {
             updateCollectionViewForNewDirection()
+            updateFavoriteButtonImage()
+        }
+    }
+    
+    // CoreData용 프로퍼티
+    private let coreDataManager = CoreDataManager.shared
+    private var favoritedData: FavoritedBus? {
+        didSet {
+            updateFavoriteButtonImage()
         }
     }
     var isDayTypeSeperated: Bool = false
@@ -164,6 +175,7 @@ class DetailViewController: UIViewController {
         setAutoLayout()
         addOnTapEvents()
         addBorder()
+        addOnTapEventsForCoreData()
     }
     
     // MARK: - Functions
@@ -253,6 +265,14 @@ class DetailViewController: UIViewController {
 
         self.collectionViewLabel.text = isUpbound ? data.upbound : data.downbound
         self.timetableCollectionView.reloadData()
+    }
+    
+    private func updateFavoriteButtonImage() {
+        guard let isCurrentDirectionFavorited: Bool = isUpbound ? favoritedData?.upbound : favoritedData?.downbound else { return }
+        
+        let imageName: String = isCurrentDirectionFavorited ? "heart.fill" : "heart"
+        let newImage = UIImage(systemName: imageName)!
+        self.favoriteButton.setImage(newImage, for: .normal)
     }
     
     private func addOnTapEvents() {
@@ -382,6 +402,26 @@ class DetailViewController: UIViewController {
         if let dayTypeForButton = DayTypeForButton(rawValue: sender.tag), let dayType = dayTypeForButton.convertToDay(dayTypeForButton) {
             self.currentDayType = dayType
             self.timetableCollectionView.reloadData()
+        }
+    }
+    
+    // MARK: - CoreData 즐겨찾기
+    private func addOnTapEventsForCoreData() {
+        let saveOrUpdate = UITapGestureRecognizer(target: self, action: #selector(saveOrUpdateFavorited))
+        favoriteButton.addGestureRecognizer(saveOrUpdate)
+        favoriteButton.isUserInteractionEnabled = true
+    }
+    
+    @objc private func saveOrUpdateFavorited() {
+        coreDataManager.saveOrUpdateFavoriteBus(for: busData!, isUpbound: isUpbound)
+        getFavoritedBus()
+    }
+            
+    private func getFavoritedBus() {
+        guard let busId = self.busData?.id else { return }
+        
+        if let favoritedData = coreDataManager.getFavoriteBus(for: busId) {
+            self.favoritedData = favoritedData
         }
     }
 }
