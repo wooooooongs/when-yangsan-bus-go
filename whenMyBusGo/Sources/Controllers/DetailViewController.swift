@@ -441,12 +441,3 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 70, height: 30)
     }
 }
-
-
-#Preview {
-    let data = BusTimetableManager().getData()[0]
-    let view = DetailViewController()
-    view.busData = data
-    
-    return view
-}
