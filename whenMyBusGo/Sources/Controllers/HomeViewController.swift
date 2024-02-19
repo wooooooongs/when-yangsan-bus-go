@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
+    var favoritedBusArray: [BusTimetableForHomeView] = []
+    
+    let busTimetableManager = BusTimetableManager.shared
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
@@ -46,6 +50,8 @@ class HomeViewController: UIViewController {
         setCollectionView()
         setTableView()
         setAutoLayout()
+        
+        favoritedBusArray = busTimetableManager.getConvertedFavoritedBusArray()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -105,7 +111,7 @@ class HomeViewController: UIViewController {
     
     private func setCollectionViewAutoLayout() {
         // TODO: Section 수 자동 계산
-        let numbersOfSections = 3
+        let numbersOfSections = 2
         let layout = menuCollectionView.collectionViewLayout
         let rowHeight = collectionView(menuCollectionView, layout: layout, sizeForItemAt: IndexPath(row: 0, section: 0)).height
         let spacingForSection = collectionView(menuCollectionView, layout: layout, minimumLineSpacingForSectionAt: 0)
