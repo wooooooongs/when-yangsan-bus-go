@@ -24,6 +24,10 @@ class DetailViewController: UIViewController {
         }
     }
     
+    private var isDayTypeSeperated: Bool = false
+    private var currentDayType: Day = .weekday
+    private var dayTypeButtonArray: [UIButton] = []
+    
     // CoreData용 프로퍼티
     private let coreDataManager = CoreDataManager.shared
     private var favoritedData: FavoritedBus? {
@@ -31,9 +35,6 @@ class DetailViewController: UIViewController {
             updateFavoriteButtonImage()
         }
     }
-    var isDayTypeSeperated: Bool = false
-    var currentDayType: Day = .weekday
-    var dayTypeButtonArray: [UIButton] = []
     
     // MARK: - Views
     private lazy var mainStackView: UIStackView = {
