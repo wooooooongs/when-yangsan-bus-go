@@ -36,7 +36,6 @@
 		2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */; };
 		2ADFB0BA2B729C8F00E6BA0B /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADFB0B92B729C8F00E6BA0B /* MenuCollectionViewCell.swift */; };
 		2ADFB0BC2B729CC700E6BA0B /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADFB0BB2B729CC700E6BA0B /* FavoriteTableViewCell.swift */; };
-		2AE6D5782B1C2FD10081505F /* FavoriteBusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE6D5772B1C2FD10081505F /* FavoriteBusCell.swift */; };
 		2AE74A082B39757C00CC9C21 /* DetailTimetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE74A072B39757C00CC9C21 /* DetailTimetableCell.swift */; };
 		2AEDF3BF2B11823900A7E1DB /* busDatas.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDF3BE2B11823900A7E1DB /* busDatas.json */; };
 		2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A5F12B71286300F794CE /* MenuData.swift */; };
@@ -75,7 +74,6 @@
 		2AD3CE922AED336600C29702 /* BusTimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableViewController.swift; sourceTree = "<group>"; };
 		2ADFB0B92B729C8F00E6BA0B /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		2ADFB0BB2B729CC700E6BA0B /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
-		2AE6D5772B1C2FD10081505F /* FavoriteBusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBusCell.swift; sourceTree = "<group>"; };
 		2AE74A072B39757C00CC9C21 /* DetailTimetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTimetableCell.swift; sourceTree = "<group>"; };
 		2AEDF3BE2B11823900A7E1DB /* busDatas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = busDatas.json; sourceTree = "<group>"; };
 		2AF5A5F12B71286300F794CE /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				2AAAA5192AED397500826F14 /* BusCell.swift */,
-				2AE6D5772B1C2FD10081505F /* FavoriteBusCell.swift */,
 				2AE74A072B39757C00CC9C21 /* DetailTimetableCell.swift */,
 				2ADFB0B92B729C8F00E6BA0B /* MenuCollectionViewCell.swift */,
 				2ADFB0BB2B729CC700E6BA0B /* FavoriteTableViewCell.swift */,
@@ -313,7 +310,6 @@
 				2AD3CE912AED2F9C00C29702 /* TimeUtils.swift in Sources */,
 				2ADFB0BC2B729CC700E6BA0B /* FavoriteTableViewCell.swift in Sources */,
 				2AAAA51A2AED397500826F14 /* BusCell.swift in Sources */,
-				2AE6D5782B1C2FD10081505F /* FavoriteBusCell.swift in Sources */,
 				2AC3D9DC2B773DEE00DEDAB8 /* TabBarViewController.swift in Sources */,
 				2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */,
 				2AC06A932B7CFCA700DA6570 /* CoreDataManager.swift in Sources */,
