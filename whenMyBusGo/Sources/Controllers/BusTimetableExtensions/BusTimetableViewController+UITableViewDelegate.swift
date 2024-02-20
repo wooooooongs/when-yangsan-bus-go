@@ -11,7 +11,7 @@ extension BusTimetableViewController: UITableViewDelegate {
     // MARK: - DetailView 이동
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let busData = allBusTimetables[indexPath.row]
-        let detailVC = DetailViewController()
+        let detailVC = DetailViewController(homeViewController: nil)
         detailVC.busData = busData
         
         present(detailVC, animated: true)

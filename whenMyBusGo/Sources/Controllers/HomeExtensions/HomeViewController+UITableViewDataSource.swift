@@ -21,4 +21,14 @@ extension HomeViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let favoritedBusData = favoritedBusDatas[indexPath.row]
+        let busData = busTimetableManager.getBusTimetableToBusId(favoritedBusData.busId)
+        
+        let detailVC = DetailViewController(homeViewController: self)
+        detailVC.busData = busData
+        
+        present(detailVC, animated: true)
+    }
 }

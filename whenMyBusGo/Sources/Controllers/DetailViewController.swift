@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class DetailViewController: UIViewController {
+    weak var homeViewController: HomeViewController?
+    
     var busData: BusTimetable? {
         didSet {
             updateUI()
@@ -177,6 +179,22 @@ class DetailViewController: UIViewController {
         addOnTapEvents()
         addBorder()
         addOnTapEventsForCoreData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        homeViewController?.viewWillAppear(true)
+        dismiss(animated: true)
+    }
+    
+    init(homeViewController: HomeViewController?) {
+        self.homeViewController = homeViewController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Functions
