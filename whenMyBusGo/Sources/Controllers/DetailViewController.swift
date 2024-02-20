@@ -67,7 +67,7 @@ class DetailViewController: UIViewController {
         
         return label
     }()
-
+    
     private let busNumberLabel: UILabel = {
         let label = UILabel()
         label.text = "0번"
@@ -184,7 +184,7 @@ class DetailViewController: UIViewController {
         self.view.addSubview(mainStackView)
         self.view.backgroundColor = .white
     }
-
+    
     private func setAutoLayout() {
         mainStackView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20))
@@ -263,7 +263,7 @@ class DetailViewController: UIViewController {
     
     private func updateCollectionViewForNewDirection() {
         guard let data = busData else { return }
-
+        
         self.collectionViewLabel.text = isUpbound ? data.upbound : data.downbound
         self.timetableCollectionView.reloadData()
     }
@@ -331,7 +331,7 @@ class DetailViewController: UIViewController {
             holidayButton.setTitle("공휴일", for: .normal)
             holidayButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
             holidayButton.tag = DayTypeForButton.sun.rawValue
-
+            
             dayTypeButtonView.addSubview(weekdayButton)
             dayTypeButtonView.addSubview(saturdayButton)
             dayTypeButtonView.addSubview(holidayButton)
@@ -372,7 +372,7 @@ class DetailViewController: UIViewController {
             weekendButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
             weekendButton.tag = DayTypeForButton.weekend.rawValue
             weekdayButton.backgroundColor = .lightGray
-
+            
             dayTypeButtonView.addSubview(weekdayButton)
             dayTypeButtonView.addSubview(weekendButton)
             
@@ -417,7 +417,7 @@ class DetailViewController: UIViewController {
         coreDataManager.saveOrUpdateFavoriteBus(for: busData!, isUpbound: isUpbound)
         getFavoritedBus()
     }
-            
+    
     private func getFavoritedBus() {
         guard let busId = self.busData?.id else { return }
         
