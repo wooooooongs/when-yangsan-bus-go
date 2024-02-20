@@ -20,7 +20,7 @@ class DetailTimetableCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "00:00"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 20)
+        label.font = .systemFont(ofSize: 22)
         label.textColor = .black
         
         return label
@@ -43,7 +43,7 @@ class DetailTimetableCell: UICollectionViewCell {
     
     private func setAutoLayout() {
         timeLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10))
         }
     }
     
