@@ -119,19 +119,25 @@ class DetailViewController: UIViewController {
     
     // MARK: - Timetable
     private lazy var timetableStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [timetableHeaderStackView, timetableCollectionView])
+        let stackView = UIStackView(arrangedSubviews: [timetableHeaderContainer, timetableCollectionView])
         stackView.axis = .vertical
-        stackView.spacing = 15
         stackView.layer.cornerRadius = 10
         
         return stackView
     }()
+    
+    private lazy var timetableHeaderContainer: UIView = {
+        let view = UIView()
+        view.addSubview(timetableHeaderStackView)
+        view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 10
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
+        return view
+    }()
+    
     private lazy var timetableHeaderStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [collectionViewLabel, favoriteButton])
-        stackView.backgroundColor = .lightGray
-        stackView.layer.cornerRadius = 10
-        stackView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         return stackView
     }()
@@ -208,52 +214,36 @@ class DetailViewController: UIViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide).inset(UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20))
         }
         
-        busUpboundLabel.snp.makeConstraints { make in
-            make.width.lessThanOrEqualTo(110)
-        }
-        
-        busNumberLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(busInfoStackView.snp.bottom).offset(-25)
-            make.height.equalTo(48)
-        }
-        
+        // Bus Info
         busInfoStackView.snp.makeConstraints { make in
             make.height.equalTo(100)
         }
         
         busInfoLeftStackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.6)
         }
         
-        busInfoRightStackView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+        busNumberLabel.snp.makeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(0.8)
         }
         
+        // Buttons
         buttonsStackView.snp.makeConstraints { make in
             make.height.equalTo(35)
         }
         
-        timetableStackView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.height.lessThanOrEqualTo(400)
-        }
-        
+        // Timetable
         timetableHeaderStackView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))
             make.height.equalTo(50)
         }
         
-        collectionViewLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(15)
-            make.top.bottom.equalToSuperview()
-        }
-        
-        timetableCollectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(20)
-        }
-        
         favoriteButton.snp.makeConstraints { make in
-            make.width.equalTo(40)
+            make.width.equalTo(50)
+        }
+        
+        emptyView.snp.makeConstraints { make in
+            make.height.equalTo(150)
         }
     }
     
