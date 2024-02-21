@@ -190,7 +190,7 @@ class DetailViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        homeViewController?.viewWillAppear(true)
+        homeViewController?.updateFavoritedBusData()
         dismiss(animated: true)
     }
     

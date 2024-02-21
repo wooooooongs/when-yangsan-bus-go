@@ -53,17 +53,11 @@ class HomeViewController: UIViewController {
         setTableView()
         setAutoLayout()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        updateFavoritedBusData()
-        setTableViewAutoLayout()
-    }
-        
+            
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        updateFavoritedBusData()
         setCollectionViewAutoLayout()
     }
     
@@ -133,6 +127,7 @@ class HomeViewController: UIViewController {
     func updateFavoritedBusData() {
         favoritedBusDatas = busTimetableManager.getConvertedFavoritedBusArray()
         favoriteTableView.reloadData()
+        setTableViewAutoLayout()
     }
 }
 
