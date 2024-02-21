@@ -82,13 +82,15 @@ enum DayTypeForButton: Int {
 }
 
 struct BusTimetableForHomeView {
+    var busId: String
     var busNumber: String
     var upbound: String?
     var downbound: String?
     var busType: BusType
     var busTypeCaseName: String
     
-    init(busNumber: String, upbound: String?, downbound: String?, busType: BusType) {
+    init(busId: String, busNumber: String, upbound: String?, downbound: String?, busType: BusType) {
+        self.busId = busId
         self.busNumber = busNumber
         self.upbound = upbound
         self.downbound = downbound
