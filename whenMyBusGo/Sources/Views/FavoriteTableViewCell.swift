@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
-    var busData: BusTimetableForHomeView? {
+    var favoritedBusData: BusTimetableForHomeView? {
         didSet {
             setCellData()
         }

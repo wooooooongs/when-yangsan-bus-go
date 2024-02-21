@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
-    var favoritedBusArray: [BusTimetableForHomeView] = []
+    var favoritedBusDatas: [BusTimetableForHomeView] = []
     
     let busTimetableManager = BusTimetableManager.shared
     
