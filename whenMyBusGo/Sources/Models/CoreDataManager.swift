@@ -21,6 +21,7 @@ final class CoreDataManager {
     private var favoritedBusArray: [FavoritedBus] = []
     
     func getAllFavoritedBus() -> [FavoritedBus] {
+        fetchAllFavoritedBus()
         return self.favoritedBusArray
     }
     
@@ -101,10 +102,6 @@ final class CoreDataManager {
             do {
                 if let fetchedFavoritedBusList = try context.fetch(request) as? [FavoritedBus] {
                     favoritedBusArray = fetchedFavoritedBusList
-                    
-                    favoritedBusArray.forEach { bus in
-                        print("\(bus.id ?? "?"), \(bus.upbound), \(bus.downbound), ")
-                    }
                 }
             } catch {
                 print("즐겨찾기 된 버스를 가져오는 데 실패했습니다!")
