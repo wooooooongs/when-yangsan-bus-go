@@ -22,12 +22,13 @@ class BusTimetableManager {
     func getAllBusTimetables() -> [BusTimetable] {
         return busTimetables
     }
-    
+        
     func getConvertedFavoritedBusArray() -> [BusTimetableForHomeView] {
+        self.convertFavoritedBusToBusTimetable()
         return convertedFavoritedBusArray
     }
-        
-    // MARK: - Functions
+            
+    // MARK: - Methods
     private func decodeDataFromBusDatas() {
         guard let jsonPath = Bundle.main.path(forResource: "busDatas", ofType: "json") else { return }
         let decoder = JSONDecoder()
@@ -46,26 +47,32 @@ class BusTimetableManager {
     
     private func convertFavoritedBusToBusTimetable() {
         let favoritedBusArray = coreDataManager.getAllFavoritedBus()
+        var convertedFavoritedBusArrayTemp: [BusTimetableForHomeView] = []
         
         for favoritedBus in favoritedBusArray {
             guard let busId = favoritedBus.id else { return }
             
             if let busTimetable = busTimetables.first(where: { $0.id == busId }) {
+                let busId = busTimetable.id
                 let busNumber = busTimetable.busNumber
                 let busType = busTimetable.busType
-                var busDirection: String?
                 
                 if favoritedBus.upbound {
-                    busDirection = busTimetable.upbound
+                    let busTimetableForHomeView = BusTimetableForHomeView(busId: busId, busNumber: busNumber, upbound: busTimetable.upbound, downbound: "", busType: BusType(rawValue: busType.rawValue) ?? .일반)
+                    convertedFavoritedBusArrayTemp.append(busTimetableForHomeView)
                 }
                 
                 if favoritedBus.downbound {
-                    busDirection = busTimetable.downbound
+                    let busTimetableForHomeView = BusTimetableForHomeView(busId: busId, busNumber: busNumber, upbound: "", downbound: busTimetable.downbound, busType: BusType(rawValue: busType.rawValue) ?? .일반)
+                    convertedFavoritedBusArrayTemp.append(busTimetableForHomeView)
                 }
                 
-                let busTimetableForHomeView = BusTimetableForHomeView(busNumber: busNumber, upbound: busDirection, downbound: busDirection, busType: BusType(rawValue: busType.rawValue) ?? .일반)
-                convertedFavoritedBusArray.append(busTimetableForHomeView)
+                convertedFavoritedBusArray = convertedFavoritedBusArrayTemp
             }
         }
+    }
+    
+    func getBusTimetableToBusId(_ busId: String) -> BusTimetable? {
+        return busTimetables.first(where: { $0.id == busId })
     }
 }

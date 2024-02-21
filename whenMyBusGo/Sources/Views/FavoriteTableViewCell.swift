@@ -14,8 +14,10 @@ class FavoriteTableViewCell: UITableViewCell {
             setCellData()
         }
     }
+    var busData: BusTimetable?
+    let busTimetableManager = BusTimetableManager.shared
     
-    // MARK: - UI
+    // MARK: - Views
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [busInfoStackView, timeInfoStackView])
         stackView.alignment = .center
@@ -107,6 +109,7 @@ class FavoriteTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setBusData()
         addViews()
         setAutoLayout()
         addLongPressAnimation()
@@ -140,10 +143,16 @@ class FavoriteTableViewCell: UITableViewCell {
     }
     
     private func setCellData() {
-        self.busNumLabel.text = busData?.busNumber
-        self.busTypeLabel.text = busData?.busType.caseName
-        self.busDiretionLabel.text = busData?.upbound
-        self.busDiretionLabel.text = busData?.downbound
+        let isUpbound = favoritedBusData?.upbound != ""
+        
+        self.busNumLabel.text = favoritedBusData?.busNumber
+        self.busTypeLabel.text = favoritedBusData?.busType.caseName
+        
+        if isUpbound {
+            self.busDiretionLabel.text = favoritedBusData?.upbound
+        } else {
+            self.busDiretionLabel.text = favoritedBusData?.downbound
+        }
         
         self.timeLeftLabel.text = "막차 끊김"
         self.nextTimeLabel.text = "06:55"
@@ -185,6 +194,12 @@ class FavoriteTableViewCell: UITableViewCell {
                 self.transform = CGAffineTransform.identity
             })
         }
+    }
+    
+    private func setBusData() {
+        guard let busId = favoritedBusData?.busId else { return }
+        
+        busData = busTimetableManager.getBusTimetableToBusId(busId)
     }
 }
 
