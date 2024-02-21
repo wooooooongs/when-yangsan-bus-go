@@ -52,15 +52,19 @@ class HomeViewController: UIViewController {
         setCollectionView()
         setTableView()
         setAutoLayout()
-        
-        favoritedBusArray = busTimetableManager.getConvertedFavoritedBusArray()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateFavoritedBusData()
+        setTableViewAutoLayout()
+    }
+        
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setCollectionViewAutoLayout()
-        setTableViewAutoLayout()
     }
     
     // MARK: - Methods
@@ -108,7 +112,7 @@ class HomeViewController: UIViewController {
         let rowHeight = tableView(favoriteTableView, heightForRowAt: IndexPath(row: 0, section: 0))
         let totalHeight = numberOfRows * Int(rowHeight)
         
-        favoriteTableView.snp.makeConstraints { make in
+        favoriteTableView.snp.updateConstraints { make in
             make.height.equalTo(totalHeight)
         }
     }
@@ -121,9 +125,14 @@ class HomeViewController: UIViewController {
         let spacingForSection = collectionView(menuCollectionView, layout: layout, minimumLineSpacingForSectionAt: 0)
         let totalHeight = CGFloat(numbersOfSections) * (rowHeight + spacingForSection)
         
-        menuCollectionView.snp.updateConstraints { make in
+        menuCollectionView.snp.makeConstraints { make in
             make.height.equalTo(totalHeight)
         }
+    }
+    
+    func updateFavoritedBusData() {
+        favoritedBusDatas = busTimetableManager.getConvertedFavoritedBusArray()
+        favoriteTableView.reloadData()
     }
 }
 
