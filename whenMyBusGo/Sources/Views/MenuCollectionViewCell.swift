@@ -10,7 +10,7 @@ import UIKit
 class MenuCollectionViewCell: UICollectionViewCell {
     var menuData: MenuData? {
         didSet {
-            self.titleLabel.text = menuData?.title
+            self.titleLabel.text = menuData?.title.rawValue
             
             if menuData?.isWebView == true {
                 setBorder()
@@ -43,7 +43,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addViews()
-        configureUI()
+        setAutoLayout()
         setStyle()
         addLongPressAnimation()
     }
@@ -57,7 +57,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(titleLabel)
     }
     
-    private func configureUI() {
+    private func setAutoLayout() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(26)
             make.left.equalToSuperview().inset(16)

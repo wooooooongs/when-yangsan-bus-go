@@ -8,8 +8,16 @@
 import Foundation
 
 struct MenuData {
-    var title: String = "메뉴"
+    var title: MenuString
     var isWebView: Bool = false
+    
+}
+
+enum MenuString: String {
+    case busTimetable = "버스 시간표"
+    case location_yangsan = "실시간 위치"
+    case notice_yangsan = "공지사항"
+    case qna = "문의사항"
 }
 
 struct MenuDatas {
@@ -17,10 +25,10 @@ struct MenuDatas {
     
     func fetchMenuDatas() -> [MenuData] {
         return [
-            MenuData(title: "버스 시간표", isWebView: false),
-            MenuData(title: "실시간 위치", isWebView: true),
-            MenuData(title: "공지사항", isWebView: true),
-            MenuData(title: "문의사항", isWebView: false),
+            MenuData(title: .busTimetable, isWebView: false),
+            MenuData(title: .location_yangsan, isWebView: true),
+            MenuData(title: .notice_yangsan, isWebView: true),
+            MenuData(title: .qna, isWebView: false),
         ]
     }
 }
