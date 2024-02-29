@@ -27,19 +27,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     // MARK: - Cell Tapped 화면 전환
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? MenuCollectionViewCell {
-            let (isTimetable, isLocation, isNotice, isQna) = (
-                cell.menuData?.title == .busTimetable,
-                cell.menuData?.title == .location_yangsan,
-                cell.menuData?.title == .notice_yangsan,
-                cell.menuData?.title == .qna
-            )
+        if let cell = collectionView.cellForItem(at: indexPath) as? MenuCollectionViewCell,
+           let menuData = cell.menuData {
             
-            if isTimetable {
+            switch menuData.title {
+            case .busTimetable:
                 let busTimetableViewController = BusTimetableViewController()
                 self.navigationController?.pushViewController(busTimetableViewController, animated: true)
+            case .location_yangsan:
+                let locationWebViewController = LocationWebViewController()
+                self.navigationController?.pushViewController(locationWebViewController, animated: true)
+            case .notice_yangsan:
+                let noticeWebViewController = NoticeWebViewController()
+                self.navigationController?.pushViewController(noticeWebViewController, animated: true)
+            case .qna:
+                return
             }
         }
-        
     }
 }
