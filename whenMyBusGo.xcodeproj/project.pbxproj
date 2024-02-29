@@ -21,6 +21,10 @@
 		2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */; };
 		2A6F6DD82AF12703008B23ED /* UrlList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F6DD72AF12703008B23ED /* UrlList.plist */; };
 		2A746B972AED6BF800CB7AE6 /* BusTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A746B962AED6BF800CB7AE6 /* BusTimetable.swift */; };
+		2A822E5B2B861E2900CC4249 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A822E5A2B861E2900CC4249 /* WebKit.framework */; };
+		2A822E5D2B86201B00CC4249 /* NoticeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A822E5C2B86201B00CC4249 /* NoticeWebViewController.swift */; };
+		2A822E5F2B8631DA00CC4249 /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A822E5E2B8631DA00CC4249 /* WebViewManager.swift */; };
+		2A822E612B86345C00CC4249 /* LocationWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A822E602B86345C00CC4249 /* LocationWebViewController.swift */; };
 		2A860ABB2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860ABA2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift */; };
 		2A860ABD2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860ABC2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift */; };
 		2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A860ABE2B6F7AA600A48997 /* HexColor.swift */; };
@@ -59,6 +63,10 @@
 		2A6E3CDF2A573CEC0012FCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6F6DD72AF12703008B23ED /* UrlList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UrlList.plist; sourceTree = "<group>"; };
 		2A746B962AED6BF800CB7AE6 /* BusTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetable.swift; sourceTree = "<group>"; };
+		2A822E5A2B861E2900CC4249 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		2A822E5C2B86201B00CC4249 /* NoticeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeWebViewController.swift; sourceTree = "<group>"; };
+		2A822E5E2B8631DA00CC4249 /* WebViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewManager.swift; sourceTree = "<group>"; };
+		2A822E602B86345C00CC4249 /* LocationWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWebViewController.swift; sourceTree = "<group>"; };
 		2A860ABA2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		2A860ABC2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		2A860ABE2B6F7AA600A48997 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
@@ -86,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A822E5B2B861E2900CC4249 /* WebKit.framework in Frameworks */,
 				2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +108,7 @@
 				2A678B362A65451900E4C360 /* .gitignore */,
 				2A6E3CCD2A573CEB0012FCAF /* whenMyBusGo */,
 				2A6E3CCC2A573CEB0012FCAF /* Products */,
+				2A822E592B861E2900CC4249 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +133,14 @@
 				2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */,
 			);
 			path = whenMyBusGo;
+			sourceTree = "<group>";
+		};
+		2A822E592B861E2900CC4249 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A822E5A2B861E2900CC4249 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2A96EEC12B6D662E0042F0FB /* HomeExtensions */ = {
@@ -154,6 +172,8 @@
 				2AC3D9DB2B773DEE00DEDAB8 /* TabBarViewController.swift */,
 				2A1156C02B30172B0076BA33 /* DetailViewController.swift */,
 				2A96EEBF2B6D5E660042F0FB /* HomeViewController.swift */,
+				2A822E5C2B86201B00CC4249 /* NoticeWebViewController.swift */,
+				2A822E602B86345C00CC4249 /* LocationWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +197,7 @@
 				2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */,
 				2AF5A5F12B71286300F794CE /* MenuData.swift */,
 				2AC06A922B7CFCA700DA6570 /* CoreDataManager.swift */,
+				2A822E5E2B8631DA00CC4249 /* WebViewManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,7 +334,9 @@
 				2AC3D9DC2B773DEE00DEDAB8 /* TabBarViewController.swift in Sources */,
 				2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */,
 				2AC06A932B7CFCA700DA6570 /* CoreDataManager.swift in Sources */,
+				2A822E5D2B86201B00CC4249 /* NoticeWebViewController.swift in Sources */,
 				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
+				2A822E612B86345C00CC4249 /* LocationWebViewController.swift in Sources */,
 				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
 				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
 				2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */,
@@ -328,6 +351,7 @@
 				2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */,
 				2A860ABB2B6F68B900A48997 /* HomeViewController+UICollectionViewDataSource.swift in Sources */,
 				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
+				2A822E5F2B8631DA00CC4249 /* WebViewManager.swift in Sources */,
 				2A1156C12B30172B0076BA33 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
