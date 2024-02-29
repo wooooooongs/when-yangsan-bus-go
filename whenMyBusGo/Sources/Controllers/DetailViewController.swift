@@ -481,3 +481,11 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 80, height: 60)
     }
 }
+
+#Preview {
+    let vc = DetailViewController(homeViewController: nil)
+    let manager = BusTimetableManager.shared
+    vc.busData = manager.getAllBusTimetables()[0]
+    
+    return vc
+}
