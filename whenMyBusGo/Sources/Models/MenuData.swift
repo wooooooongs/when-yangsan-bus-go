@@ -22,8 +22,9 @@ enum MenuString: String {
 
 struct MenuDatas {
     static var shared = MenuDatas()
+    private init() {}
     
-    func fetchMenuDatas() -> [MenuData] {
+    func getMenuDatas() -> [MenuData] {
         return [
             MenuData(title: .busTimetable, isWebView: false),
             MenuData(title: .location_yangsan, isWebView: true),
