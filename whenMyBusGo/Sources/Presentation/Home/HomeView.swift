@@ -45,9 +45,10 @@ private struct HomeMenuView: View {
             ForEach(0..<2) { rowIndex in
                 HStack(spacing: padding) {
                     ForEach(0..<2) { columnIndex in
-                        let menuIndex: Int? = rowIndex * 2 + columnIndex
-                        if let unwrappedMenuIndex = menuIndex, unwrappedMenuIndex < menuDatas.count {
-                            menuButton(for: menuDatas[unwrappedMenuIndex])
+                        let menuIndex = rowIndex * 2 + columnIndex
+                        
+                        if menuIndex < menuDatas.count {
+                            menuButton(for: menuDatas[menuIndex])
                         } else {
                             emptyMenuButton()
                         }
@@ -69,7 +70,7 @@ private struct HomeMenuView: View {
                         }
                     }
                 )
-
+            
             VStack() {
                 HStack() {
                     Text(menuData.title.rawValue)
