@@ -117,11 +117,32 @@ private struct HomeMenuView: View {
 private struct HomeFavoritedBusListView: View {
     var body: some View {
         
-        VStack {
-            RoundedRectangle(cornerRadius: 10.0)
-                .frame(height: 50.0)
+        ZStack {
+            Color.white
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("좌석 북정발")
+                        .font(.caption)
+                        .offset(y: 2.5)
+                    
+                    Text("1200")
+                        .font(.largeTitle)
+                }
+                
+                Spacer()
+                
+                VStack(alignment: .trailing) {
+                    Text("막차 끊김")
+                        .font(.callout)
+                    Text("06:55 출발")
+                        .font(.callout)
+                }
+            }
+            .padding([.leading, .trailing], 20)
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: 70.0)
     }
 }
 
