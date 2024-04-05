@@ -39,21 +39,12 @@ private struct HomeMenuView: View {
     var menuSize: CGFloat {
         (UIScreen.main.bounds.width / 2) - (safeAreaPadding + (padding / 2))
     }
+    let menuColumns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     var body: some View {
-        VStack(spacing: padding) {
-            ForEach(0..<2) { rowIndex in
-                HStack(spacing: padding) {
-                    ForEach(0..<2) { columnIndex in
-                        let menuIndex = rowIndex * 2 + columnIndex
-                        
-                        if menuIndex < menuDatas.count {
-                            menuButton(for: menuDatas[menuIndex])
-                        } else {
-                            emptyMenuButton()
-                        }
-                    }
-                }
+        LazyVGrid(columns: menuColumns, spacing: padding) {
+            ForEach(menuDatas.indices, id: \.self) { menuIndex in
+                menuButton(for: menuDatas[menuIndex])
             }
         }
     }
