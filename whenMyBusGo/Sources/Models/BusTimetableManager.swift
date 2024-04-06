@@ -22,12 +22,22 @@ class BusTimetableManager {
     func getAllBusTimetables() -> [BusTimetable] {
         return busTimetables
     }
+    
+    func getBusTimetables(forType busType: BusType) -> [BusTimetable] {
+        if busType == .전체 {
+            return busTimetables
+        }
         
+        return busTimetables.filter {
+            $0.busType == busType
+        }
+    }
+    
     func getConvertedFavoritedBusArray() -> [BusTimetableForHomeView] {
         self.convertFavoritedBusToBusTimetable()
         return convertedFavoritedBusArray
     }
-            
+    
     // MARK: - Methods
     private func decodeDataFromBusDatas() {
         guard let jsonPath = Bundle.main.path(forResource: "busDatas", ofType: "json") else { return }

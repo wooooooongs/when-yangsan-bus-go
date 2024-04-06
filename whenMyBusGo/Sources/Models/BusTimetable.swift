@@ -30,7 +30,8 @@ struct BusTimetable: Decodable {
     }
 }
 
-enum BusType: String {
+enum BusType: String, CaseIterable {
+    case 전체 = "0"
     case 일반 = "1"
     case 좌석 = "2"
     case 심야 = "3"
@@ -43,6 +44,8 @@ enum BusType: String {
     
     var caseName: String {
         switch self {
+        case .전체:
+            return "전체"
         case .일반:
             return "일반"
         case .좌석:
