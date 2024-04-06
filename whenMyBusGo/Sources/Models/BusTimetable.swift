@@ -11,7 +11,7 @@ struct BusTimetables: Decodable {
     let result: [BusTimetable]
 }
 
-struct BusTimetable: Decodable {
+struct BusTimetable: Decodable, Identifiable {
     let busNumber: String
     let id: String
     let upbound: String

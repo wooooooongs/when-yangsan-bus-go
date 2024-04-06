@@ -12,6 +12,7 @@ struct BusTimetableView: View {
     
     @State var currentBusType: BusType = .전체
     @State var currentBusList: [BusTimetable] = []
+    @State var currentBus: BusTimetable? = nil
     
     let setBackground = Color(HexColor.from("EEEEEE"))
     let busTypes = BusType.allCases
@@ -55,7 +56,11 @@ struct BusTimetableView: View {
                 ScrollView(.vertical) {
                     VStack(spacing: 12.5) {
                         ForEach(currentBusList, id: \.id) { item in
-                            busItem(for: item)
+                            Button(action: {
+                                currentBus = item
+                            }) {
+                                busItem(for: item)
+                            }
                         }
                     }
                 }
@@ -63,8 +68,11 @@ struct BusTimetableView: View {
                 .padding([.leading, .trailing], 25)
                 
             }
-            .padding(.top, 100.0)
+            .padding(.top, 20)
         }
+        .sheet(item: $currentBus, content: { bus in
+            detailSheet(bus)
+        })
         .navigationTitle("버스 목록")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -105,6 +113,10 @@ struct BusTimetableView: View {
         .frame(maxWidth: .infinity)
     }
     
+    @ViewBuilder
+    private func detailSheet(_ bus: BusTimetable) -> some View {
+        Text("\(bus.busNumber)")
+    }
 }
 
 #Preview {
