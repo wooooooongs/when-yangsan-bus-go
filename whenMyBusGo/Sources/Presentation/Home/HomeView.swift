@@ -11,19 +11,22 @@ struct HomeView: View {
     let setBackground = Color(HexColor.from("EEEEEE"))
     
     var body: some View {
-        ZStack {
-            setBackground
-            
-            VStack(alignment: .center, spacing: 25) {
-                HomeMenuView()
+        NavigationStack {
+            ZStack {
+                setBackground
+                    .ignoresSafeArea()
                 
-                HomeFavoritedBusListView()
-                
-                Spacer()
+                VStack(alignment: .center, spacing: 25) {
+                    HomeMenuView()
+                    
+                    HomeFavoritedBusListView()
+                    
+                    Spacer()
+                }
+                .safeAreaPadding([.top, .leading, .trailing], 30)
             }
-            .safeAreaPadding([.leading, .trailing], 30)
+            .navigationTitle("언제 출발해?")
         }
-        .ignoresSafeArea()
     }
 }
 
@@ -44,7 +47,11 @@ private struct HomeMenuView: View {
     var body: some View {
         LazyVGrid(columns: menuColumns, spacing: padding) {
             ForEach(menuDatas.indices, id: \.self) { menuIndex in
-                menuButton(for: menuDatas[menuIndex])
+                let menuData = menuDatas[menuIndex]
+                
+                NavigationLink(destination: menuView(menuData)) {
+                    menuButton(for: menuData)
+                }
             }
         }
     }
@@ -99,6 +106,20 @@ private struct HomeMenuView: View {
     }
     
     @ViewBuilder
+    private func menuView(_ menuData: MenuData) -> some View {
+        switch menuData.title {
+        case .busTimetable:
+            BusTimetableView()
+        case .location_yangsan:
+            BusTimetableView()
+        case .notice_yangsan:
+            BusTimetableView()
+        case .qna:
+            BusTimetableView()
+        }
+    }
+    
+    @ViewBuilder
     private func webViewBorder() -> some View {
         RoundedRectangle(cornerRadius: 10)
             .stroke(.yangsan, lineWidth: 4)
@@ -139,4 +160,5 @@ private struct HomeFavoritedBusListView: View {
 
 #Preview {
     ContentView()
+        .tint(.black)
 }
