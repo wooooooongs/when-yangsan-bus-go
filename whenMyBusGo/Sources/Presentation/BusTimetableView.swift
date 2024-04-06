@@ -10,8 +10,15 @@ import SwiftUI
 struct BusTimetableView: View {
     let busTimetableManager = BusTimetableManager.shared
     
+    @State var currentBusType: BusType = .전체
+    @State var currentBusList: [BusTimetable] = []
+    
     let setBackground = Color(HexColor.from("EEEEEE"))
     let busTypes = BusType.allCases
+    
+    init() {
+        _currentBusList = State(initialValue: busTimetableManager.getAllBusTimetables())
+    }
     
     var body: some View {
         ZStack {
@@ -23,17 +30,19 @@ struct BusTimetableView: View {
                     HStack {
                         ForEach(busTypes, id: \.self) { busType in
                             Button(action: {
+                                currentBusType = busType
+                                currentBusList = busTimetableManager.getBusTimetables(forType: busType)
                             }) {
                                 Text("\(busType)")
                                     .font(.callout)
                                     .fontWeight(.medium)
                                     .foregroundColor(
-                                        .white
+                                        currentBusType == busType ? .white : .black
                                     )
                                     .padding(.vertical, 8)
                                     .padding(.horizontal, 16)
                                     .background(Capsule().fill(
-                                        .yangsan
+                                        currentBusType == busType ? .yangsan : .white
                                     ))
                             }
                         }
