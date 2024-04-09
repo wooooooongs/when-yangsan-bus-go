@@ -71,7 +71,7 @@ struct BusTimetableView: View {
             .padding(.top, 20)
         }
         .sheet(item: $currentBus, content: { bus in
-            DetailSheet(busData: .constant(bus))
+            BusDetailSheet(busData: .constant(bus))
         })
         .navigationTitle("버스 목록")
         .navigationBarTitleDisplayMode(.inline)
