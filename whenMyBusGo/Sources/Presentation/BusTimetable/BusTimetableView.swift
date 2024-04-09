@@ -71,7 +71,7 @@ struct BusTimetableView: View {
             .padding(.top, 20)
         }
         .sheet(item: $currentBus, content: { bus in
-            detailSheet(bus)
+            DetailSheet(busData: .constant(bus))
         })
         .navigationTitle("버스 목록")
         .navigationBarTitleDisplayMode(.inline)
@@ -112,15 +112,11 @@ struct BusTimetableView: View {
         }
         .frame(maxWidth: .infinity)
     }
-    
-    @ViewBuilder
-    private func detailSheet(_ bus: BusTimetable) -> some View {
-        Text("\(bus.busNumber)")
-    }
 }
 
 #Preview {
-    //    ContentView()
-    //        .tint(.black)
+//        ContentView()
+//            .tint(.black)
     BusTimetableView()
+        .tint(.black)
 }
