@@ -14,6 +14,7 @@
 		2A14BCD82AED37E300867A0B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14BCD72AED37E300867A0B /* Constants.swift */; };
 		2A23A8B12B499C67007F7B74 /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */; };
 		2A25E3532BC5281F00A18086 /* DetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25E3522BC5281F00A18086 /* DetailSheet.swift */; };
+		2A25E3552BC5323900A18086 /* View+roundSpecificCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25E3542BC5323900A18086 /* View+roundSpecificCorners.swift */; };
 		2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */; };
 		2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */; };
 		2A678B372A65451900E4C360 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A678B362A65451900E4C360 /* .gitignore */; };
@@ -59,6 +60,7 @@
 		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
 		2A25E3522BC5281F00A18086 /* DetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSheet.swift; sourceTree = "<group>"; };
+		2A25E3542BC5323900A18086 /* View+roundSpecificCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+roundSpecificCorners.swift"; sourceTree = "<group>"; };
 		2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableManager.swift; sourceTree = "<group>"; };
 		2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "whenMyBusGo++Bundle.swift"; sourceTree = "<group>"; };
 		2A678B362A65451900E4C360 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				2A860ABE2B6F7AA600A48997 /* HexColor.swift */,
 				2AF5A5F32B714C6700F794CE /* UIImage+resizeImage.swift */,
 				2A023FD22B78E96A00123A1E /* CustomButton.swift */,
+				2A25E3542BC5323900A18086 /* View+roundSpecificCorners.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				2AC580512BB5D12000073AEB /* ContentView.swift in Sources */,
 				2A822E612B86345C00CC4249 /* LocationWebViewController.swift in Sources */,
 				2A14BCD82AED37E300867A0B /* Constants.swift in Sources */,
+				2A25E3552BC5323900A18086 /* View+roundSpecificCorners.swift in Sources */,
 				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
 				2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */,
 				2A860ABD2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift in Sources */,

@@ -69,7 +69,7 @@ private struct HomeMenuView: View {
                     }
                 )
             
-            VStack() {
+            VStack {
                 HStack() {
                     Text(menuData.title.rawValue)
                         .font(.title)
@@ -81,7 +81,7 @@ private struct HomeMenuView: View {
                 
                 Spacer()
                 
-                HStack() {
+                HStack {
                     Spacer()
                     
                     if menuData.isWebView {
