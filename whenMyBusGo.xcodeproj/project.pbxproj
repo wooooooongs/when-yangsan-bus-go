@@ -117,10 +117,25 @@
 		2A25E3512BC527EF00A18086 /* BusTimetable */ = {
 			isa = PBXGroup;
 			children = (
-				2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */,
+				2A5C37002BC687D00070CD62 /* Components */,
 				2A25E3522BC5281F00A18086 /* BusDetailSheet.swift */,
 			);
 			path = BusTimetable;
+			sourceTree = "<group>";
+		};
+		2A5C37002BC687D00070CD62 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2A5C37022BC688120070CD62 /* BusList */ = {
+			isa = PBXGroup;
+			children = (
+				2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */,
+			);
+			path = BusList;
 			sourceTree = "<group>";
 		};
 		2A6E3CC22A573CEB0012FCAF = {
@@ -178,6 +193,7 @@
 		2A97130D2BAEFF1E00E31C1C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2A5C37022BC688120070CD62 /* BusList */,
 				2A25E3512BC527EF00A18086 /* BusTimetable */,
 				2A97130E2BAEFFE300E31C1C /* Home */,
 				2A97130F2BAF105600E31C1C /* WhenYangsanBusGoApp.swift */,
