@@ -70,9 +70,10 @@ struct BusTimetableView: View {
             }
             .padding(.top, 20)
         }
-        .sheet(item: $currentBus, content: { bus in
+        .sheet(item: $currentBus) { bus in
             BusDetailSheet(busData: .constant(bus))
-        })
+                .transparentBackground()
+        }
         .navigationTitle("버스 목록")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -111,6 +112,38 @@ struct BusTimetableView: View {
             .padding([.top, .bottom], 15)
         }
         .frame(maxWidth: .infinity)
+    }
+}
+
+struct TransparentBackgroundViewModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 16.4, *) {
+            content
+                .presentationBackground(.clear)
+        } else {
+            content
+                .background(TransparentBackgroundView())
+        }
+    }
+}
+
+struct TransparentBackgroundView: UIViewRepresentable {
+    func makeUIView(context: Context) -> some UIView {
+        let view = UIView()
+        
+        DispatchQueue.main.async {
+            view.superview?.superview?.backgroundColor = .clear
+        }
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {}
+}
+
+extension View {
+    func transparentBackground() -> some View {
+        self.modifier(TransparentBackgroundViewModifier())
     }
 }
 
