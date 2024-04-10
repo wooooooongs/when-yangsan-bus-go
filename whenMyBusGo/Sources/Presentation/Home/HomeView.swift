@@ -23,6 +23,7 @@ struct HomeView: View {
                     
                     Spacer()
                 }
+                // TODO: padding 재활용
                 .safeAreaPadding([.top, .leading, .trailing], 30)
             }
             .navigationTitle("언제 출발해?")
@@ -109,13 +110,13 @@ private struct HomeMenuView: View {
     private func menuView(_ menuData: MenuData) -> some View {
         switch menuData.title {
         case .busTimetable:
-            BusTimetableView()
+            BusListView()
         case .location_yangsan:
-            BusTimetableView()
+            BusListView()
         case .notice_yangsan:
-            BusTimetableView()
+            BusListView()
         case .qna:
-            BusTimetableView()
+            BusListView()
         }
     }
     
