@@ -8,20 +8,15 @@
 import SwiftUI
 
 struct BusDetailSheet: View {
-    let setBackground = Color(HexColor.from("EEEEEE"))
-    
     @Binding var busData: BusTimetable
     
     var body: some View {
         ZStack {
-            setBackground
-                .ignoresSafeArea()
-            
             VStack {
                 busInfo()
+                    .frame(maxHeight: 100)
                 
                 timetable()
-                    .padding(.top, 10)
                 
                 ZStack {
                     Color.white
@@ -36,95 +31,48 @@ struct BusDetailSheet: View {
     
     @ViewBuilder
     private func busInfo() -> some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("\(busData.busType)")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                Text("\(busData.busNumber)")
-                    .font(.system(size: 48, weight: .bold))
-            }
+        ZStack {
+            Color.yangsan
+                .roundedCorner([.topLeft, .topRight], 20)
             
-            Spacer()
-        }
-    }
-    @ViewBuilder
-    private func timetable() -> some View {
-        HStack(spacing: 0) {
-            upbound()
-            
-            downbound()
-        }
-    }
-    
-    @ViewBuilder
-    private func upbound() -> some View {
-        VStack(spacing: 0) {
-            // header
-            ZStack {
-                Color.yangsan
-                    .overlay {
-                        HStack {
-                            Image(systemName: "star")
-                                .foregroundStyle(.white)
-                            
-                            Text("\(busData.upbound)")
-                                .foregroundStyle(.white)
-                                .font(.title3)
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                        }
-                        .padding([.top, .bottom, .leading], 10)
+            VStack(spacing: 0) {
+                Capsule()
+                    .frame(width: 35, height: 5)
+                    .padding(.bottom, 15)
+
+                HStack {
+                    Text("\(busData.busType)")
+                        .font(.callout)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Image(systemName: "star")
+                        
+                        Text("\(busData.upbound)")
+                            .fontWeight(.bold)
                     }
-                    .roundedCorner(.topLeft, 20)
-            }
-            .frame(maxHeight: 50)
-            
-            // body
-            ZStack {
-                Color.white
+                    .padding([.top, .bottom], 5)
+                    .padding([.leading, .trailing], 7.5)
+                    .background(Color.black.opacity(0.25), in: Capsule())
+                }
                 
-                ScrollView {
-                    VStack(spacing: 10) {
-                        ForEach(busData.upboundTimetable[.sat]!, id: \.self) { time in
-                            Divider()
-                                .padding([.leading, .trailing], 20)
-                            Text(time)
-                                .font(.title3)
-                        }
-                    }
+                HStack {
+                    Text("\(busData.busNumber)")
+                        .font(.largeTitle)
+                    
+                    Spacer()
                 }
             }
+            .padding()
+            .foregroundStyle(.white)
         }
     }
     
     @ViewBuilder
-    private func downbound() -> some View {
-        VStack(spacing: 0) {
-            // header
-            ZStack {
-                Color.yangsan
-                    .overlay {
-                        HStack() {
-                            Image(systemName: "star")
-                                .foregroundStyle(.white)
-                            
-                            
-                            Text("\(busData.downbound)")
-                                .foregroundStyle(.white)
-                                .font(.title3)
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                        }
-                        .padding([.top, .bottom, .leading], 10)
-                    }
-                    .roundedCorner(.topRight, 20)
-            }
-            .frame(maxHeight: 50)
-            
-            // body
+    private func timetable() -> some View {
+        VStack {
             ZStack {
                 Color.white
                 
