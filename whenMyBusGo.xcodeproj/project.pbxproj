@@ -16,6 +16,7 @@
 		2A25E3532BC5281F00A18086 /* BusDetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25E3522BC5281F00A18086 /* BusDetailSheetView.swift */; };
 		2A25E3552BC5323900A18086 /* View+roundSpecificCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25E3542BC5323900A18086 /* View+roundSpecificCorners.swift */; };
 		2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */; };
+		2A5C37042BC68A170070CD62 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C37032BC68A170070CD62 /* Timetable.swift */; };
 		2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */; };
 		2A678B372A65451900E4C360 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A678B362A65451900E4C360 /* .gitignore */; };
 		2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		2A25E3522BC5281F00A18086 /* BusDetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailSheetView.swift; sourceTree = "<group>"; };
 		2A25E3542BC5323900A18086 /* View+roundSpecificCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+roundSpecificCorners.swift"; sourceTree = "<group>"; };
 		2A4AC84D2A67CDF500B216B7 /* BusTimetableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableManager.swift; sourceTree = "<group>"; };
+		2A5C37032BC68A170070CD62 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "whenMyBusGo++Bundle.swift"; sourceTree = "<group>"; };
 		2A678B362A65451900E4C360 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2A6E3CCB2A573CEB0012FCAF /* whenMyBusGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whenMyBusGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 		2A5C37002BC687D00070CD62 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2A5C37032BC68A170070CD62 /* Timetable.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				2A25E3552BC5323900A18086 /* View+roundSpecificCorners.swift in Sources */,
 				2AD3CE932AED336600C29702 /* BusTimetableViewController.swift in Sources */,
 				2A860ABF2B6F7AA600A48997 /* HexColor.swift in Sources */,
+				2A5C37042BC68A170070CD62 /* Timetable.swift in Sources */,
 				2A860ABD2B6F693B00A48997 /* HomeViewController+UICollectionViewDelegate.swift in Sources */,
 				2ADFB0BA2B729C8F00E6BA0B /* MenuCollectionViewCell.swift in Sources */,
 				2AFBD0AB2B73A83600FE67B9 /* BusTimetableViewController+UITableViewDelegate.swift in Sources */,
