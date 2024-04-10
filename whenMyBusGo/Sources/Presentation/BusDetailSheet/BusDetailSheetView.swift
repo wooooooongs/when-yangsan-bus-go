@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BusDetailSheet: View {
+struct BusDetailSheetView: View {
     @Binding var busData: BusTimetable
     
     var body: some View {
@@ -126,7 +126,7 @@ struct BusDetailSheet: View {
 }
 
 #Preview {
-    BusDetailSheet(busData: .constant(
+    BusDetailSheetView(busData: .constant(
         BusTimetableManager.shared.getAllBusTimetables()[0]
     ))
 }

@@ -71,7 +71,7 @@ struct BusListView: View {
             .padding(.top, 20)
         }
         .sheet(item: $currentBus) { bus in
-            BusDetailSheet(busData: .constant(bus))
+            BusDetailSheetView(busData: .constant(bus))
                 .transparentBackground()
         }
         .navigationTitle("버스 목록")
