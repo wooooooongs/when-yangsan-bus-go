@@ -17,13 +17,13 @@ struct Timetable: View {
     ]
 
     var body: some View {
-        let morningTimes = timetable?.filter { time in
+        let morningTimetable = timetable?.filter { time in
             guard let hour = Int(time.prefix(2)) else { return false }
             
             return hour < 12
         } ?? ["시간표가 비어있습니다."]
         
-        let afternoonTimes = timetable?.filter { time in
+        let afternoonTimetable = timetable?.filter { time in
             guard let hour = Int(time.prefix(2)) else { return false }
             
             return hour >= 12
@@ -35,12 +35,7 @@ struct Timetable: View {
                     .font(.title)
                     .fontWeight(.semibold)
                 
-                LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(morningTimes, id: \.self) { time in
-                        Text(time)
-                            .font(.title2)
-                    }
-                }
+                timetableGrid(columns: columns, for: morningTimetable)
                 
                 Divider()
                     .padding([.top, .bottom])
@@ -49,16 +44,21 @@ struct Timetable: View {
                     .font(.title)
                     .fontWeight(.semibold)
                 
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(afternoonTimes, id: \.self) { time in
-                        Text(time)
-                            .font(.title2)
-                    }
-                }
+                timetableGrid(columns: columns, for: afternoonTimetable)
             }
             .padding()
         }
         .background(.white, ignoresSafeAreaEdges: [])
+    }
+    
+    @ViewBuilder
+    private func timetableGrid(columns: [GridItem], for timetable: [String]) -> some View {
+        LazyVGrid(columns: columns, spacing: 15) {
+            ForEach(timetable, id: \.self) { time in
+                Text(time)
+                    .font(.title2)
+            }
+        }
     }
 }
 
