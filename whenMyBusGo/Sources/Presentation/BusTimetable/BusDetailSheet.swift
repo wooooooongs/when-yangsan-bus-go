@@ -16,8 +16,10 @@ struct BusDetailSheet: View {
                 busInfo()
                     .frame(maxHeight: 100)
                 
-                timetable()
+                timetable(busData.upboundTimetable[.sat])
+                    .background(.white, ignoresSafeAreaEdges: [])
                 
+                // footer
                 ZStack {
                     Color.white
                         .frame(width: .infinity, height: 50)
@@ -39,7 +41,7 @@ struct BusDetailSheet: View {
                 Capsule()
                     .frame(width: 35, height: 5)
                     .padding(.bottom, 15)
-
+                
                 HStack {
                     Text("\(busData.busType)")
                         .font(.callout)
@@ -71,23 +73,55 @@ struct BusDetailSheet: View {
     }
     
     @ViewBuilder
-    private func timetable() -> some View {
-        VStack {
-            ZStack {
-                Color.white
+    private func timetable(_ timetable: [String]?) -> some View {
+        let morningTimes = timetable?.filter { time in
+            guard let hour = Int(time.prefix(2)) else { return false }
+            
+            return hour < 12
+        } ?? ["시간표가 비어있습니다."]
+
+        let afternoonTimes = timetable?.filter { time in
+            guard let hour = Int(time.prefix(2)) else { return false }
+            
+            return hour >= 12
+        } ?? ["시간표가 비어있습니다."]
+
+        let columns = [
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ]
+        
+        ScrollView {
+            VStack(alignment: .leading) {
+                Text("오전")
+                    .font(.title)
+                    .fontWeight(.semibold)
                 
-                ScrollView {
-                    VStack(spacing: 10) {
-                        ForEach(busData.upboundTimetable[.sat]!, id: \.self) { time in
-                            Divider()
-                                .padding([.leading, .trailing], 20)
+                LazyVGrid(columns: columns, spacing: 15) {
+                    ForEach(morningTimes, id: \.self) { time in
                             Text(time)
-                                .font(.title3)
-                        }
+                                .font(.title2)
+                    }
+                }
+                
+                Divider()
+                    .padding([.top, .bottom])
+                
+                Text("오후")
+                    .font(.title)
+                    .fontWeight(.semibold)
+
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(afternoonTimes, id: \.self) { time in
+                            Text(time)
+                                .font(.title2)
                     }
                 }
             }
+            .padding()
         }
+        .background(.white, ignoresSafeAreaEdges: [])
     }
 }
 
