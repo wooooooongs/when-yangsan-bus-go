@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BusTimetableView: View {
+struct BusListView: View {
     let busTimetableManager = BusTimetableManager.shared
     
     @State var currentBusType: BusType = .전체
@@ -150,6 +150,6 @@ extension View {
 #Preview {
 //        ContentView()
 //            .tint(.black)
-    BusTimetableView()
+    BusListView()
         .tint(.black)
 }

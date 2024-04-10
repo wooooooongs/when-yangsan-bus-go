@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A023FD32B78E96A00123A1E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A023FD22B78E96A00123A1E /* CustomButton.swift */; };
-		2A0DA7D02BBFF0B200F234A5 /* BusTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0DA7CF2BBFF0B200F234A5 /* BusTimetableView.swift */; };
+		2A0DA7D02BBFF0B200F234A5 /* BusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */; };
 		2A1156C12B30172B0076BA33 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1156C02B30172B0076BA33 /* DetailViewController.swift */; };
 		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
 		2A14BCD82AED37E300867A0B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A14BCD72AED37E300867A0B /* Constants.swift */; };
@@ -55,7 +55,7 @@
 
 /* Begin PBXFileReference section */
 		2A023FD22B78E96A00123A1E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		2A0DA7CF2BBFF0B200F234A5 /* BusTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetableView.swift; sourceTree = "<group>"; };
+		2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListView.swift; sourceTree = "<group>"; };
 		2A1156C02B30172B0076BA33 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A23A8B02B499C67007F7B74 /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		2A25E3512BC527EF00A18086 /* BusTimetable */ = {
 			isa = PBXGroup;
 			children = (
-				2A0DA7CF2BBFF0B200F234A5 /* BusTimetableView.swift */,
+				2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */,
 				2A25E3522BC5281F00A18086 /* BusDetailSheet.swift */,
 			);
 			path = BusTimetable;
@@ -365,7 +365,7 @@
 			files = (
 				2A96EEC32B6D665D0042F0FB /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				2A746B972AED6BF800CB7AE6 /* BusTimetable.swift in Sources */,
-				2A0DA7D02BBFF0B200F234A5 /* BusTimetableView.swift in Sources */,
+				2A0DA7D02BBFF0B200F234A5 /* BusListView.swift in Sources */,
 				2A023FD32B78E96A00123A1E /* CustomButton.swift in Sources */,
 				2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */,
 				2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */,
