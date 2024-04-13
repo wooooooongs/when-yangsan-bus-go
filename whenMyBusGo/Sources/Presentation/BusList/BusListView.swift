@@ -49,7 +49,9 @@ struct BusListView: View {
                             }
                         }
                     }
+                    .padding(.horizontal, 30)
                 }
+                .scrollIndicators(.hidden)
                 
                 Divider()
                 
