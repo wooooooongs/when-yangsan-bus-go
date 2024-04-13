@@ -49,6 +49,7 @@ struct Timetable: View {
             .padding()
         }
         .background(.white, ignoresSafeAreaEdges: [])
+        .scrollIndicators(.hidden)
     }
     
     @ViewBuilder

@@ -39,7 +39,7 @@ struct BusDetailSheetView: View {
             VStack(spacing: 0) {
                 Capsule()
                     .frame(width: 35, height: 5)
-                    .padding(.bottom, 15)
+                    .padding(.bottom, 20)
                 
                 HStack {
                     Text("\(busData.busType)")
