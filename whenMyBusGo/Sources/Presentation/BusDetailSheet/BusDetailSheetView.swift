@@ -15,7 +15,7 @@ struct BusDetailSheetView: View {
             VStack {
                 BusInfoView(busData: $busData)
                 
-                Timetable(timetable: $busData.upboundTimetable[.sat])
+                TimetableView(timetable: $busData.upboundTimetable[.sat])
                 
                 // footer
                 ZStack {

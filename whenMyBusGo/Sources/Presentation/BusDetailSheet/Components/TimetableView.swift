@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Timetable: View {
+struct TimetableView: View {
     @Binding var timetable: [String]?
 
     let columns = [
@@ -64,6 +64,6 @@ struct Timetable: View {
 }
 
 #Preview {
-    Timetable(timetable: .constant(        BusTimetableManager.shared.getAllBusTimetables()[0].upboundTimetable[.sat]
+    TimetableView(timetable: .constant(        BusTimetableManager.shared.getAllBusTimetables()[0].upboundTimetable[.sat]
 ))
 }
