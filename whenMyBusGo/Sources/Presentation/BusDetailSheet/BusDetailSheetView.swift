@@ -22,6 +22,8 @@ struct BusDetailSheetView: View {
                 } else {
                     TimetableView(timetable: .constant(busData.downboundTimetable[dayType]))
                 }
+                
+                FooterView(busData: .constant(busData), selectedDayType: $dayType, isUpbound: $isUpbound)
             }
             .safeAreaPadding(.top, 30)
             .safeAreaPadding([.leading, .trailing], 10)
