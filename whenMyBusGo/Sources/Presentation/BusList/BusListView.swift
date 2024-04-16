@@ -35,17 +35,7 @@ struct BusListView: View {
                                 currentBusList = busTimetableManager.getBusTimetables(forType: busType)
                                 // TODO: 현재: Manager에 filter를 매번 요청함. 프론트에서 다루는 건 어떨까?
                             }) {
-                                Text("\(busType)")
-                                    .font(.callout)
-                                    .fontWeight(.medium)
-                                    .foregroundColor(
-                                        currentBusType == busType ? .white : .black
-                                    )
-                                    .padding(.vertical, 8)
-                                    .padding(.horizontal, 16)
-                                    .background(Capsule().fill(
-                                        currentBusType == busType ? .yangsan : .white
-                                    ))
+                                CategoryButton(title: busType.caseName, selectedItem: $currentBusType, item: busType)
                             }
                         }
                     }
@@ -150,8 +140,6 @@ extension View {
 }
 
 #Preview {
-//        ContentView()
-//            .tint(.black)
     BusListView()
         .tint(.black)
 }
