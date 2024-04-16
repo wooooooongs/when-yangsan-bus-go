@@ -23,6 +23,14 @@ struct BusTimetable: Decodable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case busNumber, id, upbound, downbound, type, upboundTimetable, downboundTimetable
     }
+    
+    var isDayTypeSeperated: Bool? {
+        get {
+            let isSeperated = self.upboundTimetable.keys.count == 3
+            
+            return isSeperated ? true : false
+        }
+    }
         
     // MARK: - 외부에서 버스 타입 접근
     var busType: BusType {
@@ -65,6 +73,19 @@ enum Day: String, Decodable{
     case sat
     case sun
     case weekend
+    
+    var localizedStringKey: String {
+        switch self {
+        case .weekday:
+            "평일"
+        case .sat:
+            "토"
+        case .sun:
+            "일, 공휴일"
+        case .weekend:
+            "주말, 공휴일"
+        }
+    }
 }
 
 enum DayTypeForButton: Int {
