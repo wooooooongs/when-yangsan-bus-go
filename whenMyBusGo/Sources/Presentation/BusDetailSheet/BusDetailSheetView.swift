@@ -9,20 +9,18 @@ import SwiftUI
 
 struct BusDetailSheetView: View {
     @Binding var busData: BusTimetable
+    @State var isUpbound: Bool = true
+    @State var dayType: Day = .weekday
     
     var body: some View {
         ZStack {
-            VStack {
-                BusInfoView(busData: $busData)
+            VStack(spacing: 0) {
+                BusInfoView(busData: .constant(busData), isUpbound: .constant(isUpbound))
                 
-                TimetableView(timetable: $busData.upboundTimetable[.sat])
-                
-                // footer
-                ZStack {
-                    Color.white
-                        .frame(width: .infinity, height: 50)
-                    
-                    Text("Footer")
+                if isUpbound {
+                    TimetableView(timetable: .constant(busData.upboundTimetable[dayType]))
+                } else {
+                    TimetableView(timetable: .constant(busData.downboundTimetable[dayType]))
                 }
             }
             .safeAreaPadding(.top, 30)

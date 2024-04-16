@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BusInfoView: View {
     @Binding var busData: BusTimetable
+    @Binding var isUpbound: Bool
     
     var body: some View {
         ZStack {
@@ -30,8 +31,13 @@ struct BusInfoView: View {
                     HStack {
                         Image(systemName: "star")
                         
-                        Text("\(busData.upbound)")
-                            .fontWeight(.bold)
+                        if isUpbound {
+                            Text("\(busData.upbound)")
+                                .fontWeight(.bold)
+                        } else {
+                            Text("\(busData.downbound)")
+                                .fontWeight(.bold)
+                        }
                     }
                     .padding([.top, .bottom], 5)
                     .padding([.leading, .trailing], 7.5)
