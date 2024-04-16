@@ -25,7 +25,8 @@ struct BusDetailSheetView: View {
                     Text("Footer")
                 }
             }
-            .safeAreaPadding([.top, .leading, .trailing], 30)
+            .safeAreaPadding(.top, 30)
+            .safeAreaPadding([.leading, .trailing], 10)
         }
     }
 }

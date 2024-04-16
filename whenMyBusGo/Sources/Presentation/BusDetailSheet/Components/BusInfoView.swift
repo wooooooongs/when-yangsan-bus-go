@@ -46,6 +46,7 @@ struct BusInfoView: View {
                 }
             }
             .padding()
+            .padding(.bottom, 15)
             .foregroundStyle(.white)
         }
         .frame(maxHeight: 100)
