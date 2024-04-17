@@ -56,8 +56,11 @@ struct TimetableView: View {
     private func timetableGrid(columns: [GridItem], for timetable: [String]) -> some View {
         LazyVGrid(columns: columns, spacing: 15) {
             ForEach(timetable, id: \.self) { time in
+                let isBusPassed = TimeUtils.shared.isBusPassed(time)
+                
                 Text(time)
                     .font(.title2)
+                    .foregroundStyle(isBusPassed ? Color.gray : Color.black)
             }
         }
     }

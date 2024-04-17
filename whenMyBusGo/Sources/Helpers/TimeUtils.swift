@@ -53,4 +53,14 @@ final class TimeUtils {
         
         return formattedCurrentDate
     }
+    
+    func isBusPassed(_ time: String) -> Bool {
+        let convertedTime = convertTimeToMinutes(time)
+        let currentTimeString = getCurrentTime()
+        let currentTime = convertTimeToMinutes(currentTimeString)
+
+        let isBusGone = currentTime > convertedTime
+        
+        return isBusGone
+    }
 }
