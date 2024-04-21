@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct HomeFavoritedBusListView: View {
+    @EnvironmentObject var busTimetableManager: BusTimetableManager
     @EnvironmentObject var favoritedBusDataManager: FavoritedBusDataManager
     @FetchRequest(entity: FavoritedBus.entity(), sortDescriptors: [
         NSSortDescriptor(key: "savedDate", ascending: true)
-    ]) private var favoritedBus: FetchedResults<FavoritedBus>
+    ]) private var favoritedBusDatas: FetchedResults<FavoritedBus>
+    
+    @State private var selectedBus: BusTimetable?
     
     var body: some View {
         VStack(spacing: 10) {
-            ForEach(favoritedBus, id: \.id) { bus in
+            ForEach(favoritedBusDatas, id: \.id) { bus in
                 favoritedBusRows(for: bus)
+                    .onTapGesture {
+                        self.selectedBus = busTimetableManager.convertToBusTimetable(from: bus)
+                    }
             }
+        }
+        .sheet(item: $selectedBus) { busData in
+            BusDetailSheetView(busData: .constant(busData))
         }
     }
     
