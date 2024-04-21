@@ -99,8 +99,7 @@ struct BusListView: View {
                 
                 Image(systemName: "chevron.forward")
             }
-            .padding([.leading, .trailing], 15)
-            .padding([.top, .bottom], 15)
+            .padding(15)
         }
         .frame(maxWidth: .infinity)
     }

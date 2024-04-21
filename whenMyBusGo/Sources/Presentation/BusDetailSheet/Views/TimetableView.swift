@@ -67,6 +67,11 @@ struct TimetableView: View {
 }
 
 #Preview {
-    TimetableView(timetable: .constant(        BusTimetableManager.shared.getAllBusTimetables()[0].upboundTimetable[.sat]
-))
+    let manager = BusTimetableManager()
+    
+    return TimetableView(
+        timetable: .constant(
+            manager.busTimetables[0].upboundTimetable[.sat]
+        )
+    )
 }

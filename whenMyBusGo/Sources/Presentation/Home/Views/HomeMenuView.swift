@@ -45,6 +45,7 @@ struct HomeMenuView: View {
             VStack {
                 HStack() {
                     Text(menuData.title.rawValue)
+                    // TODO: 디바이스 크기에 맞춰 font 크기 재설정
                         .font(.title)
                         .bold()
                         .padding([.top, .leading], 16)

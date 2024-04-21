@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BusDetailSheetView: View {
+struct BusDetailSheetView: View {    
     @Binding var busData: BusTimetable
     @State var isUpbound: Bool = true
     @State var dayType: Day = .weekday
@@ -32,7 +32,10 @@ struct BusDetailSheetView: View {
 }
 
 #Preview {
-    BusDetailSheetView(busData: .constant(
-        BusTimetableManager.shared.getAllBusTimetables()[0]
+    let manager = BusTimetableManager()
+    
+    return BusDetailSheetView(busData: .constant(
+        manager.busTimetables[0]
     ))
 }
+
