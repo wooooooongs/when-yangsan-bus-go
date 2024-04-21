@@ -28,7 +28,7 @@ struct BusListView: View {
                         ForEach(busTypes, id: \.self) { busType in
                             Button(action: {
                                 currentBusType = busType
-                                currentBusList = busTimetableManager.getBusTimetables(forType: busType)
+                                currentBusList = busTimetableManager.getBusTimetableDatas(forType: busType)
                                 // TODO: 현재: Manager에 filter를 매번 요청함. 프론트에서 다루는 건 어떨까?
                             }) {
                                 CategoryButton(title: busType.caseName, selectedItem: $currentBusType, item: busType)
