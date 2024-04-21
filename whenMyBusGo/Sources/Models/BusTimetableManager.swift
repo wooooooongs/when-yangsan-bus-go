@@ -7,21 +7,16 @@
 
 import Foundation
 
-class BusTimetableManager {
-    static let shared = BusTimetableManager()
+class BusTimetableManager: ObservableObject {
     private let coreDataManager = CoreDataManager.shared
     
-    private init() {
+    init() {
         decodeDataFromBusDatas()
         convertFavoritedBusToBusTimetable()
     }
     
-    private var busTimetables: [BusTimetable] = []
-    private var convertedFavoritedBusArray: [BusTimetableForHomeView] = []
-    
-    func getAllBusTimetables() -> [BusTimetable] {
-        return busTimetables
-    }
+    @Published var busTimetables: [BusTimetable] = []
+    @Published var convertedFavoritedBusArray: [BusTimetableForHomeView] = []
     
     func getBusTimetables(forType busType: BusType) -> [BusTimetable] {
         if busType == .전체 {
@@ -60,19 +55,19 @@ class BusTimetableManager {
         var convertedFavoritedBusArrayTemp: [BusTimetableForHomeView] = []
         
         for favoritedBus in favoritedBusArray {
-            guard let busId = favoritedBus.id else { return }
+            guard let busId = favoritedBus.busId else { return }
             
             if let busTimetable = busTimetables.first(where: { $0.id == busId }) {
                 let busId = busTimetable.id
                 let busNumber = busTimetable.busNumber
                 let busType = busTimetable.busType
                 
-                if favoritedBus.upbound {
+                if favoritedBus.isUpboundFavorited {
                     let busTimetableForHomeView = BusTimetableForHomeView(busId: busId, busNumber: busNumber, upbound: busTimetable.upbound, downbound: "", busType: BusType(rawValue: busType.rawValue) ?? .일반)
                     convertedFavoritedBusArrayTemp.append(busTimetableForHomeView)
                 }
                 
-                if favoritedBus.downbound {
+                if favoritedBus.isDownboundFavorited {
                     let busTimetableForHomeView = BusTimetableForHomeView(busId: busId, busNumber: busNumber, upbound: "", downbound: busTimetable.downbound, busType: BusType(rawValue: busType.rawValue) ?? .일반)
                     convertedFavoritedBusArrayTemp.append(busTimetableForHomeView)
                 }

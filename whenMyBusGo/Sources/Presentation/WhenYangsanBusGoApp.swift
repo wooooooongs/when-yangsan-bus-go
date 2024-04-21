@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct WhenYangsanBusGoApp: App {
@@ -13,6 +14,7 @@ struct WhenYangsanBusGoApp: App {
         WindowGroup {
             ContentView()
                 .tint(.black)
+                .environmentObject(BusTimetableManager())
         }
     }
 }

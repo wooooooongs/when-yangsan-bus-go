@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BusListView: View {
-    let busTimetableManager = BusTimetableManager.shared
+    @EnvironmentObject var busTimetableManager: BusTimetableManager
     
     @State var currentBusType: BusType = .전체
     @State var currentBusList: [BusTimetable] = []
@@ -16,10 +16,6 @@ struct BusListView: View {
     
     let setBackground = Color(HexColor.from("EEEEEE"))
     let busTypes = BusType.allCases
-    
-    init() {
-        _currentBusList = State(initialValue: busTimetableManager.getAllBusTimetables())
-    }
     
     var body: some View {
         ZStack {
@@ -68,6 +64,9 @@ struct BusListView: View {
         }
         .navigationTitle("버스 목록")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            self.currentBusList = busTimetableManager.busTimetables
+        }
     }
     
     @ViewBuilder
