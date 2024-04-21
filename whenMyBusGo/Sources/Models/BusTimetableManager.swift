@@ -15,6 +15,7 @@ class BusTimetableManager: ObservableObject {
         decodeDataFromBusDatas()
     }
     
+    // MARK: - Methods
     func getBusTimetableDatas(forType busType: BusType) -> [BusTimetable] {
         if busType == .전체 {
             return busTimetables
@@ -25,7 +26,6 @@ class BusTimetableManager: ObservableObject {
         }
     }
     
-    // MARK: - Methods
     private func decodeDataFromBusDatas() {
         guard let jsonPath = Bundle.main.path(forResource: "busDatas", ofType: "json") else { return }
         let decoder = JSONDecoder()
@@ -44,5 +44,11 @@ class BusTimetableManager: ObservableObject {
     
     func getBusTimetableToBusId(_ busId: String) -> BusTimetable? {
         return busTimetables.first(where: { $0.id == busId })
+    }
+    
+    func convertToBusTimetable(from favoritedBus: FavoritedBus) -> BusTimetable? {
+        self.busTimetables.filter { busData in
+            busData.id == favoritedBus.busId
+        }.first
     }
 }
