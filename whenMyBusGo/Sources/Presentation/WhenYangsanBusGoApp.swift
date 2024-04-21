@@ -10,11 +10,15 @@ import CoreData
 
 @main
 struct WhenYangsanBusGoApp: App {
+    @StateObject var favoritedBusDataManager = FavoritedBusDataManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .tint(.black)
+                .environmentObject(favoritedBusDataManager)
                 .environmentObject(BusTimetableManager())
+                .environment(\.managedObjectContext, favoritedBusDataManager.persistentContainer.viewContext)
         }
     }
 }
