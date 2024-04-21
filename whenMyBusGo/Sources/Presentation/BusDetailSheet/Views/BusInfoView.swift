@@ -10,7 +10,7 @@ import SwiftUI
 struct BusInfoView: View {
     @FetchRequest(entity: FavoritedBus.entity(), sortDescriptors: [])
     private var favoritedBusDatas: FetchedResults<FavoritedBus>
-
+    
     @EnvironmentObject var favoritedBusDataManager: FavoritedBusDataManager
     @Binding var busData: BusTimetable
     @Binding var isUpbound: Bool
@@ -36,7 +36,7 @@ struct BusInfoView: View {
                     HStack {
                         Button(action: {
                             favoritedBusDataManager.createOrUpdateFavoriteBus(for: busData, isUpbound: isUpbound)
-                            checkIfBusIsFavorited()
+                            updateFavoritedStatus()
                         }, label: {
                             Image(systemName: isFavorited ?? false ? "star.fill" : "star")
                             
@@ -65,20 +65,18 @@ struct BusInfoView: View {
             .padding(.bottom, 15)
             .foregroundStyle(.white)
             .onChange(of: isUpbound) {
-                checkIfBusIsFavorited()
+                updateFavoritedStatus()
             }
             .onAppear() {
-                checkIfBusIsFavorited()
+                updateFavoritedStatus()
             }
         }
         .frame(maxHeight: 100)
     }
     
-    func checkIfBusIsFavorited() {
-        if let favoritedBus = favoritedBusDatas.first(where: { $0.busId == busData.id }) {
-            self.isFavorited = isUpbound ? favoritedBus.isUpboundFavorited : favoritedBus.isDownboundFavorited
-        } else {
-            self.isFavorited = false
-        }
+    func updateFavoritedStatus() {
+        self.isFavorited = favoritedBusDatas.compactMap { bus in
+            bus.busId == busData.id ? (isUpbound ? bus.isUpboundFavorited : bus.isDownboundFavorited) : nil
+        }.first ?? false
     }
 }
