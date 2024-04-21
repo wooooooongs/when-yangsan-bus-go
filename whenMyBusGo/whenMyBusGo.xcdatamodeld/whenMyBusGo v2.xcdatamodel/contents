@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoritedBus" representedClassName="FavoritedBus" syncable="YES">
+        <attribute name="busId" optional="YES" attributeType="String"/>
+        <attribute name="busNumber" optional="YES" attributeType="String"/>
+        <attribute name="busType" optional="YES" attributeType="String"/>
+        <attribute name="downboundName" optional="YES" attributeType="String"/>
+        <attribute name="isDownboundFavorited" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isUpboundFavorited" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="savedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="upboundName" optional="YES" attributeType="String"/>
+    </entity>
+</model>

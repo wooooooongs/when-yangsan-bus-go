@@ -37,10 +37,10 @@ final class CoreDataManager {
             if let favoriteBus = result.first {
                 // UPDATE
                 if isUpbound {
-                    favoriteBus.upbound.toggle()
+                    favoriteBus.isUpboundFavorited.toggle()
                     print("\(currentBusData.id) 상행 업데이트 완료")
                 } else {
-                    favoriteBus.downbound.toggle()
+                    favoriteBus.isDownboundFavorited.toggle()
                     print("\(currentBusData.id) 하행 업데이트 완료")
                 }
                 
@@ -51,9 +51,9 @@ final class CoreDataManager {
                 if let entity = NSEntityDescription.entity(forEntityName: self.modelName, in: context),
                    let favoritedBus = NSManagedObject(entity: entity, insertInto: context) as? FavoritedBus {
                     
-                    favoritedBus.id = currentBusData.id
-                    favoritedBus.upbound = isUpbound
-                    favoritedBus.downbound = !isUpbound
+                    favoritedBus.busId = currentBusData.id
+                    favoritedBus.isUpboundFavorited = isUpbound
+                    favoritedBus.isDownboundFavorited = !isUpbound
                     favoritedBus.savedDate = .now
                 }
             }
@@ -111,7 +111,7 @@ final class CoreDataManager {
     
     // MARK: - DELETE
     func deleteAllFavoritedToBusId(_ busData: FavoritedBus) {
-        guard let busId = busData.id else { return }
+        guard let busId = busData.busId else { return }
         
         if let context = context {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.modelName)
