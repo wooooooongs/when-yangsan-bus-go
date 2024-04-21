@@ -16,15 +16,15 @@ struct HomeView: View {
                 setBackground
                     .ignoresSafeArea()
                 
-                VStack(alignment: .center, spacing: 25) {
-                    HomeMenuView()
-                    
-                    HomeFavoritedBusListView()
-                    
-                    Spacer()
+                ScrollView {
+                    VStack(alignment: .center, spacing: 25) {
+                        HomeMenuView()
+                        
+                        HomeFavoritedBusListView()
+                    }
+                    // TODO: padding 재활용
+                    .safeAreaPadding([.top, .leading, .trailing], 30)
                 }
-                // TODO: padding 재활용
-                .safeAreaPadding([.top, .leading, .trailing], 30)
             }
             .navigationTitle("언제 출발해?")
         }
