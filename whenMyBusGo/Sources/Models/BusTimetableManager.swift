@@ -8,17 +8,14 @@
 import Foundation
 
 class BusTimetableManager: ObservableObject {
-    private let coreDataManager = CoreDataManager.shared
-    
-    init() {
-        decodeDataFromBusDatas()
-        convertFavoritedBusToBusTimetable()
-    }
-    
     @Published var busTimetables: [BusTimetable] = []
     @Published var convertedFavoritedBusArray: [BusTimetableForHomeView] = []
     
-    func getBusTimetables(forType busType: BusType) -> [BusTimetable] {
+    init() {
+        decodeDataFromBusDatas()
+    }
+    
+    func getBusTimetableDatas(forType busType: BusType) -> [BusTimetable] {
         if busType == .전체 {
             return busTimetables
         }
@@ -26,11 +23,6 @@ class BusTimetableManager: ObservableObject {
         return busTimetables.filter {
             $0.busType == busType
         }
-    }
-    
-    func getConvertedFavoritedBusArray() -> [BusTimetableForHomeView] {
-        self.convertFavoritedBusToBusTimetable()
-        return convertedFavoritedBusArray
     }
     
     // MARK: - Methods
@@ -47,33 +39,6 @@ class BusTimetableManager: ObservableObject {
             return busTimetables = decodedData.result
         } catch {
             print("busDatas.json이 없는 거 같은데용")
-        }
-    }
-    
-    private func convertFavoritedBusToBusTimetable() {
-        let favoritedBusArray = coreDataManager.getAllFavoritedBus()
-        var convertedFavoritedBusArrayTemp: [BusTimetableForHomeView] = []
-        
-        for favoritedBus in favoritedBusArray {
-            guard let busId = favoritedBus.busId else { return }
-            
-            if let busTimetable = busTimetables.first(where: { $0.id == busId }) {
-                let busId = busTimetable.id
-                let busNumber = busTimetable.busNumber
-                let busType = busTimetable.busType
-                
-                if favoritedBus.isUpboundFavorited {
-                    let busTimetableForHomeView = BusTimetableForHomeView(busId: busId, busNumber: busNumber, upbound: busTimetable.upbound, downbound: "", busType: BusType(rawValue: busType.rawValue) ?? .일반)
-                    convertedFavoritedBusArrayTemp.append(busTimetableForHomeView)
-                }
-                
-                if favoritedBus.isDownboundFavorited {
-                    let busTimetableForHomeView = BusTimetableForHomeView(busId: busId, busNumber: busNumber, upbound: "", downbound: busTimetable.downbound, busType: BusType(rawValue: busType.rawValue) ?? .일반)
-                    convertedFavoritedBusArrayTemp.append(busTimetableForHomeView)
-                }
-                
-                convertedFavoritedBusArray = convertedFavoritedBusArrayTemp
-            }
         }
     }
     
