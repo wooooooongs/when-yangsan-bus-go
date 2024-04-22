@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BusDetailSheetView: View {    
+struct BusDetailSheetView: View {
     @Binding var busData: BusTimetable
     @State var isUpbound: Bool = true
     @State var dayType: Day = .weekday
@@ -15,7 +15,10 @@ struct BusDetailSheetView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                BusInfoView(busData: .constant(busData), isUpbound: .constant(isUpbound))
+                BusInfoView(
+                    busData: .constant(busData),
+                    isUpbound: .constant(isUpbound)
+                )
                 
                 if isUpbound {
                     TimetableView(timetable: .constant(busData.upboundTimetable[dayType]))
@@ -23,19 +26,14 @@ struct BusDetailSheetView: View {
                     TimetableView(timetable: .constant(busData.downboundTimetable[dayType]))
                 }
                 
-                FooterView(busData: .constant(busData), selectedDayType: $dayType, isUpbound: $isUpbound)
+                FooterView(
+                    busData: .constant(busData),
+                    selectedDayType: $dayType,
+                    isUpbound: $isUpbound
+                )
             }
             .safeAreaPadding(.top, 30)
             .safeAreaPadding([.leading, .trailing], 10)
         }
     }
 }
-
-#Preview {
-    let manager = BusTimetableManager()
-    
-    return BusDetailSheetView(busData: .constant(
-        manager.busTimetables[0]
-    ))
-}
-
