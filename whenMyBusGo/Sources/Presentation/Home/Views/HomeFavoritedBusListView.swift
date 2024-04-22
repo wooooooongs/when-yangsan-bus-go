@@ -15,44 +15,32 @@ struct HomeFavoritedBusListView: View {
     ]) private var favoritedBusDatas: FetchedResults<FavoritedBus>
     
     @State private var selectedBus: BusTimetable?
+    @State private var isUpbound: Bool = true
     
     var body: some View {
         VStack(spacing: 10) {
             ForEach(favoritedBusDatas, id: \.id) { bus in
-                favoritedBusRows(for: bus)
-                    .onTapGesture {
-                        self.selectedBus = busTimetableManager.convertToBusTimetable(from: bus)
+                Group {
+                    if bus.isUpboundFavorited {
+                        favoritedBusItem(for: bus, isUpbound: true)
                     }
+                    
+                    if bus.isDownboundFavorited {
+                        favoritedBusItem(for: bus, isUpbound: false)
+                    }
+                }
             }
         }
         .sheet(item: $selectedBus) { busData in
-            BusDetailSheetView(busData: .constant(busData))
+            BusDetailSheetView(busData: .constant(busData), isUpbound: isUpbound)
+                .transparentBackground()
         }
     }
     
     @ViewBuilder
-    private func favoritedBusRows(for busData: FavoritedBus) -> some View {
-        let isBothFavorited = busData.isUpboundFavorited && busData.isDownboundFavorited
-        let isUpboundFavorited = busData.isUpboundFavorited && !busData.isDownboundFavorited
-        let isDownboundFavorited = !busData.isUpboundFavorited && busData.isDownboundFavorited
+    private func favoritedBusItem(for busData: FavoritedBus, isUpbound: Bool) -> some View {
+        let directionName = isUpbound ? busData.upboundName : busData.downboundName
         
-        if isBothFavorited {
-            favoritedBusItem(for: busData, direction: busData.upboundName ?? "상행")
-            favoritedBusItem(for: busData, direction: busData.downboundName ?? "하행")
-        }
-        
-        if isUpboundFavorited {
-            favoritedBusItem(for: busData, direction: busData.upboundName ?? "상행")
-        }
-        
-        if isDownboundFavorited {
-            favoritedBusItem(for: busData, direction: busData.downboundName ?? "하행")
-        }
-    }
-    
-    
-    @ViewBuilder
-    private func favoritedBusItem(for busData: FavoritedBus, direction: String) -> some View {
         ZStack {
             Color.white
                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -66,7 +54,7 @@ struct HomeFavoritedBusListView: View {
                                 .font(.caption)
                                 .offset(y: 2.5)
                             
-                            Text(direction)
+                            Text(directionName ?? "")
                                 .font(.caption)
                                 .offset(y: 2.5)
                         }
@@ -89,6 +77,10 @@ struct HomeFavoritedBusListView: View {
             }
         }
         .frame(maxWidth: .infinity)
+        .onTapGesture {
+            self.isUpbound = isUpbound
+            self.selectedBus = busTimetableManager.convertToBusTimetable(from: busData)
+        }
     }
 }
 
