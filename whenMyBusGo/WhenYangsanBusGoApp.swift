@@ -14,11 +14,14 @@ struct WhenYangsanBusGoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .tint(.black)
-                .environmentObject(favoritedBusDataManager)
-                .environmentObject(BusTimetableManager())
-                .environment(\.managedObjectContext, favoritedBusDataManager.persistentContainer.viewContext)
+            NavigationStack {
+                HomeView()
+                    .navigationTitle("언제 출발해?")
+            }
+            .environmentObject(favoritedBusDataManager)
+            .environmentObject(BusTimetableManager())
+            .environment(\.managedObjectContext, favoritedBusDataManager.persistentContainer.viewContext)
+            .tint(.black)
         }
     }
 }

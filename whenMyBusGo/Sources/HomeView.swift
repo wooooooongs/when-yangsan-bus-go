@@ -11,34 +11,28 @@ struct HomeView: View {
     
     // MARK: - Body View
     var body: some View {
-        NavigationStack {
-            ZStack {
-                background
-                    .ignoresSafeArea()
+        ScrollView {
+            VStack(spacing: 40) {
+                HomeMenuView()
                 
-                ScrollView {
-                    VStack(alignment: .center, spacing: 25) {
-                        HomeMenuView()
-                        
-                        HomeFavoritedBusListView()
-                    }
-                    .safeAreaPadding(.horizontal)
-                }
+                HomeFavoritedBusListView()
             }
-            .navigationTitle("언제 출발해?")
+            .safeAreaPadding(.horizontal)
+            .padding(.top, 20)
         }
+        .background(.appBackground)
     }
     
-    
-    // MARK: - Views
-    private var background: Color {
-        Color(hex: "EEEEEE")
-    }
 }
 
 
 #Preview {
-    HomeView()
-        .tint(.black)
-        .environmentObject(BusTimetableManager())
+    NavigationStack {
+        HomeView()
+            .navigationTitle("언제 출발해?")
+    }
+    .environmentObject(FavoritedBusDataManager())
+    .environmentObject(BusTimetableManager())
+    .environment(\.managedObjectContext, FavoritedBusDataManager().persistentContainer.viewContext)
+    .tint(.black)
 }
