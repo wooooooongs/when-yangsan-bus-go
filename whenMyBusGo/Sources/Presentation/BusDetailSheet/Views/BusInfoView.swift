@@ -64,9 +64,9 @@ struct BusInfoView: View {
             .padding()
             .padding(.bottom, 15)
             .foregroundStyle(.white)
-            .onChange(of: isUpbound) {
+            .onChange(of: isUpbound, perform: { _ in
                 updateFavoritedStatus()
-            }
+            })
             .onAppear() {
                 updateFavoritedStatus()
             }

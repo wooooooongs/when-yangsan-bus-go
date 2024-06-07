@@ -38,6 +38,7 @@
 		2AC06AAB2B7D184400DA6570 /* FavoritedBus+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC06AA92B7D184400DA6570 /* FavoritedBus+CoreDataProperties.swift */; };
 		2AD3CE912AED2F9C00C29702 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3CE902AED2F9C00C29702 /* TimeUtils.swift */; };
 		2AEDF3BF2B11823900A7E1DB /* busDatas.json in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDF3BE2B11823900A7E1DB /* busDatas.json */; };
+		2AF06BC92C130315000B8B3B /* View+SafeAreaPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06BC82C130315000B8B3B /* View+SafeAreaPadding.swift */; };
 		2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A5F12B71286300F794CE /* MenuData.swift */; };
 		2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5A5F32B714C6700F794CE /* UIImage+resizeImage.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		2AC06AA92B7D184400DA6570 /* FavoritedBus+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedBus+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2AD3CE902AED2F9C00C29702 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		2AEDF3BE2B11823900A7E1DB /* busDatas.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = busDatas.json; sourceTree = "<group>"; };
+		2AF06BC82C130315000B8B3B /* View+SafeAreaPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SafeAreaPadding.swift"; sourceTree = "<group>"; };
 		2AF5A5F12B71286300F794CE /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
 		2AF5A5F32B714C6700F794CE /* UIImage+resizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+resizeImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +193,7 @@
 		2A9E128E2BCE53A800FB487F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2AF06BC72C130195000B8B3B /* Extensions */,
 				2A9E12932BCE8C8900FB487F /* CategoryButton.swift */,
 			);
 			path = Common;
@@ -249,6 +252,14 @@
 				2A25E3542BC5323900A18086 /* View+roundSpecificCorners.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2AF06BC72C130195000B8B3B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2AF06BC82C130315000B8B3B /* View+SafeAreaPadding.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +346,7 @@
 				2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */,
 				2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */,
 				2A9713122BAF127800E31C1C /* HomeView.swift in Sources */,
+				2AF06BC92C130315000B8B3B /* View+SafeAreaPadding.swift in Sources */,
 				2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */,
 				2AD3CE912AED2F9C00C29702 /* TimeUtils.swift in Sources */,
 				2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */,

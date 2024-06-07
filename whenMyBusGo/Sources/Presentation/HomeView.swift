@@ -22,8 +22,7 @@ struct HomeView: View {
                         
                         HomeFavoritedBusListView()
                     }
-                    // TODO: padding 재활용
-                    .safeAreaPadding([.top, .leading, .trailing], 30)
+                    .safeAreaPadding(.horizontal)
                 }
             }
             .navigationTitle("언제 출발해?")
