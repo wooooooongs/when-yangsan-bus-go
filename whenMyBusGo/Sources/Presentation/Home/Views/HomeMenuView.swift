@@ -8,35 +8,35 @@
 import SwiftUI
 
 struct HomeMenuView: View {
-    var menuDatas: [MenuData] = MenuDatas.shared.getMenuDatas()
-    
-    var safeAreaPadding = 30.0
-    var padding = 15.0
-    var menuSize: CGFloat {
+    private var safeAreaPadding = 30.0
+    private var padding = 15.0
+    private var menuSize: CGFloat {
         (UIScreen.main.bounds.width / 2) - (safeAreaPadding + (padding / 2))
     }
-    let menuColumns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    private let menuColumns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
+    
+    // MARK: - Body View
     var body: some View {
         LazyVGrid(columns: menuColumns, spacing: padding) {
-            ForEach(menuDatas.indices, id: \.self) { menuIndex in
-                let menuData = menuDatas[menuIndex]
-                
-                NavigationLink(destination: menuView(menuData)) {
-                    menuButton(for: menuData)
+            ForEach(Menu.allCases, id: \.self) { menu in
+                NavigationLink(destination: menuView(menu)) {
+                    menuButton(for: menu)
                 }
             }
         }
     }
     
+    
+    // MARK: - Views
     @ViewBuilder
-    private func menuButton(for menuData: MenuData) -> some View {
+    private func menuButton(for menuData: Menu) -> some View {
         ZStack {
             Color.white
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .overlay(
                     Group {
-                        if menuData.isWebView {
+                        if menuData.isWebView() {
                             webViewBorder()
                         }
                     }
@@ -44,7 +44,7 @@ struct HomeMenuView: View {
             
             VStack {
                 HStack() {
-                    Text(menuData.title.rawValue)
+                    Text(menuData.title())
                     // TODO: 디바이스 크기에 맞춰 font 크기 재설정
                         .font(.title)
                         .bold()
@@ -58,7 +58,7 @@ struct HomeMenuView: View {
                 HStack {
                     Spacer()
                     
-                    if menuData.isWebView {
+                    if menuData.isWebView() {
                         Image("yangsan_logo")
                             .resizable()
                             .scaledToFit()
@@ -80,8 +80,8 @@ struct HomeMenuView: View {
     }
     
     @ViewBuilder
-    private func menuView(_ menuData: MenuData) -> some View {
-        switch menuData.title {
+    private func menuView(_ menu: Menu) -> some View {
+        switch menu {
         case .busTimetable:
             BusListView()
         case .location_yangsan:
