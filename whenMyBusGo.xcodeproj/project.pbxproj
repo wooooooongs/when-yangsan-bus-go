@@ -153,8 +153,8 @@
 			children = (
 				2AD3CE8D2AED2EDE00C29702 /* Resources */,
 				2AD3CE8E2AED2EE600C29702 /* Sources */,
-				2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */,
 				2AEDF3BE2B11823900A7E1DB /* busDatas.json */,
+				2A97130F2BAF105600E31C1C /* WhenYangsanBusGoApp.swift */,
 				2A6F6DD72AF12703008B23ED /* UrlList.plist */,
 				2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */,
 				2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */,
@@ -177,7 +177,6 @@
 				2A5C37022BC688120070CD62 /* BusList */,
 				2A25E3512BC527EF00A18086 /* BusDetailSheet */,
 				2A97130E2BAEFFE300E31C1C /* Home */,
-				2A97130F2BAF105600E31C1C /* WhenYangsanBusGoApp.swift */,
 				2AC580502BB5D12000073AEB /* ContentView.swift */,
 			);
 			path = Presentation;
@@ -226,6 +225,7 @@
 		2AD3CE8D2AED2EDE00C29702 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
