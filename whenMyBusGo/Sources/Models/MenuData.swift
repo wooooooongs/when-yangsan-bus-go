@@ -14,7 +14,7 @@ struct MenuData {
 }
 
 enum MenuString: String {
-    case busTimetable = "버스 시간표"
+    case busTimetable = "버스 목록"
     case location_yangsan = "실시간 위치"
     case notice_yangsan = "공지사항"
     case qna = "문의사항"
@@ -22,8 +22,9 @@ enum MenuString: String {
 
 struct MenuDatas {
     static var shared = MenuDatas()
+    private init() {}
     
-    func fetchMenuDatas() -> [MenuData] {
+    func getMenuDatas() -> [MenuData] {
         return [
             MenuData(title: .busTimetable, isWebView: false),
             MenuData(title: .location_yangsan, isWebView: true),

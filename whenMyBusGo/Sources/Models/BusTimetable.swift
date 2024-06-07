@@ -11,7 +11,7 @@ struct BusTimetables: Decodable {
     let result: [BusTimetable]
 }
 
-struct BusTimetable: Decodable {
+struct BusTimetable: Decodable, Identifiable {
     let busNumber: String
     let id: String
     let upbound: String
@@ -23,6 +23,14 @@ struct BusTimetable: Decodable {
     enum CodingKeys: String, CodingKey {
         case busNumber, id, upbound, downbound, type, upboundTimetable, downboundTimetable
     }
+    
+    var isDayTypeSeperated: Bool? {
+        get {
+            let isSeperated = self.upboundTimetable.keys.count == 3
+            
+            return isSeperated ? true : false
+        }
+    }
         
     // MARK: - 외부에서 버스 타입 접근
     var busType: BusType {
@@ -30,7 +38,8 @@ struct BusTimetable: Decodable {
     }
 }
 
-enum BusType: String {
+enum BusType: String, CaseIterable {
+    case 전체 = "0"
     case 일반 = "1"
     case 좌석 = "2"
     case 심야 = "3"
@@ -43,6 +52,8 @@ enum BusType: String {
     
     var caseName: String {
         switch self {
+        case .전체:
+            return "전체"
         case .일반:
             return "일반"
         case .좌석:
@@ -62,6 +73,19 @@ enum Day: String, Decodable{
     case sat
     case sun
     case weekend
+    
+    var localizedStringKey: String {
+        switch self {
+        case .weekday:
+            "평일"
+        case .sat:
+            "토"
+        case .sun:
+            "일, 공휴일"
+        case .weekend:
+            "주말, 공휴일"
+        }
+    }
 }
 
 enum DayTypeForButton: Int {
