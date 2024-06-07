@@ -21,8 +21,6 @@
 		2A5C37042BC68A170070CD62 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C37032BC68A170070CD62 /* TimetableView.swift */; };
 		2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */; };
 		2A678B372A65451900E4C360 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A678B362A65451900E4C360 /* .gitignore */; };
-		2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */; };
-		2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */; };
 		2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */; };
 		2A6E3CDB2A573CEC0012FCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */; };
 		2A6F6DD82AF12703008B23ED /* UrlList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F6DD72AF12703008B23ED /* UrlList.plist */; };
@@ -61,8 +59,6 @@
 		2A629D592AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "whenMyBusGo++Bundle.swift"; sourceTree = "<group>"; };
 		2A678B362A65451900E4C360 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2A6E3CCB2A573CEB0012FCAF /* whenMyBusGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whenMyBusGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2A6E3CD82A573CEB0012FCAF /* whenMyBusGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = whenMyBusGo.xcdatamodel; sourceTree = "<group>"; };
 		2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A6E3CDF2A573CEC0012FCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,8 +228,6 @@
 		2AD3CE8D2AED2EDE00C29702 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A6E3CCE2A573CEB0012FCAF /* AppDelegate.swift */,
-				2A6E3CD02A573CEB0012FCAF /* SceneDelegate.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -351,7 +345,6 @@
 				2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */,
 				2A9E12922BCE6C2400FB487F /* FooterView.swift in Sources */,
 				2AC06A932B7CFCA700DA6570 /* CoreDataManager.swift in Sources */,
-				2A6E3CCF2A573CEB0012FCAF /* AppDelegate.swift in Sources */,
 				2AC580512BB5D12000073AEB /* ContentView.swift in Sources */,
 				2A9E12942BCE8C8900FB487F /* CategoryButton.swift in Sources */,
 				2A42A7202BD3C58C0058B5F9 /* MappingModelV1ToV2.xcmappingmodel in Sources */,
@@ -367,7 +360,6 @@
 				2AC06AAA2B7D184400DA6570 /* FavoritedBus+CoreDataClass.swift in Sources */,
 				2A25E3532BC5281F00A18086 /* BusDetailSheetView.swift in Sources */,
 				2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */,
-				2A6E3CD12A573CEB0012FCAF /* SceneDelegate.swift in Sources */,
 				2A822E5F2B8631DA00CC4249 /* WebViewManager.swift in Sources */,
 				2A9713102BAF105600E31C1C /* WhenYangsanBusGoApp.swift in Sources */,
 			);
