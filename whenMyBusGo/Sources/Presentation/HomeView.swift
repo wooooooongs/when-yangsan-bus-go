@@ -33,6 +33,7 @@ struct HomeView: View {
 
 
 #Preview {
-    ContentView()
+    HomeView()
         .tint(.black)
+        .environmentObject(BusTimetableManager())
 }

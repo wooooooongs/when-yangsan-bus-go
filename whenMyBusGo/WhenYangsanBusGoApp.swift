@@ -14,7 +14,7 @@ struct WhenYangsanBusGoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
                 .tint(.black)
                 .environmentObject(favoritedBusDataManager)
                 .environmentObject(BusTimetableManager())
