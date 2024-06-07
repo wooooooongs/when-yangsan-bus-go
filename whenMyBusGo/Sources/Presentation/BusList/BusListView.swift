@@ -82,7 +82,7 @@ struct BusListView: View {
                         .fontWeight(.medium)
                     
                     HStack {
-                        Text("\(bus.busType)")
+                        Text("\(bus.busType.rawValue)")
                         
                         Group {
                             Text("\(bus.upbound)")
@@ -138,6 +138,7 @@ extension View {
 }
 
 #Preview {
-    BusListView()
+    BusListView()                
+        .environmentObject(BusTimetableManager())
         .tint(.black)
 }

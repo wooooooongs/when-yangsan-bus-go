@@ -33,7 +33,6 @@
 		2A9713102BAF105600E31C1C /* WhenYangsanBusGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97130F2BAF105600E31C1C /* WhenYangsanBusGoApp.swift */; };
 		2A9713122BAF127800E31C1C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9713112BAF127800E31C1C /* HomeView.swift */; };
 		2A9E128D2BCA8C5300FB487F /* BusInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E128C2BCA8C5300FB487F /* BusInfoView.swift */; };
-		2A9E12902BCE53B300FB487F /* DropDownPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E128F2BCE53B300FB487F /* DropDownPicker.swift */; };
 		2A9E12922BCE6C2400FB487F /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E12912BCE6C2400FB487F /* FooterView.swift */; };
 		2A9E12942BCE8C8900FB487F /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E12932BCE8C8900FB487F /* CategoryButton.swift */; };
 		2AC06A932B7CFCA700DA6570 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC06A922B7CFCA700DA6570 /* CoreDataManager.swift */; };
@@ -75,7 +74,6 @@
 		2A97130F2BAF105600E31C1C /* WhenYangsanBusGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhenYangsanBusGoApp.swift; sourceTree = "<group>"; };
 		2A9713112BAF127800E31C1C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2A9E128C2BCA8C5300FB487F /* BusInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoView.swift; sourceTree = "<group>"; };
-		2A9E128F2BCE53B300FB487F /* DropDownPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPicker.swift; sourceTree = "<group>"; };
 		2A9E12912BCE6C2400FB487F /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		2A9E12932BCE8C8900FB487F /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		2AC06A922B7CFCA700DA6570 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		2A9E128E2BCE53A800FB487F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2A9E128F2BCE53B300FB487F /* DropDownPicker.swift */,
 				2A9E12932BCE8C8900FB487F /* CategoryButton.swift */,
 			);
 			path = Common;
@@ -349,7 +346,6 @@
 				2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */,
 				2A4AC84E2A67CDF500B216B7 /* BusTimetableManager.swift in Sources */,
 				2A9713122BAF127800E31C1C /* HomeView.swift in Sources */,
-				2A9E12902BCE53B300FB487F /* DropDownPicker.swift in Sources */,
 				2A6E3CD92A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld in Sources */,
 				2AD3CE912AED2F9C00C29702 /* TimeUtils.swift in Sources */,
 				2AF5A5F42B714C6700F794CE /* UIImage+resizeImage.swift in Sources */,

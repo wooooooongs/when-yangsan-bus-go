@@ -27,7 +27,7 @@ struct BusInfoView: View {
                     .padding(.bottom, 20)
                 
                 HStack {
-                    Text("\(busData.busType)")
+                    Text("\(busData.busType.rawValue)")
                         .font(.callout)
                         .fontWeight(.bold)
                     

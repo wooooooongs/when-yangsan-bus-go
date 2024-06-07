@@ -40,6 +40,8 @@ struct HomeFavoritedBusListView: View {
     @ViewBuilder
     private func favoritedBusItem(for busData: FavoritedBus, isUpbound: Bool) -> some View {
         let directionName = isUpbound ? busData.upboundName : busData.downboundName
+        var currentBusData: BusTimetable?
+        @State var nextTime: String = "비어있음"
         
         ZStack {
             Color.white
@@ -68,8 +70,12 @@ struct HomeFavoritedBusListView: View {
                     VStack(alignment: .trailing) {
                         Text("막차 끊김")
                             .font(.callout)
-                        Text("06:55 출발")
-                            .font(.callout)
+                        HStack {
+                            Text(nextTime)
+                                .font(.callout)
+                            Text("출발")
+                                .font(.callout)
+                        }
                     }
                 }
                 .padding([.vertical], 10)
@@ -78,11 +84,25 @@ struct HomeFavoritedBusListView: View {
         }
         .frame(maxWidth: .infinity)
         .onTapGesture {
+            currentBusData = busTimetableManager.convertToBusTimetable(from: busData)
             self.isUpbound = isUpbound
-            self.selectedBus = busTimetableManager.convertToBusTimetable(from: busData)
+            self.selectedBus = currentBusData
+        }
+        .onAppear {
+            currentBusData = busTimetableManager.convertToBusTimetable(from: busData)
+            
+            if let currentBusData = currentBusData {
+                nextTime = busTimetableManager.calcNextBusTime(busData: currentBusData, isUpbound)
+            }
         }
     }
 }
+
+//struct FavoritedBusItem: View {
+//    var body: some View {
+//        
+//    }
+//}
 
 #Preview {
     HomeFavoritedBusListView()
