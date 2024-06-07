@@ -14,12 +14,13 @@ struct BusListView: View {
     @State var currentBusList: [BusTimetable] = []
     @State var currentBus: BusTimetable? = nil
     
-    let setBackground = Color(HexColor.from("EEEEEE"))
     let busTypes = BusType.allCases
     
+
+    // MARK: - Body View
     var body: some View {
         ZStack {
-            setBackground
+            background
                 .ignoresSafeArea()
             
             VStack {
@@ -68,6 +69,14 @@ struct BusListView: View {
             self.currentBusList = busTimetableManager.busTimetables
         }
     }
+    
+    // MARK: - Views
+    private var background: Color {
+        Color(hex: "EEEEEE")
+    }
+    
+    
+    // MARK: - Methods
     
     @ViewBuilder
     private func busItem(for bus: BusTimetable) -> some View {

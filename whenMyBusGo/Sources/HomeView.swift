@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
-    let setBackground = Color(HexColor.from("EEEEEE"))
     
+    // MARK: - Body View
     var body: some View {
         NavigationStack {
             ZStack {
-                setBackground
+                background
                     .ignoresSafeArea()
                 
                 ScrollView {
@@ -27,6 +27,12 @@ struct HomeView: View {
             }
             .navigationTitle("언제 출발해?")
         }
+    }
+    
+    
+    // MARK: - Views
+    private var background: Color {
+        Color(hex: "EEEEEE")
     }
 }
 
