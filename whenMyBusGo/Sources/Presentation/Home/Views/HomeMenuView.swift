@@ -37,7 +37,7 @@ struct HomeMenuView: View {
                 .overlay(
                     Group {
                         if menuData.isWebView() {
-                            webViewBorder()
+                            webViewBorder
                         }
                     }
                 )
@@ -72,7 +72,7 @@ struct HomeMenuView: View {
     }
     
     @ViewBuilder
-    private func emptyMenuButton() -> some View {
+    private var emptyMenuButton: some View {
         ZStack {
             Color.white
         }
@@ -94,7 +94,7 @@ struct HomeMenuView: View {
     }
     
     @ViewBuilder
-    private func webViewBorder() -> some View {
+    private var webViewBorder: some View {
         RoundedRectangle(cornerRadius: 10)
             .stroke(.yangsan, lineWidth: 4)
     }
