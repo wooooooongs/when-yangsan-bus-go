@@ -61,7 +61,6 @@
 		2A6E3CCB2A573CEB0012FCAF /* whenMyBusGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whenMyBusGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6E3CD82A573CEB0012FCAF /* whenMyBusGo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = whenMyBusGo.xcdatamodel; sourceTree = "<group>"; };
 		2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2A6E3CDF2A573CEC0012FCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6F6DD72AF12703008B23ED /* UrlList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UrlList.plist; sourceTree = "<group>"; };
 		2A746B962AED6BF800CB7AE6 /* BusTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTimetable.swift; sourceTree = "<group>"; };
 		2A822E5A2B861E2900CC4249 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -155,7 +154,6 @@
 				2AD3CE8D2AED2EDE00C29702 /* Resources */,
 				2AD3CE8E2AED2EE600C29702 /* Sources */,
 				2A6E3CDA2A573CEC0012FCAF /* Assets.xcassets */,
-				2A6E3CDF2A573CEC0012FCAF /* Info.plist */,
 				2AEDF3BE2B11823900A7E1DB /* busDatas.json */,
 				2A6F6DD72AF12703008B23ED /* UrlList.plist */,
 				2A6E3CD72A573CEB0012FCAF /* whenMyBusGo.xcdatamodeld */,
