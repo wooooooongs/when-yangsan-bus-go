@@ -175,6 +175,9 @@
 				2A97130E2BAEFFE300E31C1C /* Home */,
 				2A5C37022BC688120070CD62 /* BusList */,
 				2A25E3512BC527EF00A18086 /* BusDetailSheet */,
+				2A9713112BAF127800E31C1C /* HomeView.swift */,
+				2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */,
+				2A25E3522BC5281F00A18086 /* BusDetailSheetView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -231,9 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				2A97130D2BAEFF1E00E31C1C /* Presentation */,
-				2A9713112BAF127800E31C1C /* HomeView.swift */,
-				2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */,
-				2A25E3522BC5281F00A18086 /* BusDetailSheetView.swift */,
 				2AD3CE8C2AED2EAF00C29702 /* Models */,
 				2AD3CE8F2AED2F1900C29702 /* Helpers */,
 			);
