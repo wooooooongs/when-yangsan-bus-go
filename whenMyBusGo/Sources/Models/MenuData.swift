@@ -11,7 +11,7 @@ enum Menu: CaseIterable {
     case notice_yangsan
     case qna
     
-    func title() -> String {
+    var title: String {
         switch self {
         case .busTimetable:
             "버스 목록"
@@ -24,7 +24,7 @@ enum Menu: CaseIterable {
         }
     }
     
-    func isWebView() -> Bool {
+    var isWebView: Bool {
         switch self {
         case .busTimetable: false
         case .location_yangsan: true

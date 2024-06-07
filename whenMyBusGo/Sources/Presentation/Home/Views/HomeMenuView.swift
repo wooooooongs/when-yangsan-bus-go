@@ -21,7 +21,22 @@ struct HomeMenuView: View {
         LazyVGrid(columns: menuColumns, spacing: padding) {
             ForEach(Menu.allCases, id: \.self) { menu in
                 NavigationLink(destination: menuView(menu)) {
-                    menuButton(for: menu)
+                    VStack {
+                        title(menu.title)
+                        
+                        Spacer()
+                        
+                        if menu.isWebView {
+                            image
+                        }
+                    }
+                    .padding(16)
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .overlay {
+                        webViewBorder(menu.isWebView)
+                    }
+                    .frame(width: menuSize, height: menuSize)
                 }
             }
         }
@@ -30,53 +45,21 @@ struct HomeMenuView: View {
     
     // MARK: - Views
     @ViewBuilder
-    private func menuButton(for menuData: Menu) -> some View {
-        ZStack {
-            Color.white
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(
-                    Group {
-                        if menuData.isWebView() {
-                            webViewBorder
-                        }
-                    }
-                )
-            
-            VStack {
-                HStack() {
-                    Text(menuData.title())
-                    // TODO: 디바이스 크기에 맞춰 font 크기 재설정
-                        .font(.title)
-                        .bold()
-                        .padding([.top, .leading], 16)
-                    
-                    Spacer()
-                }
-                
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    
-                    if menuData.isWebView() {
-                        Image("yangsan_logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30.0)
-                            .padding([.bottom, .trailing], 16)
-                    }
-                }
-            }
-        }
-        .frame(width: menuSize, height: menuSize)
+    private func title(_ titleString: String) -> some View {
+        Text(titleString)
+            .font(.title.bold())
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     @ViewBuilder
-    private var emptyMenuButton: some View {
-        ZStack {
-            Color.white
+    private var image: some View {
+        Group {
+            Image("yangsan_logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing) // 전체 크기에 맞게 확장하고 내용을 우측 하단에 정렬
+        .frame(maxWidth: .infinity, alignment: .trailing)
     }
     
     @ViewBuilder
@@ -94,12 +77,8 @@ struct HomeMenuView: View {
     }
     
     @ViewBuilder
-    private var webViewBorder: some View {
+    private func webViewBorder(_ isWebView: Bool) -> some View {
         RoundedRectangle(cornerRadius: 10)
-            .stroke(.yangsan, lineWidth: 4)
+            .stroke(.yangsan, lineWidth: isWebView ? 4 : 0)
     }
-}
-
-#Preview {
-    HomeMenuView()
 }
