@@ -33,7 +33,7 @@ struct HomeFavoritedBusListView: View {
         }
         .sheet(item: $selectedBus) { busData in
             BusDetailSheetView(busData: .constant(busData), isUpbound: isUpbound)
-                .transparentBackground()
+                .transparentSheetBackground()
         }
     }
     

@@ -61,7 +61,7 @@ struct BusListView: View {
         }
         .sheet(item: $currentBus) { bus in
             BusDetailSheetView(busData: .constant(bus))
-                .transparentBackground()
+                .transparentSheetBackground()
         }
         .navigationTitle("버스 목록")
         .navigationBarTitleDisplayMode(.inline)
@@ -147,7 +147,7 @@ extension View {
 }
 
 #Preview {
-    BusListView()                
+    BusListView()
         .environmentObject(BusTimetableManager())
         .tint(.black)
 }
