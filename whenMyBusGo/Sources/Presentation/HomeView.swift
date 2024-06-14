@@ -11,26 +11,25 @@ struct HomeView: View {
     
     // MARK: - Body View
     var body: some View {
-        ScrollView {
-            VStack(spacing: 40) {
-                HomeMenuView()
-                
-                HomeFavoritedBusListView()
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 40) {
+                    HomeMenuView()
+                    
+                    HomeFavoritedBusListView()
+                }
+                .safeAreaPadding(.horizontal)
+                .padding(.top, 20)
             }
-            .safeAreaPadding(.horizontal)
-            .padding(.top, 20)
+            .background(.appBackground)
+            .navigationTitle("언제 출발해?")
         }
-        .background(.appBackground)
     }
-    
 }
 
 
 #Preview {
-    NavigationStack {
-        HomeView()
-            .navigationTitle("언제 출발해?")
-    }
+    HomeView()
     .environmentObject(FavoritedBusDataManager())
     .environmentObject(BusTimetableManager())
     .environment(\.managedObjectContext, FavoritedBusDataManager().persistentContainer.viewContext)
