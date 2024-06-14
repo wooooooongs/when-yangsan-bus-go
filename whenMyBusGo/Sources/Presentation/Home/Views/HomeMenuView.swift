@@ -11,9 +11,12 @@ struct HomeMenuView: View {
     private var safeAreaPadding = 30.0
     private var padding = 15.0
     private var menuSize: CGFloat {
-        (UIScreen.main.bounds.width / 2) - (safeAreaPadding + (padding / 2))
+        (SCREEN_WIDTH / 2) - (safeAreaPadding + (padding / 2))
     }
-    private let menuColumns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    private var menuColumns: [GridItem] { Array(
+        repeating: .init(.fixed(menuSize)),
+        count: 2
+    )}
     
     
     // MARK: - Body View
