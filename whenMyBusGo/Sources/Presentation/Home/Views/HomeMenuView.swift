@@ -47,7 +47,6 @@ struct HomeMenuView: View {
         .navigationDestination(for: Menu.self) { menu in
             menuView(menu)
         }
-        .background(.yellow)
     }
     
     
