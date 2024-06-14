@@ -32,8 +32,6 @@ struct BusDetailSheetView: View {
                     isUpbound: $isUpbound
                 )
             }
-            .safeAreaPadding(.top, 30)
-            .safeAreaPadding([.leading, .trailing], 10)
         }
     }
 }

@@ -5,10 +5,11 @@
 //  Created by Oscar on 2/4/24.
 //
 
-import UIKit
+import SwiftUI
 
-class HexColor {
-    static func from(_ hex: String, alpha: CGFloat = 1.0) -> UIColor {
+extension Color {
+    public init(hex: String, alpha: CGFloat = 1.0) {
+        
         let hexString: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let scanner = Scanner(string: hexString)
         
@@ -24,6 +25,7 @@ class HexColor {
         let green = CGFloat(Int(color >> 8) & mask) / 255.0
         let blue  = CGFloat(Int(color) & mask) / 255.0
         
-        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        self.init(cgColor: CGColor(red: red, green: green, blue: blue, alpha: alpha))
     }
 }
+

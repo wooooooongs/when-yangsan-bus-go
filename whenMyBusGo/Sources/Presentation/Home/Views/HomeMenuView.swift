@@ -8,80 +8,70 @@
 import SwiftUI
 
 struct HomeMenuView: View {
-    var menuDatas: [MenuData] = MenuDatas.shared.getMenuDatas()
-    
-    var safeAreaPadding = 30.0
-    var padding = 15.0
-    var menuSize: CGFloat {
-        (UIScreen.main.bounds.width / 2) - (safeAreaPadding + (padding / 2))
+    private var safeAreaPadding = 30.0
+    private var padding = 15.0
+    private var menuSize: CGFloat {
+        (SCREEN_WIDTH / 2) - (safeAreaPadding + (padding / 2))
     }
-    let menuColumns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    private var menuColumns: [GridItem] { Array(
+        repeating: .init(.fixed(menuSize)),
+        count: 2
+    )}
     
+    
+    // MARK: - Body View
     var body: some View {
         LazyVGrid(columns: menuColumns, spacing: padding) {
-            ForEach(menuDatas.indices, id: \.self) { menuIndex in
-                let menuData = menuDatas[menuIndex]
-                
-                NavigationLink(destination: menuView(menuData)) {
-                    menuButton(for: menuData)
-                }
-            }
-        }
-    }
-    
-    @ViewBuilder
-    private func menuButton(for menuData: MenuData) -> some View {
-        ZStack {
-            Color.white
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .overlay(
-                    Group {
-                        if menuData.isWebView {
-                            webViewBorder()
+            ForEach(Menu.allCases, id: \.self) { menu in
+                // TODO: #10
+                NavigationLink(value: menu) {
+                    VStack {
+                        title(menu.title)
+                        
+                        Spacer()
+                        
+                        if menu.isWebView {
+                            image
                         }
                     }
-                )
-            
-            VStack {
-                HStack() {
-                    Text(menuData.title.rawValue)
-                    // TODO: 디바이스 크기에 맞춰 font 크기 재설정
-                        .font(.title)
-                        .bold()
-                        .padding([.top, .leading], 16)
-                    
-                    Spacer()
-                }
-                
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    
-                    if menuData.isWebView {
-                        Image("yangsan_logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30.0)
-                            .padding([.bottom, .trailing], 16)
+                    .padding(16)
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .overlay {
+                        webViewBorder(menu.isWebView)
                     }
+                    .frame(width: menuSize, height: menuSize)
                 }
             }
         }
-        .frame(width: menuSize, height: menuSize)
-    }
-    
-    @ViewBuilder
-    private func emptyMenuButton() -> some View {
-        ZStack {
-            Color.white
+        .navigationDestination(for: Menu.self) { menu in
+            menuView(menu)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing) // 전체 크기에 맞게 확장하고 내용을 우측 하단에 정렬
+    }
+    
+    
+    // MARK: - Views
+    @ViewBuilder
+    private func title(_ titleString: String) -> some View {
+        Text(titleString)
+            .font(.title.bold())
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     @ViewBuilder
-    private func menuView(_ menuData: MenuData) -> some View {
-        switch menuData.title {
+    private var image: some View {
+        Group {
+            Image("yangsan_logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30)
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
+    }
+    
+    @ViewBuilder
+    private func menuView(_ menu: Menu) -> some View {
+        switch menu {
         case .busTimetable:
             BusListView()
         case .location_yangsan:
@@ -94,12 +84,8 @@ struct HomeMenuView: View {
     }
     
     @ViewBuilder
-    private func webViewBorder() -> some View {
+    private func webViewBorder(_ isWebView: Bool) -> some View {
         RoundedRectangle(cornerRadius: 10)
-            .stroke(.yangsan, lineWidth: 4)
+            .stroke(.yangsan, lineWidth: isWebView ? 4 : 0)
     }
-}
-
-#Preview {
-    HomeMenuView()
 }

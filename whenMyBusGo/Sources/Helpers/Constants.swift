@@ -5,7 +5,7 @@
 //  Created by Oscar on 10/28/23.
 //
 
-import Foundation
+import UIKit
 
 public struct Cell {
     static let busCellIdentifier = "BusCell"
@@ -14,3 +14,5 @@ public struct Cell {
     static let favoriteCellIdentifier = "FavoriteCell"
 }
 
+let SCREEN_WIDTH = UIScreen.main.bounds.width
+let SCREEN_HEIGHT = UIScreen.main.bounds.height
