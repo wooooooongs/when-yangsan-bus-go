@@ -10,6 +10,9 @@
 		2A01275A2BCFC00C00A19895 /* HomeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0127592BCFC00C00A19895 /* HomeMenuView.swift */; };
 		2A01275C2BCFC04A00A19895 /* HomeFavoritedBusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A01275B2BCFC04A00A19895 /* HomeFavoritedBusListView.swift */; };
 		2A023FD32B78E96A00123A1E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A023FD22B78E96A00123A1E /* CustomButton.swift */; };
+		2A0622C92C1C824800114A35 /* BusTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0622C82C1C824800114A35 /* BusTypesView.swift */; };
+		2A0622CB2C1C844900114A35 /* BusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0622CA2C1C844900114A35 /* BusListViewModel.swift */; };
+		2A0622CD2C1C98EF00114A35 /* BusItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0622CC2C1C98EF00114A35 /* BusItemsView.swift */; };
 		2A0622CF2C1C9CC900114A35 /* View+TransparentSheetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0622CE2C1C9CC900114A35 /* View+TransparentSheetBackground.swift */; };
 		2A0DA7D02BBFF0B200F234A5 /* BusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */; };
 		2A14BCD42AED365F00867A0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A14BCD32AED365F00867A0B /* SnapKit */; };
@@ -48,6 +51,9 @@
 		2A0127592BCFC00C00A19895 /* HomeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuView.swift; sourceTree = "<group>"; };
 		2A01275B2BCFC04A00A19895 /* HomeFavoritedBusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFavoritedBusListView.swift; sourceTree = "<group>"; };
 		2A023FD22B78E96A00123A1E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		2A0622C82C1C824800114A35 /* BusTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTypesView.swift; sourceTree = "<group>"; };
+		2A0622CA2C1C844900114A35 /* BusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListViewModel.swift; sourceTree = "<group>"; };
+		2A0622CC2C1C98EF00114A35 /* BusItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusItemsView.swift; sourceTree = "<group>"; };
 		2A0622CE2C1C9CC900114A35 /* View+TransparentSheetBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TransparentSheetBackground.swift"; sourceTree = "<group>"; };
 		2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListView.swift; sourceTree = "<group>"; };
 		2A14BCD72AED37E300867A0B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 		2A0622C72C1C820200114A35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A0622C82C1C824800114A35 /* BusTypesView.swift */,
+				2A0622CC2C1C98EF00114A35 /* BusItemsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +144,7 @@
 			children = (
 				2A0DA7CF2BBFF0B200F234A5 /* BusListView.swift */,
 				2A0622C72C1C820200114A35 /* Views */,
+				2A0622CA2C1C844900114A35 /* BusListViewModel.swift */,
 			);
 			path = BusList;
 			sourceTree = "<group>";
@@ -352,6 +361,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A746B972AED6BF800CB7AE6 /* BusTimetable.swift in Sources */,
+				2A0622C92C1C824800114A35 /* BusTypesView.swift in Sources */,
+				2A0622CD2C1C98EF00114A35 /* BusItemsView.swift in Sources */,
 				2A0DA7D02BBFF0B200F234A5 /* BusListView.swift in Sources */,
 				2A023FD32B78E96A00123A1E /* CustomButton.swift in Sources */,
 				2AF5A5F22B71286300F794CE /* MenuData.swift in Sources */,
@@ -378,6 +389,7 @@
 				2AC06AAA2B7D184400DA6570 /* FavoritedBus+CoreDataClass.swift in Sources */,
 				2A25E3532BC5281F00A18086 /* BusDetailSheetView.swift in Sources */,
 				2A629D5A2AF0F94B00BBE5C8 /* whenMyBusGo++Bundle.swift in Sources */,
+				2A0622CB2C1C844900114A35 /* BusListViewModel.swift in Sources */,
 				2A822E5F2B8631DA00CC4249 /* WebViewManager.swift in Sources */,
 				2A9713102BAF105600E31C1C /* WhenYangsanBusGoApp.swift in Sources */,
 			);
