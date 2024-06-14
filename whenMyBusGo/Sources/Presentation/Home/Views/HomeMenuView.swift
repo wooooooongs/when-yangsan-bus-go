@@ -23,7 +23,8 @@ struct HomeMenuView: View {
     var body: some View {
         LazyVGrid(columns: menuColumns, spacing: padding) {
             ForEach(Menu.allCases, id: \.self) { menu in
-                NavigationLink(destination: menuView(menu)) {
+                // TODO: #10
+                NavigationLink(value: menu) {
                     VStack {
                         title(menu.title)
                         
@@ -43,6 +44,10 @@ struct HomeMenuView: View {
                 }
             }
         }
+        .navigationDestination(for: Menu.self) { menu in
+            menuView(menu)
+        }
+        .background(.yellow)
     }
     
     
