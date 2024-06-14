@@ -15,9 +15,9 @@ struct BusItemsView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(spacing: 12.5) {
-                ForEach(viewModel.currentBusList, id: \.id) { item in
+                ForEach(viewModel.selectedBusList, id: \.id) { item in
                     Button(action: {
-                        viewModel.currentBus = item
+                        viewModel.selectedBus = item
                     }) {
                         busItem(for: item)
                     }

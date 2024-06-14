@@ -18,11 +18,11 @@ struct BusTypesView: View {
             HStack {
                 ForEach(BusType.allCases, id: \.self) { busType in
                     Button(action: {
-                        viewModel.currentBusType = busType
-                        viewModel.currentBusList = busTimetableManager.getBusTimetableDatas(forType: busType)
+                        viewModel.selectedBusType = busType
+                        viewModel.selectedBusList = busTimetableManager.getBusTimetableDatas(forType: busType)
                         // TODO: 현재: Manager에 filter를 매번 요청함. 프론트에서 다루는 건 어떨까?
                     }) {
-                        CategoryButton(title: busType.caseName, selectedItem: $viewModel.currentBusType, item: busType)
+                        CategoryButton(title: busType.caseName, selectedItem: $viewModel.selectedBusType, item: busType)
                     }
                 }
             }

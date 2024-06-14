@@ -8,7 +8,7 @@
 import SwiftUI
 
 class BusListViewModel: ObservableObject {
-    @Published var currentBusType: BusType = .전체
-    @Published var currentBusList: [BusTimetable] = []
-    @Published var currentBus: BusTimetable? = nil
+    @Published var selectedBusType: BusType = .전체
+    @Published var selectedBusList: [BusTimetable] = []
+    @Published var selectedBus: BusTimetable? = nil
 }

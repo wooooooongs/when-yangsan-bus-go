@@ -27,14 +27,14 @@ struct BusListView: View {
             }
             .padding(.top, 20)
         }
-        .sheet(item: $viewModel.currentBus) { bus in
+        .sheet(item: $viewModel.selectedBus) { bus in
             BusDetailSheetView(busData: .constant(bus))
                 .transparentSheetBackground()
         }
         .navigationTitle("버스 목록")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            viewModel.currentBusList = busTimetableManager.busTimetables
+            viewModel.selectedBusList = busTimetableManager.busTimetables
         }
     }
     
